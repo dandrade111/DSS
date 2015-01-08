@@ -86,7 +86,7 @@ public class CAFdoador {
     }
 
     public String getBi_voluntario(){
-        return this.Bi_voluntario;
+        return this.bi_voluntario;
     }; 
 
 
