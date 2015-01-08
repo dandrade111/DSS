@@ -41,4 +41,29 @@ public class CAFvoluntario {
         this.email = eml;
         this.nacionalidade = nac;
     }
+    
+//GET
+    public String getbi(){
+        return this.bi;
+    }
+    
+    public String getnif(){
+        return this.nif;
+    }  
+    
+    public String getnome(){
+        return this.nome;
+    }    
+//SET
+    public void setid(String bi){
+        this.bi=bi;
+    }
+    
+    public void setnif(String nif){
+        this.nif=nif;
+    }  
+    
+    public void setnome(String nome){
+        this.nome=nome;
+    }
 }
