@@ -23,4 +23,34 @@ public class CCvoluntarioTarefa {
         this.data_inicio = (GregorianCalendar) di.clone();
         this.data_fim = (GregorianCalendar) df.clone();
     }
+    
+    /* Gets */
+
+    public Integer getId_voluntario() {
+        return this.id_voluntario;
+    }
+
+    public GregorianCalendar getData_inicio() {
+        return this.data_inicio;
+    }
+
+    public GregorianCalendar getData_fim() {
+        return this.data_fim;
+    }
+    
+    /* Sets */
+
+    public void setId_voluntario(Integer id) {
+        this.id_voluntario = id;
+    }
+
+    public void setData_inicio(GregorianCalendar di) {
+        this.data_inicio = di;
+    }
+
+    public void setData_fim(GregorianCalendar df) {
+        this.data_fim = df;
+    }
+    
+    
 }
