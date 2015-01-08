@@ -53,7 +53,7 @@ public class CAFdoador {
         this.fax = fax;
         this.bi_voluntario = bi;
     }
-}
+
 
 //Gets 
 
@@ -86,7 +86,7 @@ public class CAFdoador {
     }
 
     public String getBi_voluntario(){
-        return this.getBi_voluntario;
+        return this.bi_voluntario;
     }; 
 
 
@@ -104,10 +104,31 @@ public class CAFdoador {
         this.morada=morada;
     }
 
-    private (String morada);
-    private (String tipo);          // Tipo de doador: individual ou coletivo (empresas, associações, etc.)
-    private (String telefone);
-    private (String telemovel);
-    private (String email);
-    private (String fax);
-    private (String bi_voluntario);
+    
+    public void setTipo(String tipo){
+       this.tipo=tipo;       
+    }
+    
+    public void setTelefone (String telefone){
+        this.telefone=telefone;
+    }
+    
+    public void setTelemovel (String telemovel){
+        this.telemovel=telemovel;
+    }
+    
+    
+    public void setEmail(String email){
+        this.email=email;
+    }
+    public void setFax (String fax){
+        this.fax=fax;
+    }
+    
+    public void setBi_voluntario (String bi_voluntario){
+        this.bi_voluntario = bi_voluntario;      
+    }
+         
+    
+    
+}
