@@ -20,4 +20,17 @@ public class CAFdonativoMonetario extends CAFdonativo {
         this.quantia = qt;
     }
     
+    /* Gets */
+
+    public float getQuantia() {
+        return this.quantia;
+    }
+    
+    /* Sets */
+    
+    public void setQuantia(float quantia) {
+        this.quantia = quantia;
+    }
+    
+    
 }
