@@ -38,4 +38,74 @@ public class CFagregado {
         this.email = em;
         this.parentesco = par;
     }
+    
+    /* Gets */
+
+    public String getBi() {
+        return this.bi;
+    }
+
+    public String getNif() {
+        return this.nif;
+    }
+
+    public GregorianCalendar getData_nascimento() {
+        return this.data_nascimento;
+    }
+
+    public String getMorada() {
+        return this.morada;
+    }
+
+    public String getNome() {
+        return this.nome;
+    }
+
+    public String getTelemovel() {
+        return this.telemovel;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public String getParentesco() {
+        return this.parentesco;
+    }
+    
+    /* Sets */
+
+    public void setBi(String b) {
+        this.bi = b;
+    }
+
+    public void setNif(String n) {
+        this.nif = n;
+    }
+
+    public void setData_nascimento(GregorianCalendar dn) {
+        this.data_nascimento = dn;
+    }
+
+    public void setMorada(String m) {
+        this.morada = m;
+    }
+
+    public void setNome(String n) {
+        this.nome = n;
+    }
+
+    public void setTelemovel(String t) {
+        this.telemovel = t;
+    }
+
+    public void setEmail(String e) {
+        this.email = e;
+    }
+
+    public void setParentesco(String p) {
+        this.parentesco = p;
+    }
+    
+    
 }
