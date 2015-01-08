@@ -1,4 +1,4 @@
-package businessHabitat;
+package BusinessLayerHabitat;
 
 public class CFquestao {
     

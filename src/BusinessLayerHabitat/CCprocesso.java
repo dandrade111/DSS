@@ -1,4 +1,4 @@
-package businessHabitat;
+package BusinessLayerHabitat;
 
 import exceptions.EquipaJaExisteException;
 import exceptions.MaterialNaoExisteException;

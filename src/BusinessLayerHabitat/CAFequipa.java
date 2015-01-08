@@ -1,4 +1,4 @@
-package businessHabitat;
+package BusinessLayerHabitat;
 
 import java.util.HashMap;
 

@@ -1,4 +1,4 @@
-package businessHabitat;
+package BusinessLayerHabitat;
 
 import exceptions.VoluntarioNaoExisteException;
 import java.util.GregorianCalendar;

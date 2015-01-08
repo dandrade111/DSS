@@ -1,4 +1,4 @@
-package businessHabitat;
+package BusinessLayerHabitat;
 
 import exceptions.MembroAgregadoNaoExisteException;
 import java.util.HashMap;
