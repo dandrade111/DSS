@@ -38,8 +38,8 @@ public class CCmaterial {
         this.id=id;
     }
     
-    public void setDescricao(String tipo){
-        this.descricao=descricao;
+    public void setDescricao(String d){
+        this.descricao=d;
     }  
     
     public void setQuantidade(Integer quantidade){

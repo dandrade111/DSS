@@ -33,4 +33,40 @@ public class CAFequipa {
         this.funcionario_responsavel = f;
         this.membros = new HashMap<>(m);
     }
+    
+    /* Gets */
+
+    public String getId() {
+        return this.id;
+    }
+
+    public String getNome() {
+        return this.nome;
+    }
+
+    public CAFfuncionario getFuncionario_responsavel() {
+        return this.funcionario_responsavel;
+    }
+
+    public HashMap<String, CAFvoluntario> getMembros() {
+        return this.membros;
+    }
+    
+    /* Sets */
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setFuncionario_responsavel(CAFfuncionario funcionario_responsavel) {
+        this.funcionario_responsavel = funcionario_responsavel;
+    }
+
+    public void setMembros(HashMap<String, CAFvoluntario> membros) {
+        this.membros = membros;
+    }
 }

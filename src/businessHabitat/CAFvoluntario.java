@@ -54,16 +54,72 @@ public class CAFvoluntario {
     public String getNome(){
         return this.nome;
     }    
-//SET
-    public void setId(String bi){
-        this.bi=bi;
+
+    public GregorianCalendar getData_nascimento() {
+        return this.data_nascimento;
+    }
+
+    public String getMorada() {
+        return this.morada;
+    }
+
+    public String getTelefone() {
+        return this.telefone;
+    }
+
+    public String getTelemovel() {
+        return this.telemovel;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public String getNacionalidade() {
+        return this.nacionalidade;
     }
     
-    public void setNif(String nif){
-        this.nif=nif;
+    
+//SET
+    public void setId(String b){
+        this.bi = b;
+    }
+    
+    public void setNif(String n){
+        this.nif = n;
     }  
     
-    public void setNome(String nome){
-        this.nome=nome;
+    public void setNome(String n){
+        this.nome = n;
     }
+
+    public void setBi(String b) {
+        this.bi = b;
+    }
+
+    public void setData_nascimento(GregorianCalendar d) {
+        this.data_nascimento = (GregorianCalendar) d.clone();
+    }
+
+    public void setMorada(String m) {
+        this.morada = m;
+    }
+
+    public void setTelefone(String t) {
+        this.telefone = t;
+    }
+
+    public void setTelemovel(String t) {
+        this.telemovel = t;
+    }
+
+    public void setEmail(String e) {
+        this.email = e;
+    }
+
+    public void setNacionalidade(String n) {
+        this.nacionalidade = n;
+    }
+    
+    
 }
