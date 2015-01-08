@@ -26,27 +26,27 @@ public class CAFfuncionario extends CAFvoluntario {
         this.salario = sal;
     }
 //GET
-    public String getid(){
+    public String getId(){
         return this.id;
     }
     
-    public String gettipo(){
+    public String getTipo(){
         return this.tipo;
     }  
     
-    public double getsalario(){
+    public double getSalario(){
         return this.salario;
     }    
 //SET
-    public void setid(String id){
+    public void setId(String id){
         this.id=id;
     }
     
-    public void settipo(String tipo){
+    public void setTipo(String tipo){
         this.tipo=tipo;
     }  
     
-    public void setsalario(double Salario){
+    public void setSalario(double Salario){
         this.salario=salario;
     }   
 }

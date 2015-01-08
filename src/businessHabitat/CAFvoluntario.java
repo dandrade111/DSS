@@ -43,27 +43,27 @@ public class CAFvoluntario {
     }
     
 //GET
-    public String getbi(){
+    public String getBi(){
         return this.bi;
     }
     
-    public String getnif(){
+    public String getNif(){
         return this.nif;
     }  
     
-    public String getnome(){
+    public String getNome(){
         return this.nome;
     }    
 //SET
-    public void setid(String bi){
+    public void setId(String bi){
         this.bi=bi;
     }
     
-    public void setnif(String nif){
+    public void setNif(String nif){
         this.nif=nif;
     }  
     
-    public void setnome(String nome){
+    public void setNome(String nome){
         this.nome=nome;
     }
 }
