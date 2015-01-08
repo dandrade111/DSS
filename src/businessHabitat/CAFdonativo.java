@@ -38,4 +38,66 @@ public class CAFdonativo {
         this.id_processo = ip;
         this.nif_doador = nif;
     }
+    
+    
+    //GETS
+    
+    public Integer getId(){
+        return id;
+    }
+    
+    public String getTipo(){
+        return tipo;      
+    } 
+    
+    public Integer getNr_recibo(){
+        return nr_recibo;    
+    };
+    
+    public GregorianCalendar getData_doacao(){
+        return data_doacao;
+}
+    
+    public String getEvento(){
+        return evento;
+    }
+    public String getDescricao(){
+        return descricao;
+    };
+    
+    public Integer getId_processo(){
+        return id_processo;
+    };
+    public String getNif_doador(){
+        return nif_doador;
+    };
+
+    //SET
+    
+    public void setId(Integer id){
+       this.id= id;
+}
+    public void setTipo(String tipo){
+       this.tipo= tipo;
+}
+    public void setNr_recibo(Integer nr_recibo){
+       this.nr_recibo= nr_recibo;
+}
+    public void setData_doacao(GregorianCalendar data_doacao){
+       this.data_doacao = data_doacao;
+}
+    public void setEvento(String evento){
+       this.evento= evento;
+}
+    public void setDescricao(String descricao){
+       this.descricao= descricao;
+}
+    public void setId_processo(Integer id_processo){
+       this.id_processo= id_processo;
+}
+    
+    public void setNif_doador(String nif_doador){
+       this.nif_doador= nif_doador;
+}
+  
 }
