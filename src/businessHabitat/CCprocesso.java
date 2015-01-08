@@ -12,8 +12,8 @@ public class CCprocesso {
     private GregorianCalendar data_criacao;
     private GregorianCalendar data_encerramento;
     private Integer id_funcionario;                     // Voluntario que criou o processo;
-    private float custo_previsto;
-    private float custo_final;
+    private double custo_previsto;
+    private double custo_final;
     private Integer id_candidatura;                     // Qual a candidatura que originou este processo
     private HashMap<Integer, Integer> material_usado;
     private HashMap<Integer, CCtarefaProcesso> tarefas;
@@ -39,8 +39,8 @@ public class CCprocesso {
                       GregorianCalendar dc, 
                       GregorianCalendar de, 
                       Integer bi, 
-                      float cp, 
-                      float cf, 
+                      double cp, 
+                      double cf, 
                       Integer idc) {
         this.id = i;
         this.data_criacao = (GregorianCalendar) dc.clone();
@@ -59,8 +59,8 @@ public class CCprocesso {
                       GregorianCalendar dc, 
                       GregorianCalendar de, 
                       Integer bi, 
-                      float cp, 
-                      float cf, 
+                      double cp, 
+                      double cf, 
                       Integer idc, 
                       HashMap<Integer, Integer> m) {
         this.id = i;
@@ -80,8 +80,8 @@ public class CCprocesso {
                       GregorianCalendar dc, 
                       GregorianCalendar de, 
                       Integer bi, 
-                      float cp, 
-                      float cf, 
+                      double cp, 
+                      double cf, 
                       HashMap<Integer, CCtarefaProcesso> t,
                       Integer idc) {
         this.id = i;
@@ -101,8 +101,8 @@ public class CCprocesso {
                       GregorianCalendar dc, 
                       GregorianCalendar de, 
                       Integer bi, 
-                      float cp, 
-                      float cf, 
+                      double cp, 
+                      double cf, 
                       Integer idc,
                       ArrayList<Integer> e) {
         this.id = i;
@@ -122,8 +122,8 @@ public class CCprocesso {
                       GregorianCalendar dc, 
                       GregorianCalendar de, 
                       Integer bi, 
-                      float cp, 
-                      float cf,
+                      double cp, 
+                      double cf,
                       Integer idc,
                       HashMap<Integer, Integer> m,
                       HashMap<Integer, CCtarefaProcesso> t,
@@ -139,4 +139,63 @@ public class CCprocesso {
         this.tarefas = new HashMap<>(t);
         this.equipas = new ArrayList<>(e);
     }
+    
+    //GET
+    public Integer getId(){
+        return this.id;
+    }
+ 
+    public GregorianCalendar getData_criacao(){
+        return this.data_criacao;
+    }
+
+    public GregorianCalendar getData_encerramento(){
+        return this.data_encerramento;
+    } 
+    
+    public Integer getId_funcionario(){
+        return this.id_funcionario;
+    }  
+    
+    public double getCusto_previsto(){
+        return this.custo_previsto;
+    } 
+
+    public double getCusto_final(){
+        return this.custo_final;
+    }
+    
+    public Integer getId_candidatura(){
+        return this.id_candidatura;
+    }
+
+//SET
+    public void getId(Integer id){
+        this.id=id;
+    }
+ 
+    public void setData_criacao(GregorianCalendar data_criacao){
+        this.data_criacao=data_criacao;
+    }
+
+    public void setData_encerramento(GregorianCalendar data_encerramento){
+        this.data_encerramento= data_encerramento;
+    } 
+    
+    public void setId_funcionario(Integer id_funcionario){
+        this.id_funcionario = id_funcionario;
+    }  
+    
+    public void setCusto_previsto(double custo_previsto){
+        this.custo_previsto=custo_previsto;
+    } 
+
+    public void setCusto_final(double custo_final){
+        this.custo_final= custo_final;
+    }
+    
+    public void getId_candidatura(Integer id_candidatura){
+        this.id_candidatura = id_candidatura;
+    }  
 }
+

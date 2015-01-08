@@ -21,4 +21,29 @@ public class CCmaterial {
         this.descricao = d;
         this.quantidade = q;
     }
+//GET
+    public Integer getId(){
+        return this.id;
+    }
+    
+    public String getDescricao(){
+        return this.descricao;
+    }  
+    
+    public Integer getQuantidade(){
+        return this.quantidade;
+    }    
+//SET
+    public void setId(Integer id){
+        this.id=id;
+    }
+    
+    public void setDescricao(String tipo){
+        this.descricao=descricao;
+    }  
+    
+    public void setQuantidade(Integer quantidade){
+        this.quantidade=quantidade;
+    }   
 }
+

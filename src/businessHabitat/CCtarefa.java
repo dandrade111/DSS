@@ -18,5 +18,22 @@ public class CCtarefa {
         this.id = i;
         this.nome_tarefa = nt;
     }
+//GET
+    public Integer getId(){
+        return this.id;
+    }
     
+    public String getNome_tarefa(){
+        return this.nome_tarefa;
+    }  
+    
+//SET
+    public void setId(Integer id){
+        this.id=id;
+    }
+    
+    public void setNome_tarefa(String nome_tarefa){
+        this.nome_tarefa=nome_tarefa;
+    }  
+      
 }
