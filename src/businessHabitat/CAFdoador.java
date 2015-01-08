@@ -54,3 +54,60 @@ public class CAFdoador {
         this.bi_voluntario = bi;
     }
 }
+
+//Gets 
+
+    public String getNome(){
+        return this.nome;
+    }
+
+    public String getMorada() {
+        return this.morada;
+    }
+
+    public String getTipo(){
+        return this.tipo;
+    }
+
+    public String getTelefone(){
+        return this.telefone;
+    }
+
+    public String getTelemovel(){
+        return this.telemovel;
+    }
+
+    public String getEmail(){
+        return this.email;
+    }
+    
+    public String getFax(){
+        return this.fax;
+    }
+
+    public String getBi_voluntario(){
+        return this.getBi_voluntario;
+    }; 
+
+
+//Sets
+
+    public void setNif(String nif){
+       this.nif= nif;
+}
+
+    public void setNome(String nome){
+        this.nome=nome;
+    }
+
+    public void setMorada(String morada){
+        this.morada=morada;
+    }
+
+    private (String morada);
+    private (String tipo);          // Tipo de doador: individual ou coletivo (empresas, associações, etc.)
+    private (String telefone);
+    private (String telemovel);
+    private (String email);
+    private (String fax);
+    private (String bi_voluntario);
