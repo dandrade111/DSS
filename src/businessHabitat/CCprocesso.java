@@ -1,7 +1,6 @@
 package businessHabitat;
 
 import exceptions.EquipaJaExisteException;
-import exceptions.MaterialJaExisteException;
 import exceptions.MaterialNaoExisteException;
 import exceptions.TarefaJaExisteException;
 import exceptions.TarefaNaoExisteoException;
@@ -9,7 +8,6 @@ import java.util.ArrayList;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.Map.Entry;
-import java.util.Objects;
 
 public class CCprocesso {
     
