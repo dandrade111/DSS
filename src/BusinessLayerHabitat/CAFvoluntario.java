@@ -75,43 +75,43 @@ public class CAFvoluntario {
 //GET
 
     public String getProfissao() {
-        return profissao;
+        return this.profissao;
     }
 
     public String getHabilitacoes() {
-        return habilitacoes;
+        return this.habilitacoes;
     }
 
     public String getConhecimentos_linguisticos() {
-        return conhecimentos_linguisticos;
+        return this.conhecimentos_linguisticos;
     }
 
     public String getFormacao_complementar() {
-        return formacao_complementar;
+        return this.formacao_complementar;
     }
 
     public String getExperiencia_voluntariado() {
-        return experiencia_voluntariado;
+        return this.experiencia_voluntariado;
     }
 
     public String getConhecimentos_construcao() {
-        return conhecimentos_construcao;
+        return this.conhecimentos_construcao;
     }
 
     public String getObra() {
-        return obra;
+        return this.obra;
     }
 
     public String getComo_conheceu() {
-        return como_conheceu;
+        return this.como_conheceu;
     }
 
     public String getReceber_informacoes() {
-        return receber_informacoes;
+        return this.receber_informacoes;
     }
 
     public String getDisponibilidade() {
-        return disponibilidade;
+        return this.disponibilidade;
     }
     
     public String getBi(){
