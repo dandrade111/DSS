@@ -1,5 +1,6 @@
 package BusinessLayerHabitat;
 
+import java.sql.Date;
 import java.util.GregorianCalendar;
 
 public class CAFvoluntario {
@@ -9,7 +10,7 @@ public class CAFvoluntario {
     private String bi;
     private String nif;
     private String nome;
-    private GregorianCalendar data_nascimento;
+    private Date data_nascimento;
     private String morada;
     private String telefone;
     private String telemovel;
@@ -32,7 +33,7 @@ public class CAFvoluntario {
         this.bi = "";
         this.nif = "";
         this.nome = "";
-        this.data_nascimento = new GregorianCalendar();
+        this.data_nascimento = null;
         this.morada = "";
         this.telefone = "";
         this.telemovel = "";
@@ -49,12 +50,52 @@ public class CAFvoluntario {
         this.receber_informacoes = "";
         this.disponibilidade = "";
     }
+    
+    public CAFvoluntario(String bi, String nome, Date data_nascimento, String morada, String telemovel, String email, String nacionalidade, String profissao) {
+        this.bi = bi;
+        this.nome = nome;
+        this.data_nascimento = (Date) data_nascimento.clone();
+        this.morada = morada;
+        this.telemovel = telemovel;
+        this.email = email;
+        this.nacionalidade = nacionalidade;
+        this.profissao = profissao;
+        this.nif = "";
+        this.telefone = "";
+        this.habilitacoes = "";
+        this.conhecimentos_linguisticos = "";
+        this.formacao_complementar = "";
+        this.experiencia_voluntariado = "";
+        this.conhecimentos_construcao = "";
+        this.obra = "";
+        this.como_conheceu = "";
+        this.receber_informacoes = "";
+        this.disponibilidade = "";
+    }
 
-    public CAFvoluntario(String bi, String nif, String nome, GregorianCalendar data_nascimento, String morada, String telefone, String telemovel, String email, String nacionalidade, String profissao, String habilitacoes, String conhecimentos_linguisticos, String formacao_complementar, String experiencia_voluntariado, String conhecimentos_construcao, String obra, String como_conheceu, String receber_informacoes, String disponibilidade) {
+    public CAFvoluntario(String bi, 
+                         String nif, 
+                         String nome, 
+                         Date data_nascimento, 
+                         String morada, 
+                         String telefone, 
+                         String telemovel, 
+                         String email, 
+                         String nacionalidade, 
+                         String profissao, 
+                         String habilitacoes, 
+                         String conhecimentos_linguisticos, 
+                         String formacao_complementar, 
+                         String experiencia_voluntariado, 
+                         String conhecimentos_construcao, 
+                         String obra, 
+                         String como_conheceu, 
+                         String receber_informacoes, 
+                         String disponibilidade) {
         this.bi = bi;
         this.nif = nif;
         this.nome = nome;
-        this.data_nascimento = data_nascimento;
+        this.data_nascimento = (Date) data_nascimento.clone();
         this.morada = morada;
         this.telefone = telefone;
         this.telemovel = telemovel;
@@ -126,7 +167,7 @@ public class CAFvoluntario {
         return this.nome;
     }    
 
-    public GregorianCalendar getData_nascimento() {
+    public Date getData_nascimento() {
         return this.data_nascimento;
     }
 
@@ -209,8 +250,8 @@ public class CAFvoluntario {
         this.bi = b;
     }
 
-    public void setData_nascimento(GregorianCalendar d) {
-        this.data_nascimento = (GregorianCalendar) d.clone();
+    public void setData_nascimento(Date d) {
+        this.data_nascimento = (Date) d.clone();
     }
 
     public void setMorada(String m) {
