@@ -6,6 +6,7 @@ public class CCmaterialProcesso {
     
     private Integer processo;
     private Integer material;
+    private String nome_material;
     private Integer funcionario;
     private Integer quantidade;
     
@@ -14,13 +15,15 @@ public class CCmaterialProcesso {
     public CCmaterialProcesso() {
         this.processo = 0;
         this.material = 0;
+        this.nome_material = "";
         this.funcionario = 0;
         this.quantidade = 0;
     }
 
-    public CCmaterialProcesso(Integer processo, Integer material, Integer funcionario, Integer quantidade) {
+    public CCmaterialProcesso(Integer processo, Integer material, String nome, Integer funcionario, Integer quantidade) {
         this.processo = processo;
         this.material = material;
+        this.nome_material = nome;
         this.funcionario = funcionario;
         this.quantidade = quantidade;
     }
@@ -42,6 +45,10 @@ public class CCmaterialProcesso {
     public Integer getQuantidade() {
         return this.quantidade;
     }
+
+    public String getNome_material() {
+        return this.nome_material;
+    }
     
     /* Sets */
     
@@ -59,5 +66,9 @@ public class CCmaterialProcesso {
 
     public void setQuantidade(Integer quantidade) {
         this.quantidade = quantidade;
+    }
+
+    public void setNome_material(String nome_material) {
+        this.nome_material = nome_material;
     }
 }
