@@ -6,20 +6,20 @@ public class CFquestao {
     
     private String id_questao;
     private String questao;
-    private String resposta;
+    private String ativa;
     
     /* Construtores */
     
     public CFquestao() {
         this.id_questao = "";
         this.questao = "";
-        this.resposta = "";
+        this.ativa = "";
     }
     
-    public CFquestao(String id, String q, String r) {
+    public CFquestao(String id, String q, String a) {
         this.id_questao = id;
         this.questao = q;
-        this.resposta = r;
+        this.ativa = a;
     }
     
     /* Gets */
@@ -33,7 +33,7 @@ public class CFquestao {
     }
     
     public String getResposta() {
-        return this.resposta;
+        return this.ativa;
     }
     
     /* Sets */
@@ -47,6 +47,6 @@ public class CFquestao {
     }
     
     public void setResposta(String new_resposta) {
-        this.resposta = new_resposta;
+        this.ativa = new_resposta;
     }
 }
