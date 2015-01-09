@@ -14,7 +14,7 @@ public class HabitatConnection {
     
     public HabitatConnection() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
-        String connectionUrl = "jdbc:mysql://localhost:3306/sgef?" + "user=root&password=pass";
+        String connectionUrl = "jdbc:mysql://192.168.0.100:3306/Habitat?" + "user=gabriel&password=11";
         this.con = DriverManager.getConnection(connectionUrl);
     }
     
