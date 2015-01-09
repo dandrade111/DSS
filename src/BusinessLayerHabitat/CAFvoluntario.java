@@ -15,6 +15,16 @@ public class CAFvoluntario {
     private String telemovel;
     private String email;
     private String nacionalidade;
+    private String profissao;
+    private String habilitacoes;
+    private String conhecimentos_linguisticos;
+    private String formacao_complementar;
+    private String experiencia_voluntariado;
+    private String conhecimentos_construcao;
+    private String obra;
+    private String como_conheceu;
+    private String receber_informacoes;
+    private String disponibilidade;
     
     /* Construtores */
     
@@ -28,21 +38,82 @@ public class CAFvoluntario {
         this.telemovel = "";
         this.email = "";
         this.nacionalidade = "";
+        this.profissao = "";
+        this.habilitacoes = "";
+        this.conhecimentos_linguisticos = "";
+        this.formacao_complementar = "";
+        this.experiencia_voluntariado = "";
+        this.conhecimentos_construcao = "";
+        this.obra = "";
+        this.como_conheceu = "";
+        this.receber_informacoes = "";
+        this.disponibilidade = "";
     }
-    
-    public CAFvoluntario(String bivol, String nifvol, String n, GregorianCalendar dn, String m, String tel, String tlm, String eml, String nac) {
-        this.bi = bivol;
-        this.nif = nifvol;
-        this.nome = n;
-        this.data_nascimento = (GregorianCalendar) dn.clone();
-        this.morada = m;
-        this.telefone = tel;
-        this.telemovel = tlm;
-        this.email = eml;
-        this.nacionalidade = nac;
+
+    public CAFvoluntario(String bi, String nif, String nome, GregorianCalendar data_nascimento, String morada, String telefone, String telemovel, String email, String nacionalidade, String profissao, String habilitacoes, String conhecimentos_linguisticos, String formacao_complementar, String experiencia_voluntariado, String conhecimentos_construcao, String obra, String como_conheceu, String receber_informacoes, String disponibilidade) {
+        this.bi = bi;
+        this.nif = nif;
+        this.nome = nome;
+        this.data_nascimento = data_nascimento;
+        this.morada = morada;
+        this.telefone = telefone;
+        this.telemovel = telemovel;
+        this.email = email;
+        this.nacionalidade = nacionalidade;
+        this.profissao = profissao;
+        this.habilitacoes = habilitacoes;
+        this.conhecimentos_linguisticos = conhecimentos_linguisticos;
+        this.formacao_complementar = formacao_complementar;
+        this.experiencia_voluntariado = experiencia_voluntariado;
+        this.conhecimentos_construcao = conhecimentos_construcao;
+        this.obra = obra;
+        this.como_conheceu = como_conheceu;
+        this.receber_informacoes = receber_informacoes;
+        this.disponibilidade = disponibilidade;
     }
     
 //GET
+
+    public String getProfissao() {
+        return this.profissao;
+    }
+
+    public String getHabilitacoes() {
+        return this.habilitacoes;
+    }
+
+    public String getConhecimentos_linguisticos() {
+        return this.conhecimentos_linguisticos;
+    }
+
+    public String getFormacao_complementar() {
+        return this.formacao_complementar;
+    }
+
+    public String getExperiencia_voluntariado() {
+        return this.experiencia_voluntariado;
+    }
+
+    public String getConhecimentos_construcao() {
+        return this.conhecimentos_construcao;
+    }
+
+    public String getObra() {
+        return this.obra;
+    }
+
+    public String getComo_conheceu() {
+        return this.como_conheceu;
+    }
+
+    public String getReceber_informacoes() {
+        return this.receber_informacoes;
+    }
+
+    public String getDisponibilidade() {
+        return this.disponibilidade;
+    }
+    
     public String getBi(){
         return this.bi;
     }
@@ -81,6 +152,47 @@ public class CAFvoluntario {
     
     
 //SET
+
+    public void setProfissao(String profissao) {
+        this.profissao = profissao;
+    }
+
+    public void setHabilitacoes(String habilitacoes) {
+        this.habilitacoes = habilitacoes;
+    }
+
+    public void setConhecimentos_linguisticos(String conhecimentos_linguisticos) {
+        this.conhecimentos_linguisticos = conhecimentos_linguisticos;
+    }
+
+    public void setFormacao_complementar(String formacao_complementar) {
+        this.formacao_complementar = formacao_complementar;
+    }
+
+    public void setExperiencia_voluntariado(String experiencia_voluntariado) {
+        this.experiencia_voluntariado = experiencia_voluntariado;
+    }
+
+    public void setConhecimentos_construcao(String conhecimentos_construcao) {
+        this.conhecimentos_construcao = conhecimentos_construcao;
+    }
+
+    public void setObra(String obra) {
+        this.obra = obra;
+    }
+
+    public void setComo_conheceu(String como_conheceu) {
+        this.como_conheceu = como_conheceu;
+    }
+
+    public void setReceber_informacoes(String receber_informacoes) {
+        this.receber_informacoes = receber_informacoes;
+    }
+
+    public void setDisponibilidade(String disponibilidade) {
+        this.disponibilidade = disponibilidade;
+    }
+    
     public void setId(String b){
         this.bi = b;
     }

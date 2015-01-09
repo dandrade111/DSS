@@ -2,42 +2,55 @@ package BusinessLayerHabitat;
 
 import java.util.GregorianCalendar;
 
-public class CAFfuncionario extends CAFvoluntario {
+public class CAFfuncionario {
     
     /* Variáveis de instância */
     
     private String id;
     private String tipo;
-    private float salario;
+    private double salario;
+    private String voluntario;
     
     /* Construtores */
     
     public CAFfuncionario() {
-        super();
         this.id = "";
         this.tipo = "";
         this.salario = 0;
+        this.voluntario = "";
+    }
+
+    public CAFfuncionario(String id, String tipo, double salario, String voluntario) {
+        this.id = id;
+        this.tipo = tipo;
+        this.salario = salario;
+        this.voluntario = voluntario;
     }
     
-    public CAFfuncionario(String bivol, String nifvol, String n, GregorianCalendar dn, String m, String tel, String tlm, String eml, String nac, String idf, String tipof, float sal) {
-        super(bivol, nifvol, n, dn, m, tel, tlm, eml, nac);
-        this.id = idf;
-        this.tipo = tipof;
-        this.salario = sal;
-    }
 //GET
+
+    public double getSalario() {
+        return this.salario;
+    }
+
+    public String getVoluntario() {
+        return this.voluntario;
+    }
+    
     public String getId(){
         return this.id;
     }
     
     public String getTipo(){
         return this.tipo;
-    }  
+    } 
     
-    public double getSalario(){
-        return this.salario;
-    }    
 //SET
+    
+    public void setVoluntario(String voluntario) {
+        this.voluntario = voluntario;
+    }
+    
     public void setId(String id){
         this.id=id;
     }
