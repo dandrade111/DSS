@@ -25,6 +25,7 @@ public class DAOCFagregado {
     }
     
     /* Métodos de instância */
+    
     public Collection<CFagregado> get(Object id) throws SQLException {
         Collection<CFagregado> f = new HashSet<>();
         
