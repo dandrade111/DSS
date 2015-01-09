@@ -1,5 +1,6 @@
 package DataLayerHabitat;
 
+import BusinessLayerHabitat.CAFfuncionario;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
