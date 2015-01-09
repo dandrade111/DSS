@@ -4,21 +4,24 @@ public class CAFdonativoMaterial {
     
     /* Variáveis de instância */
     
-    Integer id_doacao;
     Integer id_material;
+    String nome;
+    Integer id_doacao;
     Integer quantidade;
     
     /* Construtores */
     
     public CAFdonativoMaterial() {
-        this.id_doacao = 0;
         this.id_material = 0;
+        this.nome = "";
+        this.id_doacao = 0;
         this.quantidade = 0;
     }
 
-    public CAFdonativoMaterial(Integer id_doacao, Integer id_material, Integer quantidade) {
-        this.id_doacao = id_doacao;
+    public CAFdonativoMaterial(Integer id_doacao, String nome, Integer id_material, Integer quantidade) {
         this.id_material = id_material;
+        this.nome = nome;
+        this.id_doacao = id_doacao;
         this.quantidade = quantidade;
     }
     
@@ -35,6 +38,10 @@ public class CAFdonativoMaterial {
     public Integer getQuantidade() {
         return this.quantidade;
     }
+
+    public String getNome() {
+        return this.nome;
+    }
     
     /* Sets */
 
@@ -48,5 +55,9 @@ public class CAFdonativoMaterial {
     
     public void setQuantidade(Integer quantidade) {
         this.quantidade = quantidade;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 }

@@ -1,32 +1,33 @@
 package BusinessLayerHabitat;
 
-import java.util.HashMap;
-
 public class CAFequipa {
     
     /* Variáveis de instância */
     
-    private String id;
+    private Integer id;
     private String nome;
     private Integer funcionario_responsavel;
+    private String nome_funcionario;
     
     /* Construtores */
     
     public CAFequipa() {
-        this.id = "";
+        this.id = 0;
         this.nome = "";
         this.funcionario_responsavel = 0;
+        this.nome_funcionario = "";
     }
     
-    private CAFequipa(String i, String n, Integer f) {
+    public CAFequipa(Integer i, String n, Integer f, String nf) {
         this.id = i;
         this.nome = n;
         this.funcionario_responsavel = f;
+        this.nome_funcionario = nf;
     }
     
     /* Gets */
 
-    public String getId() {
+    public Integer getId() {
         return this.id;
     }
 
@@ -37,10 +38,14 @@ public class CAFequipa {
     public Integer getFuncionario_responsavel() {
         return this.funcionario_responsavel;
     }
+
+    public String getNome_funcionario() {
+        return this.nome_funcionario;
+    }
     
     /* Sets */
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -50,5 +55,9 @@ public class CAFequipa {
 
     public void setFuncionario_responsavel(Integer funcionario_responsavel) {
         this.funcionario_responsavel = funcionario_responsavel;
+    }
+
+    public void setNome_funcionario(String nome_funcionario) {
+        this.nome_funcionario = nome_funcionario;
     }
 }

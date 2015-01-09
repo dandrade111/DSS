@@ -1,20 +1,21 @@
 package BusinessLayerHabitat;
 
-import java.util.GregorianCalendar;
+import java.sql.Date;
 
 public class CAFdonativo {
     
     /* Variáveis de instância */
     
     private Integer id;
+    private String nif_doador;
+    private String nome_doador;
     private String tipo; // Um donativo pode ser financeiro, de serviços ou de material;
     private Integer nr_recibo;
-    private GregorianCalendar data_doacao;
+    private Date data_doacao;
     private String evento; // Se doação provém de um evento ou não ("Sim" ou "Não")
-    private String descricao;
     private Integer quantia; //Caso seja monetária
+    private String descricao;
     private Integer id_processo;
-    private String nif_doador;
     
     /* Construtores */
     
@@ -22,29 +23,33 @@ public class CAFdonativo {
         this.id = 0;
         this.tipo = "";
         this.nr_recibo = 0;
-        this.data_doacao = new GregorianCalendar();
+        this.data_doacao = null;
         this.evento = "";
         this.descricao = "";
         this.id_processo = 0;
         this.nif_doador = "";
         this.quantia = 0;
     }
-    
-    public CAFdonativo(Integer i, String t, Integer nr, GregorianCalendar dd, String e, String d, Integer ip, String nif, Integer q) {
-        this.id = i;
-        this.tipo = t;
-        this.nr_recibo = nr;
-        this.data_doacao = (GregorianCalendar) dd.clone();
-        this.evento = e;
-        this.descricao = d;
-        this.id_processo = ip;
-        this.nif_doador = nif;
-        this.quantia = q;
+
+    public CAFdonativo(Integer id, String nif_doador, String nome_doador, String tipo, Integer nr_recibo, Date data_doacao, String evento, Integer quantia, String descricao, Integer id_processo) {
+        this.id = id;
+        this.nif_doador = nif_doador;
+        this.nome_doador = nome_doador;
+        this.tipo = tipo;
+        this.nr_recibo = nr_recibo;
+        this.data_doacao = (Date) data_doacao.clone();
+        this.evento = evento;
+        this.quantia = quantia;
+        this.descricao = descricao;
+        this.id_processo = id_processo;
     }
-    
     
     //GETS
 
+    public String getNome_doador() {
+        return this.nome_doador;
+    }
+    
     public Integer getQuantia() {
         return this.quantia;
     }
@@ -61,7 +66,7 @@ public class CAFdonativo {
         return this.nr_recibo;    
     }
     
-    public GregorianCalendar getData_doacao(){
+    public Date getData_doacao(){
         return this.data_doacao;
     }
     
@@ -81,6 +86,10 @@ public class CAFdonativo {
     }
 
     //SET
+
+    public void setNome_doador(String nome_doador) {
+        this.nome_doador = nome_doador;
+    }
     
     public void setId(Integer id){
        this.id= id;
@@ -91,7 +100,7 @@ public class CAFdonativo {
     public void setNr_recibo(Integer nr_recibo){
        this.nr_recibo= nr_recibo;
 }
-    public void setData_doacao(GregorianCalendar data_doacao){
+    public void setData_doacao(Date data_doacao){
        this.data_doacao = data_doacao;
 }
     public void setEvento(String evento){
