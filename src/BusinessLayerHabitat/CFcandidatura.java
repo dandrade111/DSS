@@ -1,6 +1,5 @@
 package BusinessLayerHabitat;
 
-import exceptions.QuestaoNaoExisteException;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 
@@ -15,7 +14,6 @@ public class CFcandidatura {
     private String decisao; // Decisão tomada pela administração: "Aprovado" ou "Reprovado"
     private Integer id_familia;
     private Integer id_funcionario;
-    private HashMap<String, CFquestao> questoes;
     
     /* Construtores */
     
@@ -26,7 +24,6 @@ public class CFcandidatura {
         this.data_decisao = new GregorianCalendar();
         this.id_familia = 0;
         this.id_funcionario = 0;
-        this.questoes = new HashMap<>();
     }
     
     public CFcandidatura(Integer id, String d, GregorianCalendar datac, GregorianCalendar dataa, Integer idf, String dec, Integer bi, HashMap<String, CFquestao> q) {
@@ -37,7 +34,6 @@ public class CFcandidatura {
         this.decisao = dec;
         this.id_familia = idf;
         this.id_funcionario = bi;
-        this.questoes = new HashMap<>(q);
     }
     
     /* Gets */
@@ -69,18 +65,6 @@ public class CFcandidatura {
     public Integer getId_funcionario() {
         return this.id_funcionario;
     }
-
-    public HashMap<String, CFquestao> getQuestoes() {
-        return this.questoes;
-    }
-
-    public CFquestao getQuestao(String id_questao) throws QuestaoNaoExisteException {
-        if (this.questoes.containsKey(id_questao)) {
-            return this.questoes.get(id_questao);
-        } else {
-            throw new QuestaoNaoExisteException();
-        }
-    }
     
     /* Sets */
 
@@ -110,19 +94,5 @@ public class CFcandidatura {
 
     public void setId_funcionario(Integer idf) {
         this.id_funcionario = idf;
-    }
-
-    public void setQuestoes(HashMap<String, CFquestao> q) {
-        this.questoes = new HashMap<>(q);
-    }
-    
-    /* Adds */
-    
-    public void addQuestao(CFquestao q) {
-        this.questoes.put(q.getIdQuestao(), q);
-    }
-    
-    public void addQuestoes(HashMap<String, CFquestao> q) {
-        this.questoes.putAll(q);
     }
 }

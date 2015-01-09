@@ -1,6 +1,5 @@
 package BusinessLayerHabitat;
 
-import exceptions.MembroAgregadoNaoExisteException;
 import java.util.HashMap;
 
 public class CFfamilia {
@@ -11,7 +10,6 @@ public class CFfamilia {
     private String bi_responsavel;                  // BI do representante da familia
     private float rendimento;                      // Rendimento familiar
     private String telefone;                       // Telefone da família
-    private HashMap<String, CFagregado> agregado; // Membros do agregado familiar
     
     /* Construtores */
     
@@ -20,7 +18,6 @@ public class CFfamilia {
         this.bi_responsavel = "";
         this.rendimento = 0;
         this.telefone = "";
-        this.agregado = new HashMap<>();
     }
     
     public CFfamilia(Integer id, String bi, float rend, String tel, HashMap<String, CFagregado> agregado) {
@@ -28,7 +25,6 @@ public class CFfamilia {
         this.bi_responsavel = bi;
         this.rendimento = rend;
         this.telefone = tel;
-        this.agregado = new HashMap<>(agregado);
     }
     
     /* Gets */
@@ -48,18 +44,6 @@ public class CFfamilia {
     public String getTelefone() {
         return this.telefone;
     }
-
-    public HashMap<String, CFagregado> getAgregado() {
-        return this.agregado;
-    }
-    
-    public CFagregado getMembroAgregado(Integer id_membro) throws MembroAgregadoNaoExisteException {
-        if (this.agregado.containsKey(id_membro)) {
-            return this.agregado.get(id_membro);
-        } else {
-            throw new MembroAgregadoNaoExisteException();
-        }
-    }
     
     /* Sets */
 
@@ -77,19 +61,5 @@ public class CFfamilia {
 
     public void setTelefone(String t) {
         this.telefone = t;
-    }
-
-    public void setAgregado(HashMap<String, CFagregado> a) {
-        this.agregado = new HashMap<>(a);
-    }
-    
-    /* Add */
-    
-    public void addMembroAgregado(CFagregado a) {
-        this.agregado.put(a.getBi(), a);
-    }
-    
-    public void addMembros(HashMap<String, CFagregado> a) {
-        this.agregado.putAll(a);
     }
 }

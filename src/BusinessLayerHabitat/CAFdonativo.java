@@ -12,6 +12,7 @@ public class CAFdonativo {
     private GregorianCalendar data_doacao;
     private String evento; // Se doação provém de um evento ou não ("Sim" ou "Não")
     private String descricao;
+    private Integer quantia; //Caso seja monetária
     private Integer id_processo;
     private String nif_doador;
     
@@ -26,9 +27,10 @@ public class CAFdonativo {
         this.descricao = "";
         this.id_processo = 0;
         this.nif_doador = "";
+        this.quantia = 0;
     }
     
-    public CAFdonativo(Integer i, String t, Integer nr, GregorianCalendar dd, String e, String d, Integer ip, String nif) {
+    public CAFdonativo(Integer i, String t, Integer nr, GregorianCalendar dd, String e, String d, Integer ip, String nif, Integer q) {
         this.id = i;
         this.tipo = t;
         this.nr_recibo = nr;
@@ -37,40 +39,46 @@ public class CAFdonativo {
         this.descricao = d;
         this.id_processo = ip;
         this.nif_doador = nif;
+        this.quantia = q;
     }
     
     
     //GETS
+
+    public Integer getQuantia() {
+        return this.quantia;
+    }
     
     public Integer getId(){
-        return id;
+        return this.id;
     }
     
     public String getTipo(){
-        return tipo;      
+        return this.tipo;      
     } 
     
     public Integer getNr_recibo(){
-        return nr_recibo;    
-    };
+        return this.nr_recibo;    
+    }
     
     public GregorianCalendar getData_doacao(){
-        return data_doacao;
-}
+        return this.data_doacao;
+    }
     
     public String getEvento(){
-        return evento;
+        return this.evento;
     }
     public String getDescricao(){
-        return descricao;
-    };
+        return this.descricao;
+    }
     
     public Integer getId_processo(){
-        return id_processo;
-    };
+        return this.id_processo;
+    }
+    
     public String getNif_doador(){
-        return nif_doador;
-    };
+        return this.nif_doador;
+    }
 
     //SET
     
@@ -99,5 +107,9 @@ public class CAFdonativo {
     public void setNif_doador(String nif_doador){
        this.nif_doador= nif_doador;
 }
+
+    public void setQuantia(Integer quantia) {
+        this.quantia = quantia;
+    }
   
 }
