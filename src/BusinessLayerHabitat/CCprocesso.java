@@ -1,14 +1,14 @@
 package BusinessLayerHabitat;
 
-import java.util.GregorianCalendar;
+import java.sql.Date;
 
 public class CCprocesso {
     
     /* Variáveis de instância */
     
     private Integer id;
-    private GregorianCalendar data_criacao;
-    private GregorianCalendar data_encerramento;
+    private Date data_criacao;
+    private Date data_encerramento;
     private Integer id_funcionario;                     // Funcionario que criou o processo;
     private double custo_previsto;
     private double custo_final;
@@ -18,8 +18,8 @@ public class CCprocesso {
     
     public CCprocesso() {
         this.id = 0;
-        this.data_criacao = new GregorianCalendar();
-        this.data_encerramento = new GregorianCalendar();
+        this.data_criacao = null;
+        this.data_encerramento = null;
         this.id_funcionario = 0;
         this.custo_previsto = 0;
         this.custo_final = 0;
@@ -28,15 +28,15 @@ public class CCprocesso {
     
     // Processo simples, sem tarefas, material ou equipas
     public CCprocesso(Integer i,
-                      GregorianCalendar dc, 
-                      GregorianCalendar de, 
+                      Date dc, 
+                      Date de, 
                       Integer bi, 
                       double cp, 
                       double cf, 
                       Integer idc) {
         this.id = i;
-        this.data_criacao = (GregorianCalendar) dc.clone();
-        this.data_encerramento = (GregorianCalendar) de.clone();
+        this.data_criacao = (Date) dc.clone();
+        this.data_encerramento = (Date) de.clone();
         this.id_funcionario = bi;
         this.custo_previsto = cp;
         this.custo_final = cf;
@@ -49,11 +49,11 @@ public class CCprocesso {
         return this.id;
     }
  
-    public GregorianCalendar getData_criacao(){
+    public Date getData_criacao(){
         return this.data_criacao;
     }
 
-    public GregorianCalendar getData_encerramento(){
+    public Date getData_encerramento(){
         return this.data_encerramento;
     } 
     
@@ -79,11 +79,11 @@ public class CCprocesso {
         this.id = id;
     }
  
-    public void setData_criacao(GregorianCalendar data_criacao){
+    public void setData_criacao(Date data_criacao){
         this.data_criacao =data_criacao;
     }
 
-    public void setData_encerramento(GregorianCalendar data_encerramento){
+    public void setData_encerramento(Date data_encerramento){
         this.data_encerramento = data_encerramento;
     } 
     

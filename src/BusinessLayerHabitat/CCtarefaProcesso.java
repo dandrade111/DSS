@@ -1,6 +1,6 @@
 package BusinessLayerHabitat;
 
-import java.util.GregorianCalendar;
+import java.sql.Date;
 
 public class CCtarefaProcesso {
     
@@ -8,23 +8,26 @@ public class CCtarefaProcesso {
     
     Integer id_processo;
     Integer id_tarefa;
-    GregorianCalendar data_inicio;
-    GregorianCalendar data_fim;
+    String tarefa;
+    Date data_inicio;
+    Date data_fim;
     
     /* Construtores */
     
     public CCtarefaProcesso() {
         this.id_processo = 0;
         this.id_tarefa = 0;
-        this.data_inicio = new GregorianCalendar();
-        this.data_fim = new GregorianCalendar();
+        this.tarefa = "";
+        this.data_inicio = null;
+        this.data_fim = null;
     }
     
-    public CCtarefaProcesso(Integer p, Integer i, GregorianCalendar di, GregorianCalendar df) {
+    public CCtarefaProcesso(Integer p, Integer i, String t, Date di, Date df) {
         this.id_processo = p;
         this.id_tarefa = i;
-        this.data_inicio = (GregorianCalendar) di.clone();
-        this.data_fim = (GregorianCalendar) df.clone();
+        this.tarefa = t;
+        this.data_inicio = (Date) di.clone();
+        this.data_fim = (Date) df.clone();
     }
     
     /* Gets */
@@ -37,11 +40,15 @@ public class CCtarefaProcesso {
         return this.id_tarefa;
     }
 
-    public GregorianCalendar getData_inicio() {
+    public String getTarefa() {
+        return tarefa;
+    }
+    
+    public Date getData_inicio() {
         return this.data_inicio;
     }
 
-    public GregorianCalendar getData_fim() {
+    public Date getData_fim() {
         return this.data_fim;
     }
 
@@ -55,11 +62,15 @@ public class CCtarefaProcesso {
         this.id_tarefa = idt;
     }
 
-    public void setData_inicio(GregorianCalendar di) {
+    public void setTarefa(String tarefa) {
+        this.tarefa = tarefa;
+    }
+
+    public void setData_inicio(Date di) {
         this.data_inicio = di;
     }
 
-    public void setData_fim(GregorianCalendar df) {
+    public void setData_fim(Date df) {
         this.data_fim = df;
     }
 }

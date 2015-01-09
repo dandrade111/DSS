@@ -30,7 +30,7 @@ public class DAOCAFvoluntario {
         CAFvoluntario v = null;
         
         Statement stm = conn.createStatement();
-        String sql = "SELECT * FROM voluntario_simples WHERE BI='" + (String) bi + "'";
+        String sql = "SELECT * FROM v_voluntario_simples WHERE BI='" + (String) bi + "'";
         ResultSet rs = stm.executeQuery(sql);
         if (rs.next())
             v = new CAFvoluntario(rs.getString(1), rs.getString(2), rs.getDate(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8));
@@ -42,7 +42,7 @@ public class DAOCAFvoluntario {
         Collection<CAFvoluntario> v = new HashSet<>();
         
         Statement stm = conn.createStatement();
-        String sql = "SELECT * FROM voluntario_simples";
+        String sql = "SELECT * FROM v_voluntario_simples";
         ResultSet rs = stm.executeQuery(sql);
         while (rs.next())
             v.add(new CAFvoluntario(rs.getString(1), rs.getString(2), rs.getDate(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8)));
