@@ -2,6 +2,8 @@ package DataLayerHabitat;
 
 import BusinessLayerHabitat.CAFvoluntario;
 import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 public class DAOCAFvoluntario {
     
@@ -21,7 +23,13 @@ public class DAOCAFvoluntario {
     
     /* Métodos de instância */
     
-    public CAFvoluntario get(Object id) {
+    public CAFvoluntario get(Object bi) {
+        CAFvoluntario v = null;
         
+        Statement stm = conn.createStatement();
+        String sql = "SELECT * FROM Voluntario WHERE BI='" + (String) bi + "'";
+        ResultSet rs = stm.executeQuery(sql);
+        
+        return v;
     }
 }
