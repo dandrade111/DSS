@@ -5,7 +5,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Date;
 import java.util.Collection;
 import java.util.HashSet;
 
@@ -45,7 +44,7 @@ public class DAOCAFvoluntario {
         Statement stm = conn.createStatement();
         String sql = "SELECT * FROM voluntario_simples";
         ResultSet rs = stm.executeQuery(sql);
-        if (rs.next())
+        while (rs.next())
             v.add(new CAFvoluntario(rs.getString(1), rs.getString(2), rs.getDate(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8)));
         
         return v;

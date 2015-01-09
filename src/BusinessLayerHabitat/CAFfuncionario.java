@@ -1,7 +1,5 @@
 package BusinessLayerHabitat;
 
-import java.util.GregorianCalendar;
-
 public class CAFfuncionario {
     
     /* Variáveis de instância */

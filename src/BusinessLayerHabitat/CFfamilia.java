@@ -7,9 +7,10 @@ public class CFfamilia {
     /* Variáveis de instância */
     
     private Integer id_familia;                    // Identificador da familia
-    private String bi_responsavel;                  // BI do representante da familia
     private float rendimento;                      // Rendimento familiar
     private String telefone;                       // Telefone da família
+    private String bi_responsavel;                  // BI do representante da familia
+    private String nome_representante;
     
     /* Construtores */
     
@@ -18,13 +19,23 @@ public class CFfamilia {
         this.bi_responsavel = "";
         this.rendimento = 0;
         this.telefone = "";
+        this.nome_representante = "";
     }
     
-    public CFfamilia(Integer id, String bi, float rend, String tel, HashMap<String, CFagregado> agregado) {
+    public CFfamilia(Integer id, float rend, String tel, String bi) {
         this.id_familia = id;
         this.bi_responsavel = bi;
         this.rendimento = rend;
         this.telefone = tel;
+        this.nome_representante = "";
+    }
+    
+    public CFfamilia(Integer id, float rend, String tel, String bi, String nome) {
+        this.id_familia = id;
+        this.bi_responsavel = bi;
+        this.rendimento = rend;
+        this.telefone = tel;
+        this.nome_representante = nome;
     }
     
     /* Gets */
@@ -44,6 +55,10 @@ public class CFfamilia {
     public String getTelefone() {
         return this.telefone;
     }
+
+    public String getNome_representante() {
+        return this.nome_representante;
+    }
     
     /* Sets */
 
@@ -61,5 +76,9 @@ public class CFfamilia {
 
     public void setTelefone(String t) {
         this.telefone = t;
+    }
+
+    public void setNome_representante(String nome_representante) {
+        this.nome_representante = nome_representante;
     }
 }

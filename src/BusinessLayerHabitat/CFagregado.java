@@ -1,6 +1,6 @@
 package BusinessLayerHabitat;
 
-import java.util.GregorianCalendar;
+import java.sql.Date;
 
 public class CFagregado {
     
@@ -8,7 +8,7 @@ public class CFagregado {
     
     private String bi;                         // BI do membro do agregado familiar
     private String nif;                        // NIF do membro do agregado familiar
-    private GregorianCalendar data_nascimento; // Data de nascimento do membro do agregado familiar
+    private Date data_nascimento; // Data de nascimento do membro do agregado familiar
     private String morada;                     // Morada do membro do agregado familiar
     private String nome;                       // Nome do membro do agregado familiar
     private String telemovel;                  // Número de telemóvel do membro do agregado familiar
@@ -20,7 +20,7 @@ public class CFagregado {
     public CFagregado() {
         this.bi = "";
         this.nif = "";
-        this.data_nascimento = new GregorianCalendar();
+        this.data_nascimento = null;
         this.morada = "";
         this.nome = "";
         this.telemovel = "";
@@ -28,10 +28,10 @@ public class CFagregado {
         this.parentesco = "";
     }
     
-    public CFagregado(String b, String n, GregorianCalendar dn, String m, String nm, String tel, String em, String par) {
+    public CFagregado(String b, String n, Date dn, String m, String nm, String tel, String em, String par) {
         this.bi = b;
         this.nif = n;
-        this.data_nascimento = (GregorianCalendar) dn.clone();
+        this.data_nascimento = (Date) dn.clone();
         this.morada = m;
         this.nome = nm;
         this.telemovel = tel;
@@ -49,7 +49,7 @@ public class CFagregado {
         return this.nif;
     }
 
-    public GregorianCalendar getData_nascimento() {
+    public Date getData_nascimento() {
         return this.data_nascimento;
     }
 
@@ -83,7 +83,7 @@ public class CFagregado {
         this.nif = n;
     }
 
-    public void setData_nascimento(GregorianCalendar dn) {
+    public void setData_nascimento(Date dn) {
         this.data_nascimento = dn;
     }
 
