@@ -65,19 +65,13 @@ public class DAOCCmaterial {
     }
     
     /* INSERTS */
-    public CCmaterial put(Integer id, String desc, Integer q) throws SQLException {
+    public void put(String desc) throws SQLException {
         CCmaterial d = null;
         
         String sql;
         Statement stm = conn.createStatement();
-        stm.executeUpdate("DELETE FROM Material WHERE id_Material='" + id + "'");
-        if (desc.equals(""))
-            sql = "INSERT INTO Material VALUES ('"+id+"',NULL,'"+q+"');";
-        else
-            sql = "INSERT INTO Material VALUES ('"+id+"','"+desc+"','"+q+"');";
+        sql = "INSERT INTO Material (`descricao`,`stock`) VALUES ('"+desc+"',0);";
         int i  = stm.executeUpdate(sql);
-        
-        return new CCmaterial(id, desc, q);
     }
     
     
