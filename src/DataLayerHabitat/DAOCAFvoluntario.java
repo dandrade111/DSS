@@ -40,6 +40,18 @@ public class DAOCAFvoluntario {
         return v;
     }
     
+    public Collection<CAFvoluntario> getSimplesEquipa(Integer id) throws SQLException {
+        Collection<CAFvoluntario> v = new HashSet<>();
+        
+        Statement stm = conn.createStatement();
+        String sql = "SELECT * FROM Habitat.v_voluntario_simples AS vs INNER JOIN VoluntariosEquipa AS ve ON vs.BI = ve.Voluntario_BI WHERE ve.id_Equipa='"+id+"'";
+        ResultSet rs = stm.executeQuery(sql);
+        while (rs.next())
+            v.add(new CAFvoluntario(rs.getString(1), rs.getString(2), rs.getDate(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8)));
+        
+        return v;
+    }
+    
     public Collection<CAFvoluntario> getAllSimples() throws SQLException {
         Collection<CAFvoluntario> v = new HashSet<>();
         
@@ -52,11 +64,11 @@ public class DAOCAFvoluntario {
         return v;
     }
     
-    public CAFvoluntario get(Object bi) throws SQLException {
+    public CAFvoluntario get(String bi) throws SQLException {
         CAFvoluntario v = null;
         
         Statement stm = conn.createStatement();
-        String sql = "SELECT * FROM voluntario WHERE BI='" + (String) bi + "'";
+        String sql = "SELECT * FROM voluntario WHERE BI='" + bi + "'";
         ResultSet rs = stm.executeQuery(sql);
         if (rs.next())
             v = new CAFvoluntario(rs.getString(1), rs.getString(2), rs.getString(3), rs.getDate(4), rs.getString(5), 
