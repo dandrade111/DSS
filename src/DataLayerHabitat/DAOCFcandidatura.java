@@ -1,7 +1,9 @@
 package DataLayerHabitat;
 
+import BusinessLayerHabitat.CAFdoador;
 import BusinessLayerHabitat.CFcandidatura;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -48,5 +50,20 @@ public class DAOCFcandidatura {
             f.add(new CFcandidatura((Integer) rs.getInt(1), rs.getString(3), rs.getDate(4), (Integer) rs.getInt(5), rs.getString(6), (Integer) rs.getInt(7), rs.getDate(8), rs.getString(9)));
         
         return f;
+    }
+    
+    /* INSERTS */
+    public CFcandidatura put(Integer id_candidatura, String descricao, Date data_candidatura, Integer id_familia, String nome_representante, Integer id_funcionario, Date data_decisao, String decisao) throws SQLException {
+        CFcandidatura d = null;
+        
+        String sql;
+        Statement stm = conn.createStatement();
+        stm.executeUpdate("DELETE FROM Candidatura WHERE id_Candidatura='" + id_candidatura + "'");
+       
+            sql = "INSERT INTO Candidatura VALUES ('"+id_candidatura+"','"+descricao+"','"+data_candidatura+"','"+id_familia+"','"+nome_representante+"','"+id_funcionario+"','"+data_decisao+"','"+decisao+"');";
+       
+        int i  = stm.executeUpdate(sql);
+        
+        return new CFcandidatura(id_candidatura, descricao, data_candidatura, id_familia, nome_representante, id_funcionario, data_decisao, decisao);
     }
 }
