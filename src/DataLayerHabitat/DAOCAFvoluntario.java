@@ -1,6 +1,5 @@
 package DataLayerHabitat;
 
-import BusinessLayerHabitat.CAFdoador;
 import BusinessLayerHabitat.CAFvoluntario;
 import java.sql.Connection;
 import java.sql.Date;
@@ -64,6 +63,25 @@ public class DAOCAFvoluntario {
         return v;
     }
     
+    public Collection<CAFvoluntario> searchSimples(Object bi, Object nome, Object data, Object morada, Object tele, Object nac, Object pro) throws SQLException {
+        Collection<CAFvoluntario> v = new HashSet<>();
+        
+        Statement stm = conn.createStatement();
+        String sql = "SELECT * FROM v_voluntario_simples " +
+                     "WHERE BI LIKE '%"+bi+"%'" +
+                     "AND Nome LIKE '%"+nome+"%'" +
+                     "AND data_nascimento LIKE '%"+data+"%'" +
+                     "AND morada LIKE '%"+morada+"%'" +
+                     "AND telemovel LIKE '%"+tele+"%'" +
+                     "AND nacionalidade LIKE '%"+nac+"%'" +
+                     "AND profissao LIKE '%"+pro+"%'";
+        ResultSet rs = stm.executeQuery(sql);
+        while (rs.next())
+            v.add(new CAFvoluntario(rs.getString(1), rs.getString(2), rs.getDate(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8)));
+        
+        return v;
+    }
+    
     public CAFvoluntario get(String bi) throws SQLException {
         CAFvoluntario v = null;
         
@@ -108,10 +126,7 @@ public class DAOCAFvoluntario {
         String sql;
         Statement stm = conn.createStatement();
         stm.executeUpdate("DELETE FROM Voluntario WHERE BI='" + bi + "'");
-        if (bi.equals(""))
-            sql = "INSERT INTO Doador VALUES (NULL,'"+nif+"','"+nome+"','"+data_nascimento+"','"+morada+"','"+telefone+"','"+telemovel+"','"+email+",'"+nacionalidade+"','"+profissao+",'"+habilitacoes+"','"+email+",'"+habilitacoes+"','"+conhecimentos_linguisticos+",'"+formacao_complementar+"','"+experiencia_voluntariado+",'"+conhecimentos_construcao+"','"+obra+"','"+como_conheceu+"','"+receber_informacoes+"','"+disponibilidade+"');";
-        else
-            sql = "INSERT INTO Doador VALUES ('"+bi+"','"+nif+"','"+nome+"','"+data_nascimento+"','"+morada+"','"+telefone+"','"+telemovel+"','"+email+",'"+nacionalidade+"','"+profissao+",'"+habilitacoes+"','"+email+",'"+habilitacoes+"','"+conhecimentos_linguisticos+",'"+formacao_complementar+"','"+experiencia_voluntariado+",'"+conhecimentos_construcao+"','"+obra+"','"+como_conheceu+"','"+receber_informacoes+"','"+disponibilidade+"');";
+        sql = "INSERT INTO Doador VALUES ('"+bi+"','"+nif+"','"+nome+"','"+data_nascimento+"','"+morada+"','"+telefone+"','"+telemovel+"','"+email+",'"+nacionalidade+"','"+profissao+",'"+habilitacoes+"','"+email+",'"+habilitacoes+"','"+conhecimentos_linguisticos+",'"+formacao_complementar+"','"+experiencia_voluntariado+",'"+conhecimentos_construcao+"','"+obra+"','"+como_conheceu+"','"+receber_informacoes+"','"+disponibilidade+"');";
         int i  = stm.executeUpdate(sql);
         
         return new CAFvoluntario(bi,nif,nome,data_nascimento,morada,telefone,telemovel,email,nacionalidade,profissao,habilitacoes,conhecimentos_linguisticos,formacao_complementar,experiencia_voluntariado,conhecimentos_construcao,obra,como_conheceu,receber_informacoes,disponibilidade);

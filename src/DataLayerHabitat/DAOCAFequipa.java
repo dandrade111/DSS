@@ -49,6 +49,22 @@ public class DAOCAFequipa {
         
         return f;
     }
+    
+    public Collection<CAFequipa> search(Object id, Object nome, Object idfunc, Object nfunc) throws SQLException {
+        Collection<CAFequipa> f = new HashSet<>();
+        
+        Statement stm = conn.createStatement();
+        String sql = "SELECT * FROM v_EquipasNomes " +
+                     "WHERE id_equipa LIKE '%"+id+"%'" +
+                     "AND nome LIKE '%"+nome+"%'" + 
+                     "AND FuncionarioResponsavel LIKE '%"+idfunc+"%'" +
+                     "AND NomeFuncionario LIKE '%"+nfunc+"%'";
+        ResultSet rs = stm.executeQuery(sql);
+        while (rs.next())
+            f.add(new CAFequipa((Integer) rs.getInt(1), rs.getString(2), (Integer) rs.getInt(3), rs.getString(4)));
+        
+        return f;
+    }
 
 
 /*INSERTS */
