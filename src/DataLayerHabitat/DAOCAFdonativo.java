@@ -1,7 +1,9 @@
 package DataLayerHabitat;
 
+import BusinessLayerHabitat.CAFdoador;
 import BusinessLayerHabitat.CAFdonativo;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -49,4 +51,32 @@ public class DAOCAFdonativo {
         
         return f;
     }
+
+/* INSERTS */
+    public CAFdonativo put(Integer id, String nif_doador, String nome_doador, String tipo, Integer nr_recibo, Date data_doacao, String evento, Integer quantia, String descricao, Integer id_processo) throws SQLException {
+        CAFdonativo d = null;
+        
+        String sql;
+        Statement stm = conn.createStatement();
+        stm.executeUpdate("DELETE FROM Doacao WHERE id_Doacao='" + id + "'");
+        if (id_processo.equals(0))
+            sql = "INSERT INTO Doador VALUES ('"+id+"','"+nif_doador+"','"+nome_doador+"','"+tipo+"','"+nr_recibo+"','"+data_doacao+"','"+evento+"','"+quantia+"','"+descricao+"', NULL);";
+        else
+            sql = "INSERT INTO Doador VALUES (''"+id+"','"+nif_doador+"','"+nome_doador+"','"+tipo+"','"+nr_recibo+"','"+data_doacao+"','"+evento+"','"+quantia+"','"+descricao+"', '"+id_processo+"');";
+        int i  = stm.executeUpdate(sql);
+        
+        return new CAFdonativo(id, nif_doador, nome_doador, tipo, nr_recibo, data_doacao, evento, quantia, descricao, id_processo);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 }

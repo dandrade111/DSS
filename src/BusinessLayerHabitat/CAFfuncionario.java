@@ -8,6 +8,8 @@ public class CAFfuncionario {
     private String tipo;
     private double salario;
     private String voluntario;
+    private String username;
+    private String password;
     
     /* Construtores */
     
@@ -16,13 +18,18 @@ public class CAFfuncionario {
         this.tipo = "";
         this.salario = 0;
         this.voluntario = "";
+        this.username = "";
+        this.password = "";
+        
     }
 
-    public CAFfuncionario(String id, String tipo, double salario, String voluntario) {
+    public CAFfuncionario(String id, String tipo, double salario, String voluntario, String username, String password) {
         this.id = id;
         this.tipo = tipo;
         this.salario = salario;
         this.voluntario = voluntario;
+        this.username = username;
+        this.password = password;
     }
     
 //GET
@@ -43,6 +50,14 @@ public class CAFfuncionario {
         return this.tipo;
     } 
     
+    public String getUsername(){
+        return this.username;
+    } 
+    
+    public String getPassword(){
+        return this.password;
+    } 
+    
 //SET
     
     public void setVoluntario(String voluntario) {
@@ -57,7 +72,11 @@ public class CAFfuncionario {
         this.tipo=tipo;
     }  
     
-    public void setSalario(double Salario){
+    public void setSalario(double salario){
         this.salario=salario;
-    }   
+    }  
+    
+    public void setUsername(String username){
+        this.username=username;
+    }  
 }

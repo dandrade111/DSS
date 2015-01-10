@@ -49,4 +49,22 @@ public class DAOCAFequipa {
         
         return f;
     }
+
+
+/*INSERTS */
+    public CAFequipa put(Integer id, String n, Integer fu, String nf) throws SQLException {
+        CAFequipa d = null;
+        
+        String sql;
+        Statement stm = conn.createStatement();
+        stm.executeUpdate("DELETE FROM Equipa WHERE id_Equipa='" + id + "'");
+        if (fu.equals(0))
+            sql = "INSERT INTO Doador VALUES ('"+id+"','"+n+"',NULL,'"+nf+"');";
+        else
+            sql = "INSERT INTO Doador VALUES ('"+id+"','"+n+"','"+fu+"','"+nf+"');";
+        int i  = stm.executeUpdate(sql);
+        
+        return new CAFequipa( id, n,  fu, nf);
+    }
+
 }
