@@ -95,6 +95,11 @@ public class Apresentar_projectos extends javax.swing.JFrame {
                 "ID", "Descrição", "Quantidade"
             }
         ));
+        jTableMaterialProj.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableMaterialProjMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableMaterialProj);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -215,6 +220,24 @@ public class Apresentar_projectos extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
       this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTableMaterialProjMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableMaterialProjMouseClicked
+     String selectedValue = (String) jTableMaterialProj.getModel().getValueAt(jTableMaterialProj.getSelectedRow(), 0);
+        System.out.println(selectedValue);
+        try {
+            Collection<CCmaterialProcesso> ccmat = new HashSet<>(this.DAOCccmatp.get(selectedValue));
+            DefaultTableModel procTableModel = new DefaultTableModel();
+            for (CCmaterialProcesso m : ccmat)
+                procTableModel.addRow(new Object[]{
+                                                m.getMaterial(),
+                                                m.getNome_material(),
+                                                m.getQuantidade()});
+            this.jTableMaterialProj.setModel(procTableModel);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Apresentar_projectos.class.getName()).log(Level.SEVERE, null, ex);
+        }   
+    }//GEN-LAST:event_jTableMaterialProjMouseClicked
 
     /**
      * @param args the command line arguments
