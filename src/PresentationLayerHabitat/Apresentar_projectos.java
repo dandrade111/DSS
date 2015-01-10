@@ -5,6 +5,8 @@
  */
 package PresentationLayerHabitat;
 
+import java.sql.Connection;
+
 /**
  *
  * @author Daniel
@@ -17,8 +19,9 @@ public class Apresentar_projectos extends javax.swing.JFrame {
     public Apresentar_projectos() {
         initComponents();
     }
-    public Apresentar_projectos(Object proj_id) {
+    public Apresentar_projectos(Object proj_id,Connection conn) {
         initComponents();
+        this.setVisible(True);
     }
 
     /**

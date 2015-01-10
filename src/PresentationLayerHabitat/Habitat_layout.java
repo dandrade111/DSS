@@ -1824,7 +1824,7 @@ public class Habitat_layout extends javax.swing.JFrame {
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
 //        try {
-            Apresentar_projectos a = new Apresentar_projectos(selectedProc);
+            Apresentar_projectos a = new Apresentar_projectos(selectedProc,this.conn.getConnection());
 
     }//GEN-LAST:event_jButton17ActionPerformed
 
