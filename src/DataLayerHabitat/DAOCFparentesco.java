@@ -43,7 +43,7 @@ public class DAOCFparentesco {
         Collection<CFparentesco> f = new HashSet<>();
         
         Statement stm = conn.createStatement();
-        String sql = "SELECT * FROM Parentesco";
+        String sql = "SELECT * FROM Parentesco ORDER BY id_Parentesco";
         ResultSet rs = stm.executeQuery(sql);
         while (rs.next())
             f.add(new CFparentesco((Integer) rs.getInt(1), rs.getString(2)));

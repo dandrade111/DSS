@@ -1,6 +1,5 @@
 package DataLayerHabitat;
 
-import BusinessLayerHabitat.CCvoluntarioProcessoTarefa;
 import BusinessLayerHabitat.CFagregado;
 import java.sql.Connection;
 import java.sql.Date;
@@ -32,7 +31,7 @@ public class DAOCFagregado {
         Collection<CFagregado> f = new HashSet<>();
         
         Statement stm = conn.createStatement();
-        String sql = "SELECT * FROM agregado WHERE familia='" + (String) id + "'";
+        String sql = "SELECT * FROM agregado WHERE familia='" + id + "'";
         ResultSet rs = stm.executeQuery(sql);
         while (rs.next())
             f.add(new CFagregado(rs.getString(1), rs.getString(2), rs.getDate(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10), rs.getString(11)));
@@ -53,17 +52,13 @@ public class DAOCFagregado {
     }
     
     /* INSERTS */
-    public CFagregado put(String b, String n, Date dn, String m, String nm, String tel, String em, String par, String ec, String oc, String esc) throws SQLException {
+    public void put(String bi, String nif, String dn, String m, String f, String n, String tel, String em, String par, String ec, String oc, String esc) throws SQLException {
         CFagregado d = null;
         
         String sql;
         Statement stm = conn.createStatement();
-        stm.executeUpdate("DELETE FROM Agregado WHERE BI='" + b + "'");
-        
-            sql = "INSERT INTO Agregado VALUES ('"+b+"','"+n+"','"+dn+"','"+m+"','"+nm+"','"+tel+"','"+em+"','"+par+"','"+ec+"' ,'"+oc+"','"+esc+"');";
-        
-        
-        return new CFagregado(b, n, dn, m, nm, tel, em,par, ec, oc, esc);
+        sql = "INSERT INTO Agregado VALUES ('"+bi+"','"+nif+"','"+dn+"','"+m+"','"+f+"','"+n+"','"+tel+"','"+em+"','"+par+"','"+ec+"' ,'"+oc+"','"+esc+"');";
+        int i  = stm.executeUpdate(sql);
     }
     
 }

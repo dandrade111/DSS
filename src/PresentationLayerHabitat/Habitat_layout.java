@@ -1359,6 +1359,11 @@ public class Habitat_layout extends javax.swing.JFrame {
         jLabel41.setText("Pesquisa");
 
         jButton14.setText("Consultar");
+        jButton14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton14ActionPerformed(evt);
+            }
+        });
 
         jButton15.setText("Pesquisar");
         jButton15.addActionListener(new java.awt.event.ActionListener() {
@@ -2080,6 +2085,10 @@ public class Habitat_layout extends javax.swing.JFrame {
         Adicionar_Familia f = new Adicionar_Familia(this.conn.getConnection());
     }//GEN-LAST:event_jButton8ActionPerformed
 
+    private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+        Consultar_Familia c = new Consultar_Familia(this.conn.getConnection(), this.selectedFam);
+    }//GEN-LAST:event_jButton14ActionPerformed
+
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {                                          
         Adicionar_projeto v = new Adicionar_projeto(this.conn.getConnection());
     }                 
@@ -2189,7 +2198,7 @@ public class Habitat_layout extends javax.swing.JFrame {
             canTableModel.addColumn("ID Funcionario");
             canTableModel.addColumn("Data Decisao");
             canTableModel.addColumn("Decisao");
-            if (!c.equals(null))
+            if (!(c == null))
                 canTableModel.addRow(new Object[]{c.getId_candidatura(), c.getDescricao(), c.getData_candidatura(), c.getId_familia(), c.getNome_representante(), c.getId_funcionario(), c.getData_decisao(), c.getDecisao()});
             this.jTableCan.setModel(canTableModel);
         } catch (SQLException ex) {
