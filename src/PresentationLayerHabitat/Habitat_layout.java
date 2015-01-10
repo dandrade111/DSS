@@ -3,6 +3,7 @@ package PresentationLayerHabitat;
 import BusinessLayerHabitat.CCmaterial;
 import BusinessLayerHabitat.CCprocesso;
 import BusinessLayerHabitat.CCtarefa;
+import BusinessLayerHabitat.CCtarefaProcesso;
 import BusinessLayerHabitat.CFfamilia;
 import DataLayerHabitat.DAOCAFfuncionario;
 import DataLayerHabitat.DAOCCmaterial;
@@ -20,13 +21,13 @@ import javax.swing.table.DefaultTableModel;
 
 public class Habitat_layout extends javax.swing.JFrame {
 
-    HabitatConnection conn;
-    DAOCAFfuncionario DAOCAFfunc;
-    DAOCCmaterial DAOCCmat;
-    DAOCFfamilia DAOCFfam;
-    DAOCCprocesso DAOCCproc;
-    DAOCCtarefa DAOCCtar;
-    DAOCCtarefaProcesso DAOCCtarPro;
+    private HabitatConnection conn;
+    private DAOCAFfuncionario DAOCAFfunc;
+    private DAOCCmaterial DAOCCmat;
+    private DAOCFfamilia DAOCFfam;
+    private DAOCCprocesso DAOCCproc;
+    private DAOCCtarefa DAOCCtar;
+    private DAOCCtarefaProcesso DAOCCtarProc;
     
     /* Construtor */
     
@@ -38,7 +39,7 @@ public class Habitat_layout extends javax.swing.JFrame {
         this.DAOCFfam = new DAOCFfamilia(this.conn.getConnection());
         this.DAOCCproc = new DAOCCprocesso(this.conn.getConnection());
         this.DAOCCtar = new DAOCCtarefa(this.conn.getConnection());
-        this.DAOCCtarPro = new DAOCCtarefaProcesso(this.conn.getConnection());
+        this.DAOCCtarProc = new DAOCCtarefaProcesso(this.conn.getConnection());
         this.jTabbedPane5.setVisible(false);
     }
 
@@ -1421,10 +1422,29 @@ public class Habitat_layout extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton26ActionPerformed
 
     private void jTableProcMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableProcMouseReleased
-        
+        int row = this.jTableProc.rowAtPoint(evt.getPoint());
+        this.updateTarefas((Integer) jTableProc.getValueAt(row, 0));
     }//GEN-LAST:event_jTableProcMouseReleased
 
     /* Update */
+    public void updateTarefas(Integer id) {
+        try {
+            // Tabela Tarefas
+            Collection<CCtarefaProcesso> cctarproc = new HashSet<>(this.DAOCCtarProc.getAll());
+            DefaultTableModel tarTableModel = new DefaultTableModel();
+            tarTableModel.addColumn("ID Processo");
+            tarTableModel.addColumn("ID Tarefa");
+            tarTableModel.addColumn("Tarefa");
+            tarTableModel.addColumn("Data Inicio");
+            tarTableModel.addColumn("Data Fim");
+            for (CCtarefaProcesso t : cctarproc)
+                tarTableModel.addRow(new Object[]{t.getId_processo()});
+            this.jTableTarefas.setModel(tarTableModel);
+        } catch (SQLException ex) {
+            System.out.println("SQLException: " + ex.getMessage());
+        }
+    }
+    
     public void update() {
         try {
             // Tabela Materiais

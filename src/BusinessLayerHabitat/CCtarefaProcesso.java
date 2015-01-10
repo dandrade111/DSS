@@ -27,7 +27,10 @@ public class CCtarefaProcesso {
         this.id_tarefa = i;
         this.tarefa = t;
         this.data_inicio = (Date) di.clone();
-        this.data_fim = (Date) df.clone();
+        if (!(df == null))
+            this.data_fim = (Date) df.clone();
+        else
+            this.data_fim = null;
     }
     
     /* Gets */
