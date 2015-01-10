@@ -7,7 +7,9 @@ package PresentationLayerHabitat;
 
 import BusinessLayerHabitat.CCmaterial;
 import DataLayerHabitat.DAOCCmaterialProcesso;
+import DataLayerHabitat.DAOCCtarefaProcesso;
 import BusinessLayerHabitat.CCmaterialProcesso;
+import BusinessLayerHabitat.CCtarefaProcesso;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Collection;
@@ -24,6 +26,7 @@ import javax.swing.table.DefaultTableModel;
 public class Apresentar_projectos extends javax.swing.JFrame {
     
     private DAOCCmaterialProcesso DAOCccmatp;
+    private DAOCCtarefaProcesso DAOCcctar;
     private Integer selectedProc;
     
 //    Apresentar_projectos(Integer selectedProc, Connection connection) {
@@ -77,7 +80,7 @@ public class Apresentar_projectos extends javax.swing.JFrame {
         jTableMaterialProj = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jTabletarefasProj = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
@@ -121,7 +124,7 @@ public class Apresentar_projectos extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Tarefas do Projeto"));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jTabletarefasProj.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -129,7 +132,7 @@ public class Apresentar_projectos extends javax.swing.JFrame {
                 "ID Tarefa", "Descrição", "Inicio", "Fim"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane2.setViewportView(jTabletarefasProj);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -225,14 +228,15 @@ public class Apresentar_projectos extends javax.swing.JFrame {
      String selectedValue = (String) jTableMaterialProj.getModel().getValueAt(jTableMaterialProj.getSelectedRow(), 0);
         System.out.println(selectedValue);
         try {
-            Collection<CCmaterialProcesso> ccmat = new HashSet<>(this.DAOCccmatp.get(selectedValue));
+            Collection<CCtarefaProcesso> cctar = new HashSet<>(this.DAOCcctar.get(selectedValue));
             DefaultTableModel procTableModel = new DefaultTableModel();
-            for (CCmaterialProcesso m : ccmat)
+            for (CCtarefaProcesso m : cctar)
                 procTableModel.addRow(new Object[]{
-                                                m.getMaterial(),
-                                                m.getNome_material(),
-                                                m.getQuantidade()});
-            this.jTableMaterialProj.setModel(procTableModel);
+                                                m.getId_tarefa(),
+                                                m.getTarefa(),
+                                                m.getData_inicio(),
+                                                m.getData_fim()});
+            this.jTabletarefasProj.setModel(procTableModel);
             
         } catch (SQLException ex) {
             Logger.getLogger(Apresentar_projectos.class.getName()).log(Level.SEVERE, null, ex);
@@ -282,8 +286,8 @@ public class Apresentar_projectos extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     public javax.swing.JTable jTableMaterialProj;
+    private javax.swing.JTable jTabletarefasProj;
     // End of variables declaration//GEN-END:variables
 }
