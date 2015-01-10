@@ -114,17 +114,7 @@ public class Adicionar_tarefa extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//        try {
-//            MainFrame m = new MainFrame();
-//        } catch (SQLException ex) {
-//            Logger.getLogger(Adicionar_Familia.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        try {
-//            this.con.closeConnection();
-//        } catch (SQLException ex) {
-//            Logger.getLogger(Adicionar_Familia.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//       this.dispose();
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

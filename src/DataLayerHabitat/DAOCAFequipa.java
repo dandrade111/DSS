@@ -52,19 +52,19 @@ public class DAOCAFequipa {
 
 
 /*INSERTS */
-    public CAFequipa put(Integer id, String n, Integer fu, String nf) throws SQLException {
+    public CAFequipa put(String n, Integer fu, String nf) throws SQLException {
         CAFequipa d = null;
         
         String sql;
         Statement stm = conn.createStatement();
-        stm.executeUpdate("DELETE FROM Equipa WHERE id_Equipa='" + id + "'");
+        //stm.executeUpdate("DELETE FROM Equipa WHERE id_Equipa='" + id + "'");
         if (fu.equals(0))
-            sql = "INSERT INTO Doador VALUES ('"+id+"','"+n+"',NULL,'"+nf+"');";
+            sql = "INSERT INTO Doador VALUES ('"+n+"',NULL,'"+nf+"');";
         else
-            sql = "INSERT INTO Doador VALUES ('"+id+"','"+n+"','"+fu+"','"+nf+"');";
-        int i  = stm.executeUpdate(sql);
+            sql = "INSERT INTO Doador VALUES ('"+n+"','"+fu+"','"+nf+"');";
+//        int i  = stm.executeUpdate(sql);
         
-        return new CAFequipa( id, n,  fu, nf);
+        return new CAFequipa(0, n,  fu, nf);
     }
 
 }
