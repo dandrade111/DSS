@@ -6,36 +6,11 @@
 
 package PresentationLayerHabitat;
 
-
-/**
- *
- * @author dandrade
- */
 public class Adicionar_Familia extends javax.swing.JFrame {
 
-//    private int utilSelected;
-//    private Connect con;
-//    private PropostaDAO pDAO;
-//    private UtilizadorDAO uDAO;
-    /**
-     * Creates new form JFPropostas
-     */
+
     public Adicionar_Familia(int util) {
-//        this.utilSelected=util;
-//        initComponents();
-//        this.setLocationRelativeTo(null);
-//        this.setVisible(true);
-//        this.con = new Connect();
-//        this.pDAO = new PropostaDAO(this.con.getConnection());
-//        this.uDAO = new UtilizadorDAO(this.con.getConnection());
-//        Utilizador u = uDAO.get(this.utilSelected);
-//        jLabel2.setText(String.valueOf(u.getContribuinte()));
-//        jTextField1.setText(u.getNome());
-//        jTextField2.setText(u.getEmail());
-//        jTextField3.setText(u.getMorada());
-//        jTextField4.setText(u.getCodigop());
-//        jTextField5.setText(u.getCidade());
-//        jTextArea1.setText(u.getApresentacao());
+
        
     }
 
@@ -152,47 +127,11 @@ public class Adicionar_Familia extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-//        try {
-//            MainFrame m = new MainFrame();
-//        } catch (SQLException ex) {
-//            Logger.getLogger(Adicionar_Familia.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        try {
-//            this.con.closeConnection();
-//        } catch (SQLException ex) {
-//            Logger.getLogger(Adicionar_Familia.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//       this.dispose();
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-//        Utilizador u = uDAO.get(this.utilSelected);
-//        if(this.jTextField1.getText()!="")
-//            u.setNome(this.jTextField1.getText());
-//        if(this.jTextField2.getText()!="")
-//            u.setEmail(this.jTextField2.getText());
-//        if(this.jTextField3.getText()!="")
-//            u.setMorada(this.jTextField3.getText());
-//        if(this.jTextField4.getText()!="")
-//            u.setCodigop(this.jTextField4.getText());
-//        if(this.jTextField5.getText()!="")
-//             u.setCidade(this.jTextField5.getText());
-//        if(this.jTextArea1.getText()!="")
-//            u.setApresentacao(this.jTextArea1.getText());
-//        int dialogResult = JOptionPane.showConfirmDialog (null, "Tem a certeza que quer editar o Utilizador?","Atenção",0);
-//        if(dialogResult == JOptionPane.YES_OPTION)
-//            this.uDAO.update(u);
-//        try {
-//            MainFrame m = new MainFrame();
-//        } catch (SQLException ex) {
-//            Logger.getLogger(Adicionar_Familia.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        try {
-//            this.con.closeConnection();
-//        } catch (SQLException ex) {
-//            Logger.getLogger(Adicionar_Familia.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//        this.dispose();
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
