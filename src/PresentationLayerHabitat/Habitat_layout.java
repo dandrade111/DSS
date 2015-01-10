@@ -122,8 +122,6 @@ public class Habitat_layout extends javax.swing.JFrame {
         jButton17 = new javax.swing.JButton();
         jButton18 = new javax.swing.JButton();
         jLabel48 = new javax.swing.JLabel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jTableTarefas = new javax.swing.JTable();
         jButton21 = new javax.swing.JButton();
         jButton22 = new javax.swing.JButton();
         jLabel49 = new javax.swing.JLabel();
@@ -146,6 +144,8 @@ public class Habitat_layout extends javax.swing.JFrame {
         jList1 = new javax.swing.JList();
         jButton25 = new javax.swing.JButton();
         jSeparator9 = new javax.swing.JSeparator();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        jTableTarefas = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
         jTabbedPane6 = new javax.swing.JTabbedPane();
         jPanel18 = new javax.swing.JPanel();
@@ -443,17 +443,14 @@ public class Habitat_layout extends javax.swing.JFrame {
         jLabel48.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel48.setText("Tarefas");
 
-        jTableTarefas.setPreferredSize(new java.awt.Dimension(300, 64));
-        jTableTarefas.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseReleased(java.awt.event.MouseEvent evt) {
-                jTableTarefasMouseReleased(evt);
-            }
-        });
-        jScrollPane5.setViewportView(jTableTarefas);
-
         jButton21.setText("Consultar");
 
         jButton22.setText("Adicionar");
+        jButton22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton22ActionPerformed(evt);
+            }
+        });
 
         jLabel49.setText("Data Fim");
 
@@ -498,6 +495,19 @@ public class Habitat_layout extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jList1);
 
         jButton25.setText("Add");
+
+        jTableTarefas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane9.setViewportView(jTableTarefas);
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -560,7 +570,7 @@ public class Habitat_layout extends javax.swing.JFrame {
                                 .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel46)
                             .addComponent(jButton18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 1, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -578,7 +588,7 @@ public class Habitat_layout extends javax.swing.JFrame {
                         .addComponent(jButton21)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton22))
-                    .addComponent(jScrollPane5))
+                    .addComponent(jScrollPane9))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -653,7 +663,8 @@ public class Habitat_layout extends javax.swing.JFrame {
                             .addComponent(jButton21)
                             .addComponent(jButton22))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 228, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(199, 199, 199)))
                 .addContainerGap())
         );
 
@@ -956,6 +967,11 @@ public class Habitat_layout extends javax.swing.JFrame {
         });
 
         jButton36.setText("Adicionar");
+        jButton36.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton36ActionPerformed(evt);
+            }
+        });
 
         jButton37.setText("Consultar");
 
@@ -1664,11 +1680,6 @@ public class Habitat_layout extends javax.swing.JFrame {
         this.selectedDon = (Integer) jTableDonativos.getValueAt(row, 0);
     }//GEN-LAST:event_jTableDonativosMouseReleased
 
-    private void jTableTarefasMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableTarefasMouseReleased
-        int row = this.jTableTarefas.rowAtPoint(evt.getPoint());
-        this.selectedTar = (Integer) jTableTarefas.getValueAt(row, 0);
-    }//GEN-LAST:event_jTableTarefasMouseReleased
-
     private void jTableFamiliasMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableFamiliasMouseReleased
         int row = this.jTableFamilias.rowAtPoint(evt.getPoint());
         this.selectedFam = (Integer) jTableFamilias.getValueAt(row, 0);
@@ -1733,6 +1744,15 @@ public class Habitat_layout extends javax.swing.JFrame {
     private void jTxtProdQtdSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtProdQtdSearchActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTxtProdQtdSearchActionPerformed
+
+    private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
+        Adicionar_tarefa a = new Adicionar_tarefa(this.conn.getConnection());
+        
+    }//GEN-LAST:event_jButton22ActionPerformed
+
+    private void jButton36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton36ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton36ActionPerformed
 
     private void jTxtProdNomeSearchActionPerformed(java.awt.event.ActionEvent evt) {                                                  
         // TODO add your handling code here:
@@ -2074,10 +2094,10 @@ public class Habitat_layout extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator10;
     private javax.swing.JSeparator jSeparator11;

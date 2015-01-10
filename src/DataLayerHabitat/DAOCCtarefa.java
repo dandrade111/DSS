@@ -52,16 +52,15 @@ public class DAOCCtarefa {
     }
     
     /* INSERTS */
-    public CCtarefa put(Integer id, String nt) throws SQLException {
+    public CCtarefa put(String nt) throws SQLException {
         CCtarefa d = null;
         
         String sql;
         Statement stm = conn.createStatement();
-        stm.executeUpdate("DELETE FROM Tarefa WHERE id_Tarefa='" + id + "'");
-            sql = "INSERT INTO Tarefa VALUES ('"+id+"','"+nt+"');"; 
+        sql = "INSERT INTO Tarefa (`tarefa`) VALUES ('"+nt+"');"; 
         int i  = stm.executeUpdate(sql);
         
-        return new CCtarefa(id, nt);
+        return new CCtarefa(0, nt);
     }
     
 }
