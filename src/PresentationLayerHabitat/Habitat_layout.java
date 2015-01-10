@@ -1033,6 +1033,11 @@ public class Habitat_layout extends javax.swing.JFrame {
         jSeparator13.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         jButton34.setText("Consultar");
+        jButton34.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton34ActionPerformed(evt);
+            }
+        });
 
         jButton35.setText("Adicionar");
         jButton35.addActionListener(new java.awt.event.ActionListener() {
@@ -2013,12 +2018,11 @@ public class Habitat_layout extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton38ActionPerformed
 
     private void jButton36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton36ActionPerformed
-        // TODO add your handling code here:
+        Adicionar_Doador a = new Adicionar_Doador(this.conn.getConnection());
     }//GEN-LAST:event_jButton36ActionPerformed
 
     private void jButton35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton35ActionPerformed
-        //FRAME PARA LISTAR TRABALHO DE UTILIZADOR
-
+        Adicionar_Doacao a = new Adicionar_Doacao(this.conn.getConnection());
     }//GEN-LAST:event_jButton35ActionPerformed
 
     private void jTableDoadoresMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableDoadoresMouseReleased
@@ -2063,8 +2067,12 @@ public class Habitat_layout extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton33ActionPerformed
 
+    private void jButton34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton34ActionPerformed
+        
+    }//GEN-LAST:event_jButton34ActionPerformed
+
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        Adicionar_Voluntario v = new Adicionar_Voluntario(this.conn.getConnection());
+        Adicionar_projeto v = new Adicionar_projeto(this.conn.getConnection());
     }                 
     
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {                                          

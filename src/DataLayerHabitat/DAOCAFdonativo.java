@@ -78,19 +78,28 @@ public class DAOCAFdonativo {
     }
 
 /* INSERTS */
-    public CAFdonativo put(Integer id, String nif_doador, String nome_doador, String tipo, Integer nr_recibo, Date data_doacao, String evento, Integer quantia, String descricao, Integer id_processo) throws SQLException {
+    public void put(String nif_doador, String tipo, String nr_recibo, String data_doacao, String evento, String quantia, String descricao, String id_processo) throws SQLException {
         CAFdonativo d = null;
         
-        String sql;
+        String sql = "";
         Statement stm = conn.createStatement();
-        stm.executeUpdate("DELETE FROM Doacao WHERE id_Doacao='" + id + "'");
-        if (id_processo.equals(0))
-            sql = "INSERT INTO Doador VALUES ('"+id+"','"+nif_doador+"','"+nome_doador+"','"+tipo+"','"+nr_recibo+"','"+data_doacao+"','"+evento+"','"+quantia+"','"+descricao+"', NULL);";
-        else
-            sql = "INSERT INTO Doador VALUES (''"+id+"','"+nif_doador+"','"+nome_doador+"','"+tipo+"','"+nr_recibo+"','"+data_doacao+"','"+evento+"','"+quantia+"','"+descricao+"', '"+id_processo+"');";
-        int i  = stm.executeUpdate(sql);
+        if (tipo.equals("Financeira")) {
+            if (id_processo.equals(""))
+                sql = "INSERT INTO `Doacao` (`tipo`,`nr_Recibo`,`data_doacao`,`evento`,`quantia`,`descricao`,`Doador`) "
+                    + "VALUES ('"+tipo+"','"+nr_recibo+"','"+data_doacao+"','"+evento+"','"+quantia+"','"+descricao+"', '"+nif_doador+"');";
+            else
+                sql = "INSERT INTO `Doacao` (`tipo`,`nr_Recibo`,`data_doacao`,`evento`,`quantia`,`descricao`,`Processo`,`Doador`) "
+                    + "VALUES ('"+tipo+"','"+nr_recibo+"','"+data_doacao+"','"+evento+"','"+quantia+"','"+descricao+"','"+id_processo+"','"+nif_doador+"');";
+        } else {
+            if (id_processo.equals(""))
+                sql = "INSERT INTO `Doacao` (`tipo`,`data_doacao`,`evento`,`descricao`,`Doador`) "
+                    + "VALUES ('"+tipo+"','"+data_doacao+"','"+evento+"','"+descricao+"','"+nif_doador+"');";
+            else
+                sql = "INSERT INTO `Doacao` (`tipo`,`data_doacao`,`evento`,`descricao`,`Processo`,`Doador`) "
+                    + "VALUES ('"+tipo+"','"+data_doacao+"','"+evento+"','"+descricao+"','"+id_processo+"','"+nif_doador+"');";
+        }
         
-        return new CAFdonativo(id, nif_doador, nome_doador, tipo, nr_recibo, data_doacao, evento, quantia, descricao, id_processo);
+        int i  = stm.executeUpdate(sql);
     }
 
 

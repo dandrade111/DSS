@@ -78,18 +78,16 @@ public class DAOCAFdoador {
     }
     
     /* INSERTS */
-    public CAFdoador put(String n, String nm, String m, String t, String tel, String tlm, String em, String fax, String bi) throws SQLException {
+    public void put(String n, String nm, String m, String t, String tel, String tlm, String em, String fax, String bi) throws SQLException {
         CAFdoador d = null;
         
         String sql;
         Statement stm = conn.createStatement();
-        stm.executeUpdate("DELETE FROM Doador WHERE NIF='" + n + "'");
         if (bi.equals(""))
             sql = "INSERT INTO Doador VALUES ('"+n+"','"+nm+"','"+fax+"','"+m+"','"+t+"','"+tel+"','"+tlm+"','"+em+"',NULL);";
         else
             sql = "INSERT INTO Doador VALUES ('"+n+"','"+nm+"','"+fax+"','"+m+"','"+t+"','"+tel+"','"+tlm+"','"+em+"','"+bi+"');";
         int i  = stm.executeUpdate(sql);
         
-        return new CAFdoador(n, nm, m, t, tel, tlm, em, fax, bi);
     }
 }

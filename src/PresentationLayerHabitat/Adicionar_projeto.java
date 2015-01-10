@@ -6,12 +6,20 @@
 
 package PresentationLayerHabitat;
 
+import DataLayerHabitat.DAOCAFdoador;
+import DataLayerHabitat.DAOCCprocesso;
+import java.sql.Connection;
+
 
 public class Adicionar_projeto extends javax.swing.JFrame {
 
-
-    public Adicionar_projeto(int util) {
-
+    private DAOCCprocesso daoccproc;
+    
+    public Adicionar_projeto(Connection conn) {
+        initComponents();
+        this.daoccproc = new DAOCCprocesso(conn);
+        this.setVisible(true);
+        this.setDefaultCloseOperation(Adicionar_tarefa.DISPOSE_ON_CLOSE);
     }
 
     /**
