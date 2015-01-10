@@ -25,6 +25,8 @@ import DataLayerHabitat.HabitatConnection;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 public class Habitat_layout extends javax.swing.JFrame {
@@ -352,13 +354,14 @@ public class Habitat_layout extends javax.swing.JFrame {
             .addGroup(jPanel17Layout.createSequentialGroup()
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 578, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel76)
-                    .addComponent(jTxtProdNomeSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel80)
                         .addComponent(jTxtProdIDSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jToggleButton1)))
+                        .addComponent(jToggleButton1))
+                    .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel76)
+                        .addComponent(jTxtProdNomeSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel77)
@@ -964,6 +967,11 @@ public class Habitat_layout extends javax.swing.JFrame {
         jButton34.setText("Consultar");
 
         jButton35.setText("Adicionar");
+        jButton35.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton35ActionPerformed(evt);
+            }
+        });
 
         jButton36.setText("Adicionar");
 
@@ -1677,32 +1685,10 @@ public class Habitat_layout extends javax.swing.JFrame {
     }//GEN-LAST:event_jTableMaterialMouseReleased
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
-        try {
-            String prod = this.jTxtProdNomeSearch.getText();
-            String id = this.jTxtProdIDSearch.getText();
-            String qtd = this.jTxtProdQtdSearch.getText();
-            // Tabela Materiais
-            Collection<CCmaterial> ccmat = new HashSet<>(this.DAOCCmat.search(id, prod, qtd));
-            DefaultTableModel matTableModel = new DefaultTableModel();
-            matTableModel.addColumn("ID");
-            matTableModel.addColumn("Material");
-            matTableModel.addColumn("Quantidade");
-            for (CCmaterial m : ccmat)
-                matTableModel.addRow(new Object[]{m.getId(), m.getDescricao(), m.getQuantidade()});
-            this.jTableMaterial.setModel(matTableModel);
-        } catch (SQLException ex) {
-            System.out.println("SQLException: " + ex.getMessage());
-        }
+        // TODO add your handling code here:
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
-    private void jTxtProdNomeSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtProdNomeSearchActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTxtProdNomeSearchActionPerformed
-
-    private void jTxtProdIDSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtProdIDSearchActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTxtProdIDSearchActionPerformed
-
+<<<<<<< HEAD
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
         try {    
             String id = this.jTxtFamID.getText();
@@ -1729,6 +1715,12 @@ public class Habitat_layout extends javax.swing.JFrame {
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton19ActionPerformed
+=======
+    private void jButton35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton35ActionPerformed
+        //FRAME PARA LISTAR TRABALHO DE UTILIZADOR
+        jTabbedPane1.setSelectedIndex(1);
+    }//GEN-LAST:event_jButton35ActionPerformed
+>>>>>>> ca27a06a26bfff9ea4752806e658ed4b4530feb7
 
     /* Update */
     public void updateDonativos() {
@@ -1750,7 +1742,7 @@ public class Habitat_layout extends javax.swing.JFrame {
                 donTableModel.addRow(new Object[]{d.getId(), d.getNif_doador(), d.getNome_doador(), d.getTipo(), d.getNr_recibo(), d.getData_doacao(), d.getEvento(), d.getQuantia(), d.getDescricao(), d.getId_processo()});
             this.jTableDonativos.setModel(donTableModel);
         } catch (SQLException ex) {
-            System.out.println("SQLException: " + ex.getMessage());
+            Logger.getLogger(Habitat_layout.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
@@ -1817,6 +1809,7 @@ public class Habitat_layout extends javax.swing.JFrame {
                 famTableModel.addRow(new Object[]{f.getId_familia(), f.getRendimento(), f.getTelefone(), f.getBi_responsavel(), f.getNome_representante()});
             this.jTableFamilias.setModel(famTableModel);
             
+<<<<<<< HEAD
             // Tabela Candidaturas
             Collection<CFcandidatura> cfcan = new HashSet<>(this.DAOCFcan.getAll());
             DefaultTableModel canTableModel = new DefaultTableModel();
@@ -1832,6 +1825,8 @@ public class Habitat_layout extends javax.swing.JFrame {
                 canTableModel.addRow(new Object[]{c.getId_candidatura(), c.getDescricao(), c.getData_candidatura(), c.getId_familia(), c.getNome_representante(), c.getId_funcionario(), c.getData_decisao(), c.getDecisao()});
             this.jTableCan.setModel(canTableModel);
             
+=======
+>>>>>>> ca27a06a26bfff9ea4752806e658ed4b4530feb7
             // Tabela Projetos
             Collection<CCprocesso> ccproc = new HashSet<>(this.DAOCCproc.getAll());
             DefaultTableModel procTableModel = new DefaultTableModel();
