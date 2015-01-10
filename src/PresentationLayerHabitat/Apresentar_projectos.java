@@ -5,13 +5,20 @@
  */
 package PresentationLayerHabitat;
 
+import BusinessLayerHabitat.CCmaterial;
+import DataLayerHabitat.DAOCCmaterialProcesso;
 import java.sql.Connection;
+import java.util.Collection;
+import java.util.HashSet;
+
 
 /**
  *
  * @author Daniel
  */
 public class Apresentar_projectos extends javax.swing.JFrame {
+    
+    private DAOCCmaterialProceso DAOCccmatp;
 
 //    Apresentar_projectos(Integer selectedProc, Connection connection) {
 //                initComponents();
@@ -27,6 +34,46 @@ public class Apresentar_projectos extends javax.swing.JFrame {
     public Apresentar_projectos(Integer proj_id,Connection conn) {
         initComponents();
         this.setVisible(true);
+        
+        Collection<CCmaterial> ccmat= new HashSet<>(this.DAOCccmatp.get(proj_id));
+        
+        Collection<CCprocesso> ccproc = new HashSet<>(this.DAOCCproc.getAll());
+            DefaultTableModel procTableModel = new DefaultTableModel();
+            procTableModel.addColumn("ID");
+            procTableModel.addColumn("Data Criação");
+            procTableModel.addColumn("Data Encerramento");
+            procTableModel.addColumn("ID Funcionario");
+            procTableModel.addColumn("Custo Previsto");
+            procTableModel.addColumn("Custo Final");
+            procTableModel.addColumn("ID Candidatura");
+            procTableModel.addColumn("Nome Representante");
+            for (CCprocesso p : ccproc)
+                procTableModel.addRow(new Object[]{p.getId(),
+                                                  p.getData_criacao(),
+                                                  p.getData_encerramento(),
+                                                  p.getId_funcionario(),
+                                                  p.getCusto_previsto(),
+                                                  p.getCusto_final(),
+                                                  p.getId_candidatura(),
+                                                  p.getNome_representante()});
+            this.jTableProc.setModel(procTableModel);
+        
+//                try {
+//            String id = this.jTxtProdIDSearch.getText();
+//            String nome = this.jTxtProdNomeSearch.getText();
+//            String qtd = this.jTxtProdQtdSearch.getText();
+//            // Tabela Materiais
+//            Collection<CCmaterial> ccmat = new HashSet<>(this.DAOCCmat.search(id, nome, qtd));
+//            DefaultTableModel matTableModel = new DefaultTableModel();
+//            matTableModel.addColumn("ID");
+//            matTableModel.addColumn("Material");
+//            matTableModel.addColumn("Quantidade");
+//            for (CCmaterial m : ccmat)
+//                matTableModel.addRow(new Object[]{m.getId(), m.getDescricao(), m.getQuantidade()});
+//            this.jTableMaterial.setModel(matTableModel);
+//        } catch (SQLException ex) {
+//            Logger.getLogger(Habitat_layout.class.getName()).log(Level.SEVERE, null, ex);
+//        }
     }
 
     /**
