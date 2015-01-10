@@ -31,7 +31,8 @@ public class Adicionar_tarefa extends javax.swing.JFrame {
         initComponents();
         this.daocctar = new DAOCCtarefa(conn);
         this.setVisible(true);
-       
+        this.setDefaultCloseOperation(Adicionar_tarefa.DISPOSE_ON_CLOSE);
+        
     }
 
     /**
@@ -50,6 +51,11 @@ public class Adicionar_tarefa extends javax.swing.JFrame {
         jTxtFldDesc = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         jLabel1.setText("Adicionar Tarefa");
 
@@ -68,6 +74,9 @@ public class Adicionar_tarefa extends javax.swing.JFrame {
         });
 
         jLabel3.setText("Descrição:");
+
+        jTxtFldDesc.setAlignmentX(0.0F);
+        jTxtFldDesc.setAlignmentY(0.0F);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -125,6 +134,10 @@ public class Adicionar_tarefa extends javax.swing.JFrame {
             Logger.getLogger(Adicionar_tarefa.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        this.setVisible(false);
+    }//GEN-LAST:event_formWindowClosed
 
     /**
      * @param args the command line arguments
