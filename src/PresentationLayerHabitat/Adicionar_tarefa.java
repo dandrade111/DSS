@@ -126,6 +126,7 @@ public class Adicionar_tarefa extends javax.swing.JFrame {
         try {
             String desc = this.jTxtFldDesc.getText();
             CCtarefa t = this.daocctar.put(desc);
+            this.dispose();
         } catch (SQLException ex) {
             Logger.getLogger(Adicionar_tarefa.class.getName()).log(Level.SEVERE, null, ex);
         }

@@ -105,6 +105,7 @@ public class Habitat_layout extends javax.swing.JFrame {
         jToggleButton1 = new javax.swing.JToggleButton();
         jLabel80 = new javax.swing.JLabel();
         jTxtProdIDSearch = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel42 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -280,6 +281,8 @@ public class Habitat_layout extends javax.swing.JFrame {
         jTextField38 = new javax.swing.JTextField();
         jTextField39 = new javax.swing.JTextField();
         jTextField40 = new javax.swing.JTextField();
+        jButton20 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jPanel22 = new javax.swing.JPanel();
         jTextUsername = new javax.swing.JTextField();
@@ -347,6 +350,13 @@ public class Habitat_layout extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("Adicionar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
         jPanel17Layout.setHorizontalGroup(
@@ -369,7 +379,8 @@ public class Habitat_layout extends javax.swing.JFrame {
                         .addComponent(jTxtProdIDSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jToggleButton1)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2)))
                 .addContainerGap())
         );
         jPanel17Layout.setVerticalGroup(
@@ -381,7 +392,8 @@ public class Habitat_layout extends javax.swing.JFrame {
                     .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel80)
                         .addComponent(jTxtProdIDSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jToggleButton1))
+                        .addComponent(jToggleButton1)
+                        .addComponent(jButton2))
                     .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel76)
                         .addComponent(jTxtProdNomeSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -1413,6 +1425,20 @@ public class Habitat_layout extends javax.swing.JFrame {
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Aprovado", "Reprovado" }));
         jComboBox1.setSelectedIndex(-1);
 
+        jButton20.setText("Consultar");
+        jButton20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton20ActionPerformed(evt);
+            }
+        });
+
+        jButton9.setText("Adicionar");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -1475,14 +1501,18 @@ public class Habitat_layout extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel31)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 935, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton8))
+                        .addComponent(jButton9)
+                        .addGap(6, 6, 6))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1143, Short.MAX_VALUE)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel37)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton20)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton8))
                     .addComponent(jScrollPane4))
                 .addContainerGap())
         );
@@ -1495,12 +1525,15 @@ public class Habitat_layout extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel31)
-                            .addComponent(jButton8)
-                            .addComponent(jButton14))
+                            .addComponent(jButton14)
+                            .addComponent(jButton9))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel37)
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel37)
+                            .addComponent(jButton20)
+                            .addComponent(jButton8))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
@@ -2089,6 +2122,18 @@ public class Habitat_layout extends javax.swing.JFrame {
         Consultar_Familia c = new Consultar_Familia(this.conn.getConnection(), this.selectedFam);
     }//GEN-LAST:event_jButton14ActionPerformed
 
+    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton20ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Adicionar_Material a = new Adicionar_Material(this.conn.getConnection());
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {                                          
         Adicionar_projeto v = new Adicionar_projeto(this.conn.getConnection());
     }                 
@@ -2380,6 +2425,8 @@ public class Habitat_layout extends javax.swing.JFrame {
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton22;
     private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton26;
@@ -2395,6 +2442,7 @@ public class Habitat_layout extends javax.swing.JFrame {
     private javax.swing.JButton jButton38;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     public javax.swing.JButton jButtonLogin;
     public javax.swing.JButton jButtonSignUp;
     private javax.swing.JComboBox jComboBox1;
