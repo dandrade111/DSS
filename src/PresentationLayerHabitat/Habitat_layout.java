@@ -22,6 +22,7 @@ import DataLayerHabitat.DAOCCtarefaProcesso;
 import DataLayerHabitat.DAOCFcandidatura;
 import DataLayerHabitat.DAOCFfamilia;
 import DataLayerHabitat.HabitatConnection;
+import java.awt.event.ActionEvent;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.HashSet;
@@ -306,6 +307,12 @@ public class Habitat_layout extends javax.swing.JFrame {
         jTxtProdNomeSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTxtProdNomeSearchActionPerformed(evt);
+            }
+        });
+
+        jTxtProdQtdSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTxtProdQtdSearchActionPerformed(evt);
             }
         });
 
@@ -1688,7 +1695,6 @@ public class Habitat_layout extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
-<<<<<<< HEAD
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
         try {    
             String id = this.jTxtFamID.getText();
@@ -1715,13 +1721,24 @@ public class Habitat_layout extends javax.swing.JFrame {
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton19ActionPerformed
-=======
+
     private void jButton35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton35ActionPerformed
         //FRAME PARA LISTAR TRABALHO DE UTILIZADOR
-        jTabbedPane1.setSelectedIndex(1);
+        
     }//GEN-LAST:event_jButton35ActionPerformed
->>>>>>> ca27a06a26bfff9ea4752806e658ed4b4530feb7
 
+    private void jTxtProdQtdSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTxtProdQtdSearchActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTxtProdQtdSearchActionPerformed
+
+    private void jTxtProdNomeSearchActionPerformed(java.awt.event.ActionEvent evt) {                                                  
+        // TODO add your handling code here:
+    }                                           
+
+    private void jTxtProdIDSearchActionPerformed(java.awt.event.ActionEvent evt) {                                                  
+        // TODO add your handling code here:
+    }
+    
     /* Update */
     public void updateDonativos() {
         try {
@@ -1809,7 +1826,6 @@ public class Habitat_layout extends javax.swing.JFrame {
                 famTableModel.addRow(new Object[]{f.getId_familia(), f.getRendimento(), f.getTelefone(), f.getBi_responsavel(), f.getNome_representante()});
             this.jTableFamilias.setModel(famTableModel);
             
-<<<<<<< HEAD
             // Tabela Candidaturas
             Collection<CFcandidatura> cfcan = new HashSet<>(this.DAOCFcan.getAll());
             DefaultTableModel canTableModel = new DefaultTableModel();
@@ -1825,8 +1841,6 @@ public class Habitat_layout extends javax.swing.JFrame {
                 canTableModel.addRow(new Object[]{c.getId_candidatura(), c.getDescricao(), c.getData_candidatura(), c.getId_familia(), c.getNome_representante(), c.getId_funcionario(), c.getData_decisao(), c.getDecisao()});
             this.jTableCan.setModel(canTableModel);
             
-=======
->>>>>>> ca27a06a26bfff9ea4752806e658ed4b4530feb7
             // Tabela Projetos
             Collection<CCprocesso> ccproc = new HashSet<>(this.DAOCCproc.getAll());
             DefaultTableModel procTableModel = new DefaultTableModel();
