@@ -38,11 +38,11 @@ public class DAOCCtarefaProcesso {
         return f;
     }
     
-    public Collection<CCtarefaProcesso> get(Object idprocesso) throws SQLException {
-        Collection<CCtarefaProcesso> f = null;
+    public Collection<CCtarefaProcesso> get(Integer idprocesso) throws SQLException {
+        Collection<CCtarefaProcesso> f = new HashSet<>();
         
         Statement stm = conn.createStatement();
-        String sql = "SELECT * FROM v_ProcessoTarefa WHERE processo='" + (String) idprocesso + "'";
+        String sql = "SELECT * FROM v_ProcessoTarefa WHERE processo='" + idprocesso + "'";
         ResultSet rs = stm.executeQuery(sql);
         while (rs.next())
             f.add(new CCtarefaProcesso((Integer) rs.getInt(1), (Integer) rs.getInt(2), rs.getString(3), rs.getDate(4), rs.getDate(5)));

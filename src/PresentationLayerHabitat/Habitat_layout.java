@@ -42,6 +42,13 @@ public class Habitat_layout extends javax.swing.JFrame {
     private DAOCAFdonativo DAOCAFdon;
     
     private Integer selectedProc;
+    private Integer selectedEq;
+    private Integer selectedMat;
+    private Integer selectedFam;
+    private Integer selectedTar;
+    private String selectedVol;
+    private String selectedDoa;
+    private Integer selectedDon;
     
     /* Construtor */
     
@@ -60,6 +67,13 @@ public class Habitat_layout extends javax.swing.JFrame {
         this.DAOCAFdon = new DAOCAFdonativo(this.conn.getConnection());
         
         this.selectedProc = -1;
+        this.selectedEq = -1;
+        this.selectedMat = -1;
+        this.selectedFam = -1;
+        this.selectedTar = -1;
+        this.selectedVol = "";
+        this.selectedDoa = "";
+        this.selectedDon = -1;
         
         this.jTabbedPane5.setVisible(false);
     }
@@ -256,6 +270,11 @@ public class Habitat_layout extends javax.swing.JFrame {
                 "Produto", "Quantidade"
             }
         ));
+        jTableMaterial.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jTableMaterialMouseReleased(evt);
+            }
+        });
         jScrollPane6.setViewportView(jTableMaterial);
 
         jLabel76.setText("Produto");
@@ -288,7 +307,7 @@ public class Habitat_layout extends javax.swing.JFrame {
         jPanel17Layout.setVerticalGroup(
             jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel17Layout.createSequentialGroup()
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 476, Short.MAX_VALUE)
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel76)
@@ -334,6 +353,11 @@ public class Habitat_layout extends javax.swing.JFrame {
                 "Nome", "Morada", "Telefone", "Data Nasc.", "Profissão", "Naturalidade", "Nacionalidade", "Estado Civil", "Escolaridade"
             }
         ));
+        jTableFamilias.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jTableFamiliasMouseReleased(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTableFamilias);
 
         jButton8.setText("Adicionar");
@@ -545,6 +569,11 @@ public class Habitat_layout extends javax.swing.JFrame {
             }
         ));
         jTableTarefas.setPreferredSize(new java.awt.Dimension(300, 64));
+        jTableTarefas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jTableTarefasMouseReleased(evt);
+            }
+        });
         jScrollPane5.setViewportView(jTableTarefas);
 
         jButton21.setText("Consultar");
@@ -731,7 +760,7 @@ public class Habitat_layout extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton24)
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addContainerGap(100, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -798,6 +827,11 @@ public class Habitat_layout extends javax.swing.JFrame {
                 "Nome", "Morada", "Telefone", "Data Nasc.", "Profissão", "Naturalidade", "Nacionalidade", "Estado Civil", "Escolaridade"
             }
         ));
+        jTableVoluntarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jTableVoluntariosMouseReleased(evt);
+            }
+        });
         jScrollPane7.setViewportView(jTableVoluntarios);
 
         jLabel64.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -821,6 +855,11 @@ public class Habitat_layout extends javax.swing.JFrame {
                 "Nome", "Morada", "Telefone", "Data Nasc.", "Profissão", "Naturalidade", "Nacionalidade", "Estado Civil", "Escolaridade"
             }
         ));
+        jTableEquipas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jTableEquipasMouseReleased(evt);
+            }
+        });
         jScrollPane8.setViewportView(jTableEquipas);
 
         jButton29.setText("Consultar");
@@ -983,7 +1022,7 @@ public class Habitat_layout extends javax.swing.JFrame {
                                     .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton32)))
-                        .addGap(0, 139, Short.MAX_VALUE)))
+                        .addGap(0, 124, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -1020,6 +1059,11 @@ public class Habitat_layout extends javax.swing.JFrame {
                 "Nome", "Morada", "Telefone", "Data Nasc.", "Profissão", "Naturalidade", "Nacionalidade", "Estado Civil", "Escolaridade"
             }
         ));
+        jTableDonativos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jTableDonativosMouseReleased(evt);
+            }
+        });
         jScrollPane11.setViewportView(jTableDonativos);
 
         jTableDoadores.setModel(new javax.swing.table.DefaultTableModel(
@@ -1033,6 +1077,11 @@ public class Habitat_layout extends javax.swing.JFrame {
                 "Nome", "Morada", "Telefone", "Data Nasc.", "Profissão", "Naturalidade", "Nacionalidade", "Estado Civil", "Escolaridade"
             }
         ));
+        jTableDoadores.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jTableDoadoresMouseReleased(evt);
+            }
+        });
         jScrollPane12.setViewportView(jTableDoadores);
 
         jLabel74.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -1228,7 +1277,7 @@ public class Habitat_layout extends javax.swing.JFrame {
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane6)
+            .addComponent(jTabbedPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 572, Short.MAX_VALUE)
         );
 
         jTabbedPane5.addTab("Angariação de Fundos", jPanel6);
@@ -1338,8 +1387,8 @@ public class Habitat_layout extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTabbedPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jPanel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTabbedPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -1351,9 +1400,9 @@ public class Habitat_layout extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 26, Short.MAX_VALUE)
-                .addComponent(jTabbedPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addComponent(jTabbedPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1462,7 +1511,88 @@ public class Habitat_layout extends javax.swing.JFrame {
         this.update();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jTableEquipasMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableEquipasMouseReleased
+        int row = this.jTableEquipas.rowAtPoint(evt.getPoint());
+        this.selectedEq = (Integer) jTableEquipas.getValueAt(row, 0);
+        this.updateVoluntarios();
+    }//GEN-LAST:event_jTableEquipasMouseReleased
+
+    private void jTableVoluntariosMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableVoluntariosMouseReleased
+        int row = this.jTableVoluntarios.rowAtPoint(evt.getPoint());
+        this.selectedVol = (String) jTableVoluntarios.getValueAt(row, 0);
+    }//GEN-LAST:event_jTableVoluntariosMouseReleased
+
+    private void jTableDoadoresMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableDoadoresMouseReleased
+        int row = this.jTableDoadores.rowAtPoint(evt.getPoint());
+        this.selectedDoa = (String) jTableDoadores.getValueAt(row, 0);
+        this.updateDonativos();
+    }//GEN-LAST:event_jTableDoadoresMouseReleased
+
+    private void jTableDonativosMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableDonativosMouseReleased
+        int row = this.jTableDonativos.rowAtPoint(evt.getPoint());
+        this.selectedDon = (Integer) jTableDonativos.getValueAt(row, 0);
+    }//GEN-LAST:event_jTableDonativosMouseReleased
+
+    private void jTableTarefasMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableTarefasMouseReleased
+        int row = this.jTableTarefas.rowAtPoint(evt.getPoint());
+        this.selectedTar = (Integer) jTableTarefas.getValueAt(row, 0);
+    }//GEN-LAST:event_jTableTarefasMouseReleased
+
+    private void jTableFamiliasMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableFamiliasMouseReleased
+        int row = this.jTableFamilias.rowAtPoint(evt.getPoint());
+        this.selectedFam = (Integer) jTableFamilias.getValueAt(row, 0);
+    }//GEN-LAST:event_jTableFamiliasMouseReleased
+
+    private void jTableMaterialMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableMaterialMouseReleased
+        int row = this.jTableMaterial.rowAtPoint(evt.getPoint());
+        this.selectedMat = (Integer) jTableMaterial.getValueAt(row, 0);
+    }//GEN-LAST:event_jTableMaterialMouseReleased
+
     /* Update */
+    public void updateDonativos() {
+        try {
+            // Tabela Donativos
+            Collection<CAFdonativo> cafdon = new HashSet<>(this.DAOCAFdon.get(this.selectedDoa));
+            DefaultTableModel donTableModel = new DefaultTableModel();
+            donTableModel.addColumn("ID");
+            donTableModel.addColumn("NIF Doador");
+            donTableModel.addColumn("Doador");
+            donTableModel.addColumn("Tipo");
+            donTableModel.addColumn("Recibo");
+            donTableModel.addColumn("Data Doacao");
+            donTableModel.addColumn("Evento");
+            donTableModel.addColumn("Quantia");
+            donTableModel.addColumn("Descricao");
+            donTableModel.addColumn("Processo");
+            for (CAFdonativo d : cafdon)
+                donTableModel.addRow(new Object[]{d.getId(), d.getNif_doador(), d.getNome_doador(), d.getTipo(), d.getNr_recibo(), d.getData_doacao(), d.getEvento(), d.getQuantia(), d.getDescricao(), d.getId_processo()});
+            this.jTableDonativos.setModel(donTableModel);
+        } catch (SQLException ex) {
+            Logger.getLogger(Habitat_layout.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void updateVoluntarios() {
+        try {
+            // Tabela Voluntarios
+            Collection<CAFvoluntario> cafvol = new HashSet<>(this.DAOCAFvol.getSimplesEquipa(this.selectedEq));
+            DefaultTableModel volTableModel = new DefaultTableModel();
+            volTableModel.addColumn("BI");
+            volTableModel.addColumn("Nome");
+            volTableModel.addColumn("Data Nascimento");
+            volTableModel.addColumn("Morada");
+            volTableModel.addColumn("Telemovel");
+            volTableModel.addColumn("e-Mail");
+            volTableModel.addColumn("Nacionalidade");
+            volTableModel.addColumn("Profissao");
+            for (CAFvoluntario v : cafvol)
+                volTableModel.addRow(new Object[]{v.getBi(), v.getNome(), v.getData_nascimento(), v.getMorada(), v.getTelemovel(), v.getEmail(), v.getNacionalidade(), v.getProfissao()});
+            this.jTableVoluntarios.setModel(volTableModel);
+        } catch (SQLException ex) {
+            System.out.println("SQLException: " + ex.getMessage());
+        }
+    }
+    
     public void updateTarefas() {
         try {
             // Tabela Tarefas
