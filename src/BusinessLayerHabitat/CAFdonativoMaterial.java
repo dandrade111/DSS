@@ -18,6 +18,13 @@ public class CAFdonativoMaterial {
         this.quantidade = 0;
     }
 
+    public CAFdonativoMaterial(Integer id_doacao, Integer id_material, Integer quantidade) {
+        this.id_material = id_material;
+        this.nome = "";
+        this.id_doacao = id_doacao;
+        this.quantidade = quantidade;
+    }
+    
     public CAFdonativoMaterial(Integer id_doacao, String nome, Integer id_material, Integer quantidade) {
         this.id_material = id_material;
         this.nome = nome;

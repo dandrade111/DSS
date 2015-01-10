@@ -1,5 +1,6 @@
 package DataLayerHabitat;
 
+import BusinessLayerHabitat.CAFdoador;
 import BusinessLayerHabitat.CFparentesco;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -50,4 +51,18 @@ public class DAOCFparentesco {
         return f;
     }
     
+    /* INSERTS */
+    public CFparentesco put(Integer id, String descricao) throws SQLException {
+        CFparentesco d = null;
+        
+        String sql;
+        Statement stm = conn.createStatement();
+        stm.executeUpdate("DELETE FROM Agregado WHERE id_Parentesco='" + id + "'");
+        
+            sql = "INSERT INTO Doador VALUES ('"+id+"','"+descricao+"');";
+        
+        int i  = stm.executeUpdate(sql);
+        
+        return new CFparentesco(id, descricao);
+    }
 }

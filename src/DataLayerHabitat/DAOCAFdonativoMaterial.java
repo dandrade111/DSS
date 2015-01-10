@@ -1,5 +1,6 @@
 package DataLayerHabitat;
 
+import BusinessLayerHabitat.CAFdoador;
 import BusinessLayerHabitat.CAFdonativoMaterial;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -48,5 +49,20 @@ public class DAOCAFdonativoMaterial {
             f.add(new CAFdonativoMaterial((Integer) rs.getInt(1), rs.getString(2), (Integer) rs.getInt(3), (Integer) rs.getInt(4)));
         
         return f;
+    }
+    
+    /* INSERTS */
+    public CAFdonativoMaterial put(Integer id_doacao, Integer id_material, Integer quantidade) throws SQLException {
+        CAFdonativoMaterial d = null;
+        
+        String sql;
+        Statement stm = conn.createStatement();
+        stm.executeUpdate("DELETE FROM MaterialDoacao WHERE Material='" + id_doacao + "'");
+        
+            sql = "INSERT INTO MaterialDoacao VALUES ('"+id_doacao+"','"+id_material+"','"+quantidade+"');";
+       
+        int i  = stm.executeUpdate(sql);
+        
+        return new CAFdonativoMaterial(id_doacao, id_material, quantidade);
     }
 }

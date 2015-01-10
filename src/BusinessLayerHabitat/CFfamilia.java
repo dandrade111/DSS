@@ -22,6 +22,14 @@ public class CFfamilia {
         this.nome_representante = "";
     }
     
+    public CFfamilia(Integer id, float rend, String tel, String bi) {
+        this.id_familia = id;
+        this.bi_responsavel = bi;
+        this.rendimento = rend;
+        this.telefone = tel;
+        this.nome_representante = "";
+    }
+    
     public CFfamilia(Integer id, float rend, String tel, String bi, String nome) {
         this.id_familia = id;
         this.bi_responsavel = bi;
