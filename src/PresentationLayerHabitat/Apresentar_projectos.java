@@ -24,7 +24,8 @@ import javax.swing.table.DefaultTableModel;
 public class Apresentar_projectos extends javax.swing.JFrame {
     
     private DAOCCmaterialProcesso DAOCccmatp;
-
+    private Integer selectedProc;
+    
 //    Apresentar_projectos(Integer selectedProc, Connection connection) {
 //                initComponents();
 //        this.setVisible(true);
@@ -38,15 +39,15 @@ public class Apresentar_projectos extends javax.swing.JFrame {
         this.setVisible(true);
         this.setDefaultCloseOperation(Adicionar_tarefa.DISPOSE_ON_CLOSE);
     }
-    public Apresentar_projectos(Integer proj_id,Connection conn) {
+    public Apresentar_projectos(Integer proj_id, Connection conn) {
         initComponents();
         this.setVisible(true);
         this.setVisible(true);
         this.setDefaultCloseOperation(Adicionar_tarefa.DISPOSE_ON_CLOSE);
-        
+        this.selectedProc = proj_id;
+        System.out.println(this.selectedProc);
         try {
-            Collection<CCmaterialProcesso> ccmat;
-            ccmat = new HashSet<>(this.DAOCccmatp.get(proj_id));
+            Collection<CCmaterialProcesso> ccmat = new HashSet<>(this.DAOCccmatp.get(this.selectedProc));
             DefaultTableModel procTableModel = new DefaultTableModel();
             for (CCmaterialProcesso m : ccmat)
                 procTableModel.addRow(new Object[]{

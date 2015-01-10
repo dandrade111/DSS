@@ -2076,7 +2076,7 @@ public class Habitat_layout extends javax.swing.JFrame {
     }                 
     
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        Apresentar_projectos p = new Apresentar_projectos(selectedProc,this.conn.getConnection());
+        Apresentar_projectos p = new Apresentar_projectos(this.selectedProc, this.conn.getConnection());
     }                 
     
     private void jTxtProdNomeSearchActionPerformed(java.awt.event.ActionEvent evt) {                                                  
