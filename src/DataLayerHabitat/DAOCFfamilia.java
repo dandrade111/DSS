@@ -1,5 +1,6 @@
 package DataLayerHabitat;
 
+import BusinessLayerHabitat.CAFdoador;
 import BusinessLayerHabitat.CFfamilia;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -62,4 +63,21 @@ public class DAOCFfamilia {
         
         return f;
     }
+    
+    /* INSERTS */
+    public CFfamilia put(Integer id, float rend, String tel, String bi) throws SQLException {
+        CFfamilia d = null;
+        
+        String sql;
+        Statement stm = conn.createStatement();
+        stm.executeUpdate("DELETE FROM Familia WHERE id_Famlia='" + id + "'");
+        
+            sql = "INSERT INTO Familia VALUES ('"+id+"','"+rend+"','"+tel+"','"+bi+"');";
+       
+        int i  = stm.executeUpdate(sql);
+        
+        return new CFfamilia(id, rend, tel, bi);
+    }
+    
 }
+
