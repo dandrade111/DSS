@@ -9,6 +9,9 @@ package PresentationLayerHabitat;
 import DataLayerHabitat.DAOCAFdoador;
 import DataLayerHabitat.DAOCCtarefa;
 import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 public class Adicionar_Doador extends javax.swing.JFrame {
@@ -643,17 +646,22 @@ public class Adicionar_Doador extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        String n = this.jTextField7.getText();
-        String nm = this.jTextField7.getText();
-        String m = this.jTextField7.getText();
-        String t = (String) this.jComboBox1.getSelectedItem();
-        String tel = this.jTextField7.getText();
-        String tlm = this.jTextField7.getText();
-        String em = this.jTextField7.getText();
-        String fax = this.jTextField7.getText();
-        String bi = this.jTextField7.getText();
-        if (bi.equals(""))
-            bi = null;
+        try {
+            String n = this.jTextField9.getText();
+            String nm = this.jTextField7.getText();
+            String m = this.jTextField5.getText();
+            String t = (String) this.jComboBox1.getSelectedItem();
+            String tel = this.jTextField4.getText();
+            String tlm = this.jTextField6.getText();
+            String em = this.jTextField8.getText();
+            String fax = this.jTextField3.getText();
+            String bi = this.jTextField1.getText();
+            if (bi.equals(""))
+                bi = null;
+            this.daocafdoa.put(n, nm, m, t, tel, tlm, em, fax, bi);
+        } catch (SQLException ex) {
+            Logger.getLogger(Adicionar_Doador.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed

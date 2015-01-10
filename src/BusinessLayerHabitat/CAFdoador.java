@@ -29,7 +29,7 @@ public class CAFdoador {
     }
     
     // Caso não seja voluntário
-    public CAFdoador(String n, String nm, String m, String t, String tel, String tlm, String em, String fax) {
+    public CAFdoador(String n, String nm, String fax, String m, String t, String tel, String tlm, String em) {
         this.nif = n;
         this.nome = nm;
         this.morada = m;
@@ -42,7 +42,7 @@ public class CAFdoador {
     }
     
     // Caso seja voluntário
-    public CAFdoador(String n, String nm, String m, String t, String tel, String tlm, String em, String fax, String bi) {
+    public CAFdoador(String n, String nm, String fax, String m, String t, String tel, String tlm, String em, String bi) {
         this.nif = n;
         this.nome = nm;
         this.morada = m;

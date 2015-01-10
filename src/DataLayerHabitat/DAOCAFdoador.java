@@ -83,7 +83,7 @@ public class DAOCAFdoador {
         
         String sql;
         Statement stm = conn.createStatement();
-        if (bi.equals(""))
+        if (bi == null) 
             sql = "INSERT INTO Doador VALUES ('"+n+"','"+nm+"','"+fax+"','"+m+"','"+t+"','"+tel+"','"+tlm+"','"+em+"',NULL);";
         else
             sql = "INSERT INTO Doador VALUES ('"+n+"','"+nm+"','"+fax+"','"+m+"','"+t+"','"+tel+"','"+tlm+"','"+em+"','"+bi+"');";

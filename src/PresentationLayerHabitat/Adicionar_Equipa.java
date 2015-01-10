@@ -25,6 +25,7 @@ private DAOCAFequipa daocafeq;
         initComponents();
         this.daocafeq = new DAOCAFequipa(conn);
         this.setVisible(true);
+        this.setDefaultCloseOperation(Adicionar_tarefa.DISPOSE_ON_CLOSE);
     }
 
     /**
@@ -129,7 +130,7 @@ private DAOCAFequipa daocafeq;
         try {
             String nome = this.jTNomeeq.getText();
             String responsavel = this.jTrespeq.getText();
-            CAFequipa t = this.daocafeq.put(nome,0, responsavel);
+            this.daocafeq.put(nome, responsavel);
         } catch (SQLException ex) {
             Logger.getLogger(Adicionar_tarefa.class.getName()).log(Level.SEVERE, null, ex);
         }
