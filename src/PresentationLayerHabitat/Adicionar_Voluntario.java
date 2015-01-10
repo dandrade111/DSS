@@ -7,36 +7,12 @@
 package PresentationLayerHabitat;
 
 
-/**
- *
- * @author dandrade
- */
+
 public class Adicionar_Voluntario extends javax.swing.JFrame {
 
-//    private int utilSelected;
-//    private Connect con;
-//    private PropostaDAO pDAO;
-//    private UtilizadorDAO uDAO;
-    /**
-     * Creates new form JFPropostas
-     */
+
     public Adicionar_Voluntario(int util) {
-//        this.utilSelected=util;
-//        initComponents();
-//        this.setLocationRelativeTo(null);
-//        this.setVisible(true);
-//        this.con = new Connect();
-//        this.pDAO = new PropostaDAO(this.con.getConnection());
-//        this.uDAO = new UtilizadorDAO(this.con.getConnection());
-//        Utilizador u = uDAO.get(this.utilSelected);
-//        jLabel2.setText(String.valueOf(u.getContribuinte()));
-//        jTextField1.setText(u.getNome());
-//        jTextField2.setText(u.getEmail());
-//        jTextField3.setText(u.getMorada());
-//        jTextField4.setText(u.getCodigop());
-//        jTextField5.setText(u.getCidade());
-//        jTextArea1.setText(u.getApresentacao());
-       
+
     }
 
     /**

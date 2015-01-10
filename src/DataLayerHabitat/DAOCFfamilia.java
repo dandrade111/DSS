@@ -56,7 +56,7 @@ public class DAOCFfamilia {
         
         Statement stm = conn.createStatement();
         String sql = "SELECT * FROM v_nome_responsavel " +
-                     "WHERE id_Familia = '%"+id+"%' AND rendimento_bruto = '%"+rend+"%' AND telefone = '%"+tel+"%' AND bi_responsavel = '%"+bi+"%' AND nome = '%"+nome+"%'";
+                     "WHERE id_Familia LIKE '%"+id+"%' AND rendimento_bruto LIKE '%"+rend+"%' AND telefone LIKE '%"+tel+"%' AND bi_responsavel LIKE '%"+bi+"%' AND nome LIKE '%"+nome+"%'";
         ResultSet rs = stm.executeQuery(sql);
         while (rs.next())
             f.add(new CFfamilia((Integer) rs.getInt(1), rs.getFloat(2), rs.getString(3), rs.getString(4), rs.getString(5)));

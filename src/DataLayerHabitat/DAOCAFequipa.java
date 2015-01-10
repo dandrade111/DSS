@@ -49,22 +49,38 @@ public class DAOCAFequipa {
         
         return f;
     }
+    
+    public Collection<CAFequipa> search(Object id, Object nome, Object idfunc, Object nfunc) throws SQLException {
+        Collection<CAFequipa> f = new HashSet<>();
+        
+        Statement stm = conn.createStatement();
+        String sql = "SELECT * FROM v_EquipasNomes " +
+                     "WHERE id_equipa LIKE '%"+id+"%'" +
+                     "AND nome LIKE '%"+nome+"%'" + 
+                     "AND FuncionarioResponsavel LIKE '%"+idfunc+"%'" +
+                     "AND NomeFuncionario LIKE '%"+nfunc+"%'";
+        ResultSet rs = stm.executeQuery(sql);
+        while (rs.next())
+            f.add(new CAFequipa((Integer) rs.getInt(1), rs.getString(2), (Integer) rs.getInt(3), rs.getString(4)));
+        
+        return f;
+    }
 
 
 /*INSERTS */
-    public CAFequipa put(Integer id, String n, Integer fu, String nf) throws SQLException {
+    public CAFequipa put(String n, Integer fu, String nf) throws SQLException {
         CAFequipa d = null;
         
         String sql;
         Statement stm = conn.createStatement();
-        stm.executeUpdate("DELETE FROM Equipa WHERE id_Equipa='" + id + "'");
+        //stm.executeUpdate("DELETE FROM Equipa WHERE id_Equipa='" + id + "'");
         if (fu.equals(0))
-            sql = "INSERT INTO Doador VALUES ('"+id+"','"+n+"',NULL,'"+nf+"');";
+            sql = "INSERT INTO Doador VALUES ('"+n+"',NULL,'"+nf+"');";
         else
-            sql = "INSERT INTO Doador VALUES ('"+id+"','"+n+"','"+fu+"','"+nf+"');";
-        int i  = stm.executeUpdate(sql);
+            sql = "INSERT INTO Doador VALUES ('"+n+"','"+fu+"','"+nf+"');";
+//        int i  = stm.executeUpdate(sql);
         
-        return new CAFequipa( id, n,  fu, nf);
+        return new CAFequipa(0, n,  fu, nf);
     }
 
 }
