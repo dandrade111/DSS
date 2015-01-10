@@ -132,6 +132,11 @@ public class Apresentar_projectos extends javax.swing.JFrame {
                 "ID Tarefa", "Descrição", "Inicio", "Fim"
             }
         ));
+        jTabletarefasProj.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTabletarefasProjMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTabletarefasProj);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -225,7 +230,7 @@ public class Apresentar_projectos extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTableMaterialProjMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableMaterialProjMouseClicked
-     String selectedValue = (String) jTableMaterialProj.getModel().getValueAt(jTableMaterialProj.getSelectedRow(), 0);
+     Integer selectedValue = (Integer) jTableMaterialProj.getModel().getValueAt(jTableMaterialProj.getSelectedRow(), 0);
         System.out.println(selectedValue);
         try {
             Collection<CCtarefaProcesso> cctar = new HashSet<>(this.DAOCcctar.get(selectedValue));
@@ -242,6 +247,25 @@ public class Apresentar_projectos extends javax.swing.JFrame {
             Logger.getLogger(Apresentar_projectos.class.getName()).log(Level.SEVERE, null, ex);
         }   
     }//GEN-LAST:event_jTableMaterialProjMouseClicked
+
+    private void jTabletarefasProjMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabletarefasProjMouseClicked
+    Integer selectedValue = (Integer) jTabletarefasProj.getModel().getValueAt(jTabletarefasProj.getSelectedRow(), 0);
+        System.out.println(selectedValue);
+        try {
+            Collection<CCtarefaProcesso> cctar = new HashSet<>(this.DAOCcctar.get(selectedValue));
+            DefaultTableModel procTableModel = new DefaultTableModel();
+            for (CCtarefaProcesso m : cctar)
+                procTableModel.addRow(new Object[]{
+                                                m.getId_tarefa(),
+                                                m.getTarefa(),
+                                                m.getData_inicio(),
+                                                m.getData_fim()});
+            this.jTabletarefasProj.setModel(procTableModel);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Apresentar_projectos.class.getName()).log(Level.SEVERE, null, ex);
+        }     
+    }//GEN-LAST:event_jTabletarefasProjMouseClicked
 
     /**
      * @param args the command line arguments
