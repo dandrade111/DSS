@@ -27,8 +27,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Apresentar_projectos extends javax.swing.JFrame {
     
-    private DAOCCmaterialProcesso DAOCccmatPro;
-    private DAOCCtarefaProcesso DAOCcctarPro;
+    private DAOCCmaterialProcesso DAOCCmatPro;
+    private DAOCCtarefaProcesso DAOCCtarPro;
     private DAOCCvoluntarioProcessoTarefa DAOCCvolTarPro;
     private Integer selectedProc;
     Connection conn;
@@ -46,8 +46,8 @@ public class Apresentar_projectos extends javax.swing.JFrame {
         initComponents();
         this.conn = conn;
         this.DAOCCvolTarPro = new DAOCCvoluntarioProcessoTarefa(conn);
-        this.DAOCcctarPro = new DAOCCtarefaProcesso(conn);
-        this.DAOCccmatPro = new DAOCCmaterialProcesso(conn);
+        this.DAOCCtarPro = new DAOCCtarefaProcesso(conn);
+        this.DAOCCmatPro = new DAOCCmaterialProcesso(conn);
         this.selectedProc = proj_id;
         this.update();
         this.setVisible(true);
@@ -243,7 +243,7 @@ public class Apresentar_projectos extends javax.swing.JFrame {
      Integer selectedValue = (Integer) jTableMaterialProj.getModel().getValueAt(jTableMaterialProj.getSelectedRow(), 0);
         System.out.println(selectedValue);
         try {
-            Collection<CCtarefaProcesso> cctar = new HashSet<>(this.DAOCCvolTarPro.get(selectedValue));
+            Collection<CCtarefaProcesso> cctar = new HashSet<>(this.DAOCCtarPro.get(selectedValue));
             DefaultTableModel procTableModel = new DefaultTableModel();
             for (CCtarefaProcesso m : cctar)
                 procTableModel.addRow(new Object[]{
@@ -262,7 +262,7 @@ public class Apresentar_projectos extends javax.swing.JFrame {
     Integer selectedValue = (Integer) jTabletarefasProj.getModel().getValueAt(jTabletarefasProj.getSelectedRow(), 0);
         System.out.println(selectedValue);
         try {
-            Collection<CCvoluntarioProcessoTarefa> ccvoltar = new HashSet<>(this.DAOCCvoltar.get(selectedValue));
+            Collection<CCvoluntarioProcessoTarefa> ccvoltar = new HashSet<>(this.DAOCCvolTarPro.get(selectedValue));
             DefaultTableModel procTableModel = new DefaultTableModel();
             for (CCvoluntarioProcessoTarefa m : ccvoltar)
                 procTableModel.addRow(new Object[]{
