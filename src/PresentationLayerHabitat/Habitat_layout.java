@@ -282,6 +282,11 @@ public class Habitat_layout extends javax.swing.JFrame {
         jLabel77.setText("Quantidade");
 
         jToggleButton1.setText("Pesquisar");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
         jPanel17.setLayout(jPanel17Layout);
@@ -1539,6 +1544,10 @@ public class Habitat_layout extends javax.swing.JFrame {
         int row = this.jTableMaterial.rowAtPoint(evt.getPoint());
         this.selectedMat = (Integer) jTableMaterial.getValueAt(row, 0);
     }//GEN-LAST:event_jTableMaterialMouseReleased
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     /* Update */
     public void updateDonativos() {
