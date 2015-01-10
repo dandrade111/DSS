@@ -13,13 +13,18 @@ import java.sql.Connection;
  */
 public class Apresentar_projectos extends javax.swing.JFrame {
 
+//    Apresentar_projectos(Integer selectedProc, Connection connection) {
+//                initComponents();
+//        this.setVisible(true);
+//    }
+
     /**
      * Creates new form Apresentar_projectos
      */
     public Apresentar_projectos() {
         initComponents();
     }
-    public Apresentar_projectos(Object proj_id,Connection conn) {
+    public Apresentar_projectos(Integer proj_id,Connection conn) {
         initComponents();
         this.setVisible(true);
     }

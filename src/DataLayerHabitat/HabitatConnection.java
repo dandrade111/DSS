@@ -17,7 +17,7 @@ public class HabitatConnection {
     public HabitatConnection() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            String connectionUrl = "jdbc:mysql://192.168.0.102:3306/Habitat?zeroDateTimeBehavior=convertToNull";
+            String connectionUrl = "jdbc:mysql://habitatdb.ddns.net:3306/Habitat?zeroDateTimeBehavior=convertToNull";
             this.con = DriverManager.getConnection(connectionUrl, "gabriel", "11");
         } catch (ClassNotFoundException ex) {
             System.out.println("SQL Exception: "+ ex.toString());
