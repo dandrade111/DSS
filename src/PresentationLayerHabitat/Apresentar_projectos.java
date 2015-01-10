@@ -27,16 +27,11 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Apresentar_projectos extends javax.swing.JFrame {
     
-    private DAOCCmaterialProcesso DAOCccmatp;
-    private DAOCCtarefaProcesso DAOCcctar;
-    private DAOCCvoluntarioProcessoTarefa DAOCCvoltar;
+    private DAOCCmaterialProcesso DAOCccmatOri;
+    private DAOCCtarefaProcesso DAOCcctarPro;
+    private DAOCCvoluntarioProcessoTarefa DAOCCvolTarPro;
     private Integer selectedProc;
-    
-//    Apresentar_projectos(Integer selectedProc, Connection connection) {
-//                initComponents();
-//        this.setVisible(true);
-//    }
-
+   
     /**
      * Creates new form Apresentar_projectos
      */
