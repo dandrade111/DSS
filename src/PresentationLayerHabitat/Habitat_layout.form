@@ -319,7 +319,7 @@
                                   <Component id="jLabel46" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Component id="jButton18" alignment="0" max="32767" attributes="0"/>
                               </Group>
-                              <EmptySpace min="0" pref="1" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -749,6 +749,7 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
+<<<<<<< HEAD
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
@@ -780,6 +781,20 @@
                                                   </Group>
                                               </Group>
                                               <Component id="jLabel57" alignment="0" min="-2" max="-2" attributes="0"/>
+=======
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="jButton26" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                              <Component id="jLabel58" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="jLabel59" alignment="1" max="32767" attributes="0"/>
+                                              <Component id="jLabel60" alignment="1" max="32767" attributes="0"/>
+                                              <Component id="jLabel61" alignment="1" max="32767" attributes="0"/>
+                                              <Component id="jLabel62" alignment="1" max="32767" attributes="0"/>
+                                              <Component id="jLabel63" alignment="1" min="-2" pref="53" max="-2" attributes="0"/>
+>>>>>>> 2eeb628a8be45af237f21f92bbb1d4b88ce64bd7
                                           </Group>
                                       </Group>
                                       <Group type="102" alignment="1" attributes="0">
@@ -808,6 +823,7 @@
                                           </Group>
                                       </Group>
                                   </Group>
+<<<<<<< HEAD
                                   <Group type="102" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="jLabel66" min="-2" pref="53" max="-2" attributes="0"/>
@@ -817,6 +833,13 @@
                                   <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       <Component id="jButton26" min="-2" pref="203" max="-2" attributes="0"/>
+=======
+                                  <Component id="jSeparator11" max="32767" attributes="0"/>
+                                  <Component id="jLabel67" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                      <Component id="jTxtEqNome" alignment="1" min="-2" pref="152" max="-2" attributes="0"/>
+                                      <Component id="jButton32" alignment="0" min="-2" pref="197" max="-2" attributes="0"/>
+>>>>>>> 2eeb628a8be45af237f21f92bbb1d4b88ce64bd7
                                   </Group>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -1137,6 +1160,9 @@
                       <Properties>
                         <Property name="text" type="java.lang.String" value="Adicionar"/>
                       </Properties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton30ActionPerformed"/>
+                      </Events>
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel67">
                       <Properties>
