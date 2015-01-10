@@ -50,6 +50,18 @@ public class DAOCAFequipa {
         return f;
     }
     
+    public Collection<CAFequipa> getVoluntario(Object bi) throws SQLException {
+        Collection<CAFequipa> f = new HashSet<>();
+        
+        Statement stm = conn.createStatement();
+        String sql = "select v.* from v_equipasnomes AS v, VoluntariosEquipa AS ve where v.id_equipa=ve.id_equipa and voluntario_BI='"+bi+"'";
+        ResultSet rs = stm.executeQuery(sql);
+        while (rs.next())
+            f.add(new CAFequipa((Integer) rs.getInt(1), rs.getString(2), (Integer) rs.getInt(3), rs.getString(4)));
+        
+        return f;
+    }
+    
     public Collection<CAFequipa> search(Object id, Object nome, Object idfunc, Object nfunc) throws SQLException {
         Collection<CAFequipa> f = new HashSet<>();
         
@@ -62,7 +74,7 @@ public class DAOCAFequipa {
         ResultSet rs = stm.executeQuery(sql);
         while (rs.next())
             f.add(new CAFequipa((Integer) rs.getInt(1), rs.getString(2), (Integer) rs.getInt(3), rs.getString(4)));
-        
+        System.out.println(sql);
         return f;
     }
 

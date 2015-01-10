@@ -51,6 +51,18 @@ public class DAOCCtarefa {
         return f;
     }
     
+    public Collection<CCtarefa> search(Object id, Object tarefa) throws SQLException {
+        Collection<CCtarefa> f = new HashSet<>();
+        
+        Statement stm = conn.createStatement();
+        String sql = "SELECT * FROM Tarefa WHERE id_Tarefa LIKE '%"+id+"%' AND tarefa LIKE '%"+tarefa+"%'";
+        ResultSet rs = stm.executeQuery(sql);
+        while (rs.next())
+            f.add(new CCtarefa((Integer) rs.getInt(1), rs.getString(2)));
+        
+        return f;
+    }
+    
     /* INSERTS */
     public CCtarefa put(String nt) throws SQLException {
         CCtarefa d = null;
