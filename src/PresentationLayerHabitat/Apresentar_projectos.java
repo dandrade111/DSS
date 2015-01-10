@@ -31,36 +31,31 @@ public class Apresentar_projectos extends javax.swing.JFrame {
     private DAOCCtarefaProcesso DAOCcctar;
     private DAOCCvoluntarioProcessoTarefa DAOCCvoltar;
     private Integer selectedProc;
-    
-//    Apresentar_projectos(Integer selectedProc, Connection connection) {
-//                initComponents();
-//        this.setVisible(true);
-//    }
+    Connection conn;
 
-    /**
-     * Creates new form Apresentar_projectos
-     */
-    public Apresentar_projectos() {
-        initComponents();
-        this.setVisible(true);
-        this.setDefaultCloseOperation(Adicionar_tarefa.DISPOSE_ON_CLOSE);
-    }
     public Apresentar_projectos(Integer proj_id, Connection conn) {
         initComponents();
-        this.setVisible(true);
-        this.setVisible(true);
-        this.setDefaultCloseOperation(Adicionar_tarefa.DISPOSE_ON_CLOSE);
+        this.conn = conn;
+        this.DAOCccmatp = new DAOCCmaterialProcesso(conn);
         this.selectedProc = proj_id;
-        System.out.println(this.selectedProc);
+        this.update();
+        this.setVisible(true);
+        this.setDefaultCloseOperation(Apresentar_projectos.DISPOSE_ON_CLOSE);
+    }
+        
+    public void update() {
         try {
             Collection<CCmaterialProcesso> ccmat = new HashSet<>(this.DAOCccmatp.get(this.selectedProc));
-            DefaultTableModel procTableModel = new DefaultTableModel();
+            DefaultTableModel matpTableModel = new DefaultTableModel();
+            matpTableModel.addColumn("BI");
+            matpTableModel.addColumn("NIF");
+            matpTableModel.addColumn("Data Nascimento");
             for (CCmaterialProcesso m : ccmat)
-                procTableModel.addRow(new Object[]{
+                matpTableModel.addRow(new Object[]{
                                                 m.getMaterial(),
                                                 m.getNome_material(),
                                                 m.getQuantidade()});
-            this.jTableMaterialProj.setModel(procTableModel);
+            this.jTableMaterialProj.setModel(matpTableModel);
             
         } catch (SQLException ex) {
             Logger.getLogger(Apresentar_projectos.class.getName()).log(Level.SEVERE, null, ex);
@@ -269,41 +264,6 @@ public class Apresentar_projectos extends javax.swing.JFrame {
             Logger.getLogger(Apresentar_projectos.class.getName()).log(Level.SEVERE, null, ex);
         }     
     }//GEN-LAST:event_jTabletarefasProjMouseClicked
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Apresentar_projectos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Apresentar_projectos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Apresentar_projectos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Apresentar_projectos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Apresentar_projectos().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
