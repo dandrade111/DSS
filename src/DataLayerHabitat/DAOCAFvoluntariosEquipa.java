@@ -49,4 +49,17 @@ public class DAOCAFvoluntariosEquipa {
         
         return f;
     }
+
+     /* INSERTS */
+    public CAFvoluntariosEquipa put(Integer equipa, String bi_vol) throws SQLException {
+        CAFvoluntariosEquipa d = null;
+        
+        String sql;
+        Statement stm = conn.createStatement();
+        stm.executeUpdate("DELETE FROM VoluntariosEquipa WHERE Voluntario_BI='" + bi_vol + "'");
+        sql = "INSERT INTO VoluntariosEquipa VALUES ('"+equipa+"','"+bi_vol+"');";
+        int i  = stm.executeUpdate(sql);
+        
+        return new CAFvoluntariosEquipa(equipa, bi_vol);
+    }
 }

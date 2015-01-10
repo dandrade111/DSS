@@ -16,6 +16,11 @@ public class CCprocessoEquipa {
         this.nome_equipa = "";
     }
 
+    public CCprocessoEquipa(Integer processo, Integer equipa) {
+        this.processo = processo;
+        this.id_equipa = equipa;
+        this.nome_equipa = "";
+    }
     public CCprocessoEquipa(Integer processo, Integer equipa, String n) {
         this.processo = processo;
         this.id_equipa = equipa;

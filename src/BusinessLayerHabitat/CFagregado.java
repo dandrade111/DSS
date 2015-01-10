@@ -8,7 +8,7 @@ public class CFagregado {
     
     private String bi;                         // BI do membro do agregado familiar
     private String nif;                        // NIF do membro do agregado familiar
-    private Date data_nascimento; // Data de nascimento do membro do agregado familiar
+    private Date data_nascimento;              // Data de nascimento do membro do agregado familiar
     private String morada;                     // Morada do membro do agregado familiar
     private String nome;                       // Nome do membro do agregado familiar
     private String telemovel;                  // Número de telemóvel do membro do agregado familiar

@@ -20,6 +20,16 @@ public class CCmaterialProcesso {
         this.quantidade = 0;
     }
 
+    public CCmaterialProcesso(Integer processo, Integer material, Integer funcionario, Integer quantidade) {
+        this.processo = processo;
+        this.material = material;
+        this.nome_material = "";
+        this.funcionario = funcionario;
+        this.quantidade = quantidade;
+    }
+    
+    
+    
     public CCmaterialProcesso(Integer processo, Integer material, String nome, Integer funcionario, Integer quantidade) {
         this.processo = processo;
         this.material = material;
