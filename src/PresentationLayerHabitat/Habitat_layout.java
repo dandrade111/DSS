@@ -1,11 +1,19 @@
 package PresentationLayerHabitat;
 
+import BusinessLayerHabitat.CAFdoador;
+import BusinessLayerHabitat.CAFdonativo;
+import BusinessLayerHabitat.CAFequipa;
+import BusinessLayerHabitat.CAFvoluntario;
 import BusinessLayerHabitat.CCmaterial;
 import BusinessLayerHabitat.CCprocesso;
 import BusinessLayerHabitat.CCtarefa;
 import BusinessLayerHabitat.CCtarefaProcesso;
 import BusinessLayerHabitat.CFfamilia;
+import DataLayerHabitat.DAOCAFdoador;
+import DataLayerHabitat.DAOCAFdonativo;
+import DataLayerHabitat.DAOCAFequipa;
 import DataLayerHabitat.DAOCAFfuncionario;
+import DataLayerHabitat.DAOCAFvoluntario;
 import DataLayerHabitat.DAOCCmaterial;
 import DataLayerHabitat.DAOCCprocesso;
 import DataLayerHabitat.DAOCCtarefa;
@@ -28,6 +36,12 @@ public class Habitat_layout extends javax.swing.JFrame {
     private DAOCCprocesso DAOCCproc;
     private DAOCCtarefa DAOCCtar;
     private DAOCCtarefaProcesso DAOCCtarProc;
+    private DAOCAFvoluntario DAOCAFvol;
+    private DAOCAFequipa DAOCAFeq;
+    private DAOCAFdoador DAOCAFdoa;
+    private DAOCAFdonativo DAOCAFdon;
+    
+    private Integer selectedProc;
     
     /* Construtor */
     
@@ -40,6 +54,13 @@ public class Habitat_layout extends javax.swing.JFrame {
         this.DAOCCproc = new DAOCCprocesso(this.conn.getConnection());
         this.DAOCCtar = new DAOCCtarefa(this.conn.getConnection());
         this.DAOCCtarProc = new DAOCCtarefaProcesso(this.conn.getConnection());
+        this.DAOCAFvol = new DAOCAFvoluntario(this.conn.getConnection());
+        this.DAOCAFeq = new DAOCAFequipa(this.conn.getConnection());
+        this.DAOCAFdoa = new DAOCAFdoador(this.conn.getConnection());
+        this.DAOCAFdon = new DAOCAFdonativo(this.conn.getConnection());
+        
+        this.selectedProc = -1;
+        
         this.jTabbedPane5.setVisible(false);
     }
 
@@ -154,13 +175,13 @@ public class Habitat_layout extends javax.swing.JFrame {
         jButton26 = new javax.swing.JButton();
         jSeparator10 = new javax.swing.JSeparator();
         jScrollPane7 = new javax.swing.JScrollPane();
-        jTable6 = new javax.swing.JTable();
+        jTableVoluntarios = new javax.swing.JTable();
         jLabel64 = new javax.swing.JLabel();
         jButton27 = new javax.swing.JButton();
         jButton28 = new javax.swing.JButton();
         jLabel65 = new javax.swing.JLabel();
         jScrollPane8 = new javax.swing.JScrollPane();
-        jTable7 = new javax.swing.JTable();
+        jTableEquipas = new javax.swing.JTable();
         jButton29 = new javax.swing.JButton();
         jButton30 = new javax.swing.JButton();
         jLabel66 = new javax.swing.JLabel();
@@ -186,9 +207,9 @@ public class Habitat_layout extends javax.swing.JFrame {
         jButton33 = new javax.swing.JButton();
         jSeparator12 = new javax.swing.JSeparator();
         jScrollPane11 = new javax.swing.JScrollPane();
-        jTable8 = new javax.swing.JTable();
+        jTableDonativos = new javax.swing.JTable();
         jScrollPane12 = new javax.swing.JScrollPane();
-        jTable9 = new javax.swing.JTable();
+        jTableDoadores = new javax.swing.JTable();
         jLabel74 = new javax.swing.JLabel();
         jLabel75 = new javax.swing.JLabel();
         jSeparator13 = new javax.swing.JSeparator();
@@ -216,6 +237,7 @@ public class Habitat_layout extends javax.swing.JFrame {
         jButtonLogin = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -765,7 +787,7 @@ public class Habitat_layout extends javax.swing.JFrame {
 
         jSeparator10.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
-        jTable6.setModel(new javax.swing.table.DefaultTableModel(
+        jTableVoluntarios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null},
@@ -776,7 +798,7 @@ public class Habitat_layout extends javax.swing.JFrame {
                 "Nome", "Morada", "Telefone", "Data Nasc.", "Profissão", "Naturalidade", "Nacionalidade", "Estado Civil", "Escolaridade"
             }
         ));
-        jScrollPane7.setViewportView(jTable6);
+        jScrollPane7.setViewportView(jTableVoluntarios);
 
         jLabel64.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel64.setText("Voluntários");
@@ -788,7 +810,7 @@ public class Habitat_layout extends javax.swing.JFrame {
         jLabel65.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel65.setText("Equipas");
 
-        jTable7.setModel(new javax.swing.table.DefaultTableModel(
+        jTableEquipas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null},
@@ -799,7 +821,7 @@ public class Habitat_layout extends javax.swing.JFrame {
                 "Nome", "Morada", "Telefone", "Data Nasc.", "Profissão", "Naturalidade", "Nacionalidade", "Estado Civil", "Escolaridade"
             }
         ));
-        jScrollPane8.setViewportView(jTable7);
+        jScrollPane8.setViewportView(jTableEquipas);
 
         jButton29.setText("Consultar");
 
@@ -833,7 +855,7 @@ public class Habitat_layout extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel18Layout.createSequentialGroup()
-                        .addGap(0, 102, Short.MAX_VALUE)
+                        .addGap(0, 101, Short.MAX_VALUE)
                         .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel18Layout.createSequentialGroup()
                                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -889,14 +911,14 @@ public class Habitat_layout extends javax.swing.JFrame {
                             .addComponent(jButton30)))
                     .addComponent(jScrollPane8, javax.swing.GroupLayout.PREFERRED_SIZE, 948, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 948, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         jPanel18Layout.setVerticalGroup(
             jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel18Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator10, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jSeparator10)
                     .addGroup(jPanel18Layout.createSequentialGroup()
                         .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel18Layout.createSequentialGroup()
@@ -961,7 +983,7 @@ public class Habitat_layout extends javax.swing.JFrame {
                                     .addComponent(jTextField30, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jButton32)))
-                        .addGap(0, 107, Short.MAX_VALUE)))
+                        .addGap(0, 139, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
@@ -987,7 +1009,7 @@ public class Habitat_layout extends javax.swing.JFrame {
             }
         });
 
-        jTable8.setModel(new javax.swing.table.DefaultTableModel(
+        jTableDonativos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null},
@@ -998,9 +1020,9 @@ public class Habitat_layout extends javax.swing.JFrame {
                 "Nome", "Morada", "Telefone", "Data Nasc.", "Profissão", "Naturalidade", "Nacionalidade", "Estado Civil", "Escolaridade"
             }
         ));
-        jScrollPane11.setViewportView(jTable8);
+        jScrollPane11.setViewportView(jTableDonativos);
 
-        jTable9.setModel(new javax.swing.table.DefaultTableModel(
+        jTableDoadores.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null},
@@ -1011,7 +1033,7 @@ public class Habitat_layout extends javax.swing.JFrame {
                 "Nome", "Morada", "Telefone", "Data Nasc.", "Profissão", "Naturalidade", "Nacionalidade", "Estado Civil", "Escolaridade"
             }
         ));
-        jScrollPane12.setViewportView(jTable9);
+        jScrollPane12.setViewportView(jTableDoadores);
 
         jLabel74.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel74.setText("Doadores");
@@ -1202,7 +1224,7 @@ public class Habitat_layout extends javax.swing.JFrame {
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 1377, Short.MAX_VALUE)
+            .addComponent(jTabbedPane6)
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1254,6 +1276,13 @@ public class Habitat_layout extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel2.setText("Habitat");
 
+        jButton1.setText("Limpar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel22Layout = new javax.swing.GroupLayout(jPanel22);
         jPanel22.setLayout(jPanel22Layout);
         jPanel22Layout.setHorizontalGroup(
@@ -1271,7 +1300,9 @@ public class Habitat_layout extends javax.swing.JFrame {
                 .addComponent(jButtonSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(328, 328, 328)
+                .addGap(147, 147, 147)
+                .addComponent(jButton1)
+                .addGap(118, 118, 118)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
@@ -1291,7 +1322,8 @@ public class Habitat_layout extends javax.swing.JFrame {
                         .addComponent(jTextUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel87)
                         .addComponent(jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButtonLogin)))
+                        .addComponent(jButtonLogin)
+                        .addComponent(jButton1)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -1319,7 +1351,7 @@ public class Habitat_layout extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addComponent(jPanel22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, Short.MAX_VALUE)
+                .addGap(18, 26, Short.MAX_VALUE)
                 .addComponent(jTabbedPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1370,7 +1402,6 @@ public class Habitat_layout extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonSignUpActionPerformed
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
-        
         String usr = this.jTextUsername.getText();
         String pass = this.jPasswordField.getText();
         if (this.jButtonLogin.getText().equals("Login")) {
@@ -1423,14 +1454,19 @@ public class Habitat_layout extends javax.swing.JFrame {
 
     private void jTableProcMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableProcMouseReleased
         int row = this.jTableProc.rowAtPoint(evt.getPoint());
-        this.updateTarefas((Integer) jTableProc.getValueAt(row, 0));
+        this.selectedProc = (Integer) jTableProc.getValueAt(row, 0);
+        this.updateTarefas();
     }//GEN-LAST:event_jTableProcMouseReleased
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.update();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /* Update */
-    public void updateTarefas(Integer id) {
+    public void updateTarefas() {
         try {
             // Tabela Tarefas
-            Collection<CCtarefaProcesso> cctarproc = new HashSet<>(this.DAOCCtarProc.getAll());
+            Collection<CCtarefaProcesso> cctarproc = new HashSet<>(this.DAOCCtarProc.get(this.selectedProc));
             DefaultTableModel tarTableModel = new DefaultTableModel();
             tarTableModel.addColumn("ID Processo");
             tarTableModel.addColumn("ID Tarefa");
@@ -1438,7 +1474,7 @@ public class Habitat_layout extends javax.swing.JFrame {
             tarTableModel.addColumn("Data Inicio");
             tarTableModel.addColumn("Data Fim");
             for (CCtarefaProcesso t : cctarproc)
-                tarTableModel.addRow(new Object[]{t.getId_processo()});
+                tarTableModel.addRow(new Object[]{t.getId_processo(), t.getId_tarefa(), t.getTarefa(), t.getData_inicio(), t.getData_fim()});
             this.jTableTarefas.setModel(tarTableModel);
         } catch (SQLException ex) {
             System.out.println("SQLException: " + ex.getMessage());
@@ -1500,7 +1536,64 @@ public class Habitat_layout extends javax.swing.JFrame {
                 tarTableModel.addRow(new Object[]{t.getId(), t.getNome_tarefa()});
             this.jTableTarefas.setModel(tarTableModel);
             
+            // Tabela Voluntarios
+            Collection<CAFvoluntario> cafvol = new HashSet<>(this.DAOCAFvol.getAllSimples());
+            DefaultTableModel volTableModel = new DefaultTableModel();
+            volTableModel.addColumn("BI");
+            volTableModel.addColumn("Nome");
+            volTableModel.addColumn("Data Nascimento");
+            volTableModel.addColumn("Morada");
+            volTableModel.addColumn("Telemovel");
+            volTableModel.addColumn("e-Mail");
+            volTableModel.addColumn("Nacionalidade");
+            volTableModel.addColumn("Profissao");
+            for (CAFvoluntario v : cafvol)
+                volTableModel.addRow(new Object[]{v.getBi(), v.getNome(), v.getData_nascimento(), v.getMorada(), v.getTelemovel(), v.getEmail(), v.getNacionalidade(), v.getProfissao()});
+            this.jTableVoluntarios.setModel(volTableModel);
             
+            // Tabela Equipas
+            Collection<CAFequipa> cafeq = new HashSet<>(this.DAOCAFeq.getAll());
+            DefaultTableModel eqTableModel = new DefaultTableModel();
+            eqTableModel.addColumn("ID");
+            eqTableModel.addColumn("Nome");
+            eqTableModel.addColumn("ID Funcionario Responsavel");
+            eqTableModel.addColumn("Funcionario Responsavel");
+            for (CAFequipa e : cafeq)
+                eqTableModel.addRow(new Object[]{e.getId(), e.getNome(), e.getFuncionario_responsavel(), e.getNome_funcionario()});
+            this.jTableEquipas.setModel(eqTableModel);
+            
+            // Tabela Doadores
+            Collection<CAFdoador> cafdoa = new HashSet<>(this.DAOCAFdoa.getAll());
+            DefaultTableModel doaTableModel = new DefaultTableModel();
+            doaTableModel.addColumn("NIF");
+            doaTableModel.addColumn("Nome");
+            doaTableModel.addColumn("Morada");
+            doaTableModel.addColumn("Tipo");
+            doaTableModel.addColumn("Telefone");
+            doaTableModel.addColumn("Telemóvel");
+            doaTableModel.addColumn("e-Mail");
+            doaTableModel.addColumn("fax");
+            doaTableModel.addColumn("BI");
+            for (CAFdoador d : cafdoa)
+                doaTableModel.addRow(new Object[]{d.getNif(), d.getNome(), d.getMorada(), d.getTipo(), d.getTelefone(), d.getTelemovel(), d.getEmail(), d.getFax(), d.getBi_voluntario()});
+            this.jTableDoadores.setModel(doaTableModel);
+            
+            // Tabela Donativos
+            Collection<CAFdonativo> cafdon = new HashSet<>(this.DAOCAFdon.getAll());
+            DefaultTableModel donTableModel = new DefaultTableModel();
+            donTableModel.addColumn("ID");
+            donTableModel.addColumn("NIF Doador");
+            donTableModel.addColumn("Doador");
+            donTableModel.addColumn("Tipo");
+            donTableModel.addColumn("Recibo");
+            donTableModel.addColumn("Data Doacao");
+            donTableModel.addColumn("Evento");
+            donTableModel.addColumn("Quantia");
+            donTableModel.addColumn("Descricao");
+            donTableModel.addColumn("Processo");
+            for (CAFdonativo d : cafdon)
+                donTableModel.addRow(new Object[]{d.getId(), d.getNif_doador(), d.getNome_doador(), d.getTipo(), d.getNr_recibo(), d.getData_doacao(), d.getEvento(), d.getQuantia(), d.getDescricao(), d.getId_processo()});
+            this.jTableDonativos.setModel(donTableModel);
         } catch (SQLException ex) {
             System.out.println("SQLException: " + ex.getMessage());
         }
@@ -1540,6 +1633,7 @@ public class Habitat_layout extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
@@ -1670,14 +1764,14 @@ public class Habitat_layout extends javax.swing.JFrame {
     private javax.swing.JSpinner jSpinner9;
     private javax.swing.JTabbedPane jTabbedPane5;
     private javax.swing.JTabbedPane jTabbedPane6;
-    private javax.swing.JTable jTable6;
-    private javax.swing.JTable jTable7;
-    private javax.swing.JTable jTable8;
-    private javax.swing.JTable jTable9;
+    private javax.swing.JTable jTableDoadores;
+    private javax.swing.JTable jTableDonativos;
+    private javax.swing.JTable jTableEquipas;
     private javax.swing.JTable jTableFamilias;
     private javax.swing.JTable jTableMaterial;
     private javax.swing.JTable jTableProc;
     private javax.swing.JTable jTableTarefas;
+    private javax.swing.JTable jTableVoluntarios;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;

@@ -1,6 +1,5 @@
 package DataLayerHabitat;
 
-import BusinessLayerHabitat.CAFdoador;
 import BusinessLayerHabitat.CAFdonativo;
 import java.sql.Connection;
 import java.sql.Date;

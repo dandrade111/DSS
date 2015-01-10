@@ -49,7 +49,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="1" attributes="0">
               <Component id="jPanel22" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="32767" attributes="0"/>
+              <EmptySpace type="separate" pref="26" max="32767" attributes="0"/>
               <Component id="jTabbedPane5" min="-2" pref="615" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jButton4" min="-2" pref="33" max="-2" attributes="0"/>
@@ -967,7 +967,7 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jTabbedPane6" alignment="0" pref="1377" max="32767" attributes="0"/>
+                  <Component id="jTabbedPane6" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
@@ -1000,7 +1000,7 @@
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="0" pref="102" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="101" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -1070,7 +1070,7 @@
                                   <Component id="jScrollPane8" min="-2" pref="948" max="-2" attributes="0"/>
                                   <Component id="jScrollPane7" min="-2" pref="948" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="20" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>
@@ -1079,8 +1079,8 @@
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jSeparator10" alignment="1" max="32767" attributes="0"/>
-                                  <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jSeparator10" max="32767" attributes="0"/>
+                                  <Group type="102" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" alignment="0" attributes="0">
                                               <Group type="103" groupAlignment="3" attributes="0">
@@ -1161,7 +1161,7 @@
                                               <Component id="jButton32" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <EmptySpace min="0" pref="107" max="32767" attributes="0"/>
+                                      <EmptySpace min="0" pref="139" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -1259,7 +1259,7 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javax.swing.JTable" name="jTable6">
+                        <Component class="javax.swing.JTable" name="jTableVoluntarios">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="9" rowCount="4">
@@ -1311,7 +1311,7 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javax.swing.JTable" name="jTable7">
+                        <Component class="javax.swing.JTable" name="jTableEquipas">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="9" rowCount="4">
@@ -1632,7 +1632,7 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javax.swing.JTable" name="jTable8">
+                        <Component class="javax.swing.JTable" name="jTableDonativos">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="9" rowCount="4">
@@ -1658,7 +1658,7 @@
 
                       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
                       <SubComponents>
-                        <Component class="javax.swing.JTable" name="jTable9">
+                        <Component class="javax.swing.JTable" name="jTableDoadores">
                           <Properties>
                             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                               <Table columnCount="9" rowCount="4">
@@ -1818,7 +1818,9 @@
                   <Component id="jButtonSignUp" min="-2" pref="78" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jButtonLogin" min="-2" pref="87" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="328" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="147" max="-2" attributes="0"/>
+                  <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="118" max="-2" attributes="0"/>
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
@@ -1842,6 +1844,7 @@
                           <Component id="jLabel87" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jPasswordField" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jButtonLogin" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
@@ -1908,6 +1911,14 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Habitat"/>
           </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="jButton1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Limpar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
