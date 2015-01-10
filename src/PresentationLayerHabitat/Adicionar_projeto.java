@@ -11,7 +11,7 @@ package PresentationLayerHabitat;
  *
  * @author Varzim
  */
-public class Adicionar_Familia extends javax.swing.JFrame {
+public class Adicionar_projeto extends javax.swing.JFrame {
 
 //    private int utilSelected;
 //    private Connect con;
@@ -20,7 +20,7 @@ public class Adicionar_Familia extends javax.swing.JFrame {
     /**
      * Creates new form JFPropostas
      */
-    public Adicionar_Familia(int util) {
+    public Adicionar_projeto(int util) {
 //        this.utilSelected=util;
 //        initComponents();
 //        this.setLocationRelativeTo(null);
@@ -107,9 +107,9 @@ public class Adicionar_Familia extends javax.swing.JFrame {
                         .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addGap(57, 57, 57)
@@ -141,10 +141,10 @@ public class Adicionar_Familia extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
                 .addContainerGap())
         );
 
