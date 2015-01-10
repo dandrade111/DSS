@@ -39,6 +39,18 @@ public class DAOCCmaterial {
         return f;
     }
     
+    public Collection<CCmaterial> search(Object id, Object nome, Object qtd) throws SQLException {
+        Collection<CCmaterial> f = new HashSet<>();
+        
+        Statement stm = conn.createStatement();
+        String sql = "SELECT * FROM Material WHERE id_Material = '%"+id+"%' AND descricao = '%"+nome+"%' AND stock = '%"+qtd+"%'";
+        ResultSet rs = stm.executeQuery(sql);
+        while (rs.next())
+            f.add(new CCmaterial((Integer) rs.getInt(1), rs.getString(2), (Integer) rs.getInt(3)));
+        
+        return f;
+    }
+    
     public CCmaterial get(Object id) throws SQLException {
         CCmaterial f = null;
         
