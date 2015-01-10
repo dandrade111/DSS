@@ -44,7 +44,7 @@ public class DAOCCmaterial {
         Collection<CCmaterial> f = new HashSet<>();
         
         Statement stm = conn.createStatement();
-        String sql = "SELECT * FROM Material WHERE id_Material = '%"+id+"%' AND descricao = '%"+nome+"%' AND stock = '%"+qtd+"%'";
+        String sql = "SELECT * FROM Material WHERE id_Material LIKE '%"+id+"%' AND descricao LIKE '%"+nome+"%' AND stock LIKE '%"+qtd+"%'";
         ResultSet rs = stm.executeQuery(sql);
         while (rs.next())
             f.add(new CCmaterial((Integer) rs.getInt(1), rs.getString(2), (Integer) rs.getInt(3)));
