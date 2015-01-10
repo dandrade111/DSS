@@ -33,7 +33,7 @@ public class DAOCFfamilia {
         String sql = "SELECT * FROM v_nome_responsavel WHERE bi_responsavel='" + (String) bi + "'";
         ResultSet rs = stm.executeQuery(sql);
         if (rs.next())
-            f = new CFfamilia((Integer) rs.getInt(1), rs.getFloat(2), rs.getString(3), rs.getString(4));
+            f = new CFfamilia((Integer) rs.getInt(1), rs.getFloat(2), rs.getString(3), rs.getString(4), rs.getString(5));
         
         return f;
     }
@@ -45,7 +45,7 @@ public class DAOCFfamilia {
         String sql = "SELECT * FROM v_nome_responsavel";
         ResultSet rs = stm.executeQuery(sql);
         while (rs.next())
-            f.add(new CFfamilia((Integer) rs.getInt(1), rs.getFloat(2), rs.getString(3), rs.getString(4)));
+            f.add(new CFfamilia((Integer) rs.getInt(1), rs.getFloat(2), rs.getString(3), rs.getString(4), rs.getString(5)));
         
         return f;
     }

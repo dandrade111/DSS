@@ -13,6 +13,7 @@ public class CCprocesso {
     private double custo_previsto;
     private double custo_final;
     private Integer id_candidatura;                     // Qual a candidatura que originou este processo
+    private String nome_representante;
     
     /* Construtor */
     
@@ -24,6 +25,7 @@ public class CCprocesso {
         this.custo_previsto = 0;
         this.custo_final = 0;
         this.id_candidatura = 0;
+        this.nome_representante = "";
     }
     
     // Processo simples, sem tarefas, material ou equipas
@@ -33,17 +35,26 @@ public class CCprocesso {
                       Integer bi, 
                       double cp, 
                       double cf, 
-                      Integer idc) {
+                      Integer idc,
+                      String n) {
         this.id = i;
         this.data_criacao = (Date) dc.clone();
-        this.data_encerramento = (Date) de.clone();
+        if (!(de == null))
+            this.data_encerramento = (Date) de.clone();
+        else
+            this.data_encerramento = null;
         this.id_funcionario = bi;
         this.custo_previsto = cp;
         this.custo_final = cf;
         this.id_candidatura = idc;
+        this.nome_representante = n;
     }
     
     //GET
+
+    public String getNome_representante() {
+        return this.nome_representante;
+    }
     
     public Integer getId(){
         return this.id;
@@ -74,6 +85,10 @@ public class CCprocesso {
     }
 
 //SET
+
+    public void setNome_representante(String nome_representante) {
+        this.nome_representante = nome_representante;
+    }
     
     public void setId(Integer id){
         this.id = id;

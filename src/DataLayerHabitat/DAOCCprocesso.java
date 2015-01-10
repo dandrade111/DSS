@@ -30,10 +30,10 @@ public class DAOCCprocesso {
         CCprocesso f = null;
         
         Statement stm = conn.createStatement();
-        String sql = "SELECT * FROM Processo WHERE id_processo='" + (String) id + "'";
+        String sql = "SELECT * FROM v_processonomes WHERE id_processo='" + (String) id + "'";
         ResultSet rs = stm.executeQuery(sql);
         while (rs.next())
-            f = new CCprocesso((Integer) rs.getInt(1), rs.getDate(2), rs.getDate(3), (Integer) rs.getInt(4), rs.getDouble(5), rs.getDouble(6), (Integer) rs.getInt(7));
+            f = new CCprocesso((Integer) rs.getInt(1), rs.getDate(2), rs.getDate(3), (Integer) rs.getInt(4), rs.getDouble(5), rs.getDouble(6), (Integer) rs.getInt(7), rs.getString(8));
         
         return f;
     }
@@ -42,10 +42,10 @@ public class DAOCCprocesso {
         Collection<CCprocesso> f = new HashSet<>();
         
         Statement stm = conn.createStatement();
-        String sql = "SELECT * FROM Processo";
+        String sql = "SELECT * FROM v_processonomes";
         ResultSet rs = stm.executeQuery(sql);
         while (rs.next())
-            f.add(new CCprocesso((Integer) rs.getInt(1), rs.getDate(2), rs.getDate(3), (Integer) rs.getInt(4), rs.getDouble(5), rs.getDouble(6), (Integer) rs.getInt(7)));
+            f.add(new CCprocesso((Integer) rs.getInt(1), rs.getDate(2), rs.getDate(3), (Integer) rs.getInt(4), rs.getDouble(5), rs.getDouble(6), (Integer) rs.getInt(7), rs.getString(8)));
         
         return f;
     }

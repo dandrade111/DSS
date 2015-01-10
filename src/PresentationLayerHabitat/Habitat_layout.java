@@ -1,8 +1,15 @@
 package PresentationLayerHabitat;
 
 import BusinessLayerHabitat.CCmaterial;
+import BusinessLayerHabitat.CCprocesso;
+import BusinessLayerHabitat.CCtarefa;
+import BusinessLayerHabitat.CFfamilia;
 import DataLayerHabitat.DAOCAFfuncionario;
 import DataLayerHabitat.DAOCCmaterial;
+import DataLayerHabitat.DAOCCprocesso;
+import DataLayerHabitat.DAOCCtarefa;
+import DataLayerHabitat.DAOCCtarefaProcesso;
+import DataLayerHabitat.DAOCFfamilia;
 import DataLayerHabitat.HabitatConnection;
 import java.sql.SQLException;
 import java.util.Collection;
@@ -16,15 +23,22 @@ public class Habitat_layout extends javax.swing.JFrame {
     HabitatConnection conn;
     DAOCAFfuncionario DAOCAFfunc;
     DAOCCmaterial DAOCCmat;
+    DAOCFfamilia DAOCFfam;
+    DAOCCprocesso DAOCCproc;
+    DAOCCtarefa DAOCCtar;
+    DAOCCtarefaProcesso DAOCCtarPro;
     
-    /**
-     * Creates new form Habitat_layout
-     */
+    /* Construtor */
+    
     public Habitat_layout() {
         initComponents();
         this.conn = new HabitatConnection();
         this.DAOCAFfunc = new DAOCAFfuncionario(this.conn.getConnection());
         this.DAOCCmat = new DAOCCmaterial(this.conn.getConnection());
+        this.DAOCFfam = new DAOCFfamilia(this.conn.getConnection());
+        this.DAOCCproc = new DAOCCprocesso(this.conn.getConnection());
+        this.DAOCCtar = new DAOCCtarefa(this.conn.getConnection());
+        this.DAOCCtarPro = new DAOCCtarefaProcesso(this.conn.getConnection());
         this.jTabbedPane5.setVisible(false);
     }
 
@@ -50,7 +64,7 @@ public class Habitat_layout extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jLabel31 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableFamilias = new javax.swing.JTable();
         jButton8 = new javax.swing.JButton();
         jSeparator6 = new javax.swing.JSeparator();
         jLabel32 = new javax.swing.JLabel();
@@ -79,7 +93,7 @@ public class Habitat_layout extends javax.swing.JFrame {
         jPanel5 = new javax.swing.JPanel();
         jLabel42 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jTableProc = new javax.swing.JTable();
         jButton16 = new javax.swing.JButton();
         jSeparator7 = new javax.swing.JSeparator();
         jLabel43 = new javax.swing.JLabel();
@@ -95,7 +109,7 @@ public class Habitat_layout extends javax.swing.JFrame {
         jButton18 = new javax.swing.JButton();
         jLabel48 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
+        jTableTarefas = new javax.swing.JTable();
         jButton21 = new javax.swing.JButton();
         jButton22 = new javax.swing.JButton();
         jLabel49 = new javax.swing.JLabel();
@@ -286,7 +300,7 @@ public class Habitat_layout extends javax.swing.JFrame {
         jLabel31.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel31.setText("Famílias");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableFamilias.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null},
@@ -297,7 +311,7 @@ public class Habitat_layout extends javax.swing.JFrame {
                 "Nome", "Morada", "Telefone", "Data Nasc.", "Profissão", "Naturalidade", "Nacionalidade", "Estado Civil", "Escolaridade"
             }
         ));
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(jTableFamilias);
 
         jButton8.setText("Adicionar");
 
@@ -450,7 +464,7 @@ public class Habitat_layout extends javax.swing.JFrame {
         jLabel42.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel42.setText("Projeto");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jTableProc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -461,7 +475,12 @@ public class Habitat_layout extends javax.swing.JFrame {
 
             }
         ));
-        jScrollPane3.setViewportView(jTable2);
+        jTableProc.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jTableProcMouseReleased(evt);
+            }
+        });
+        jScrollPane3.setViewportView(jTableProc);
 
         jButton16.setText("Adicionar");
 
@@ -494,7 +513,7 @@ public class Habitat_layout extends javax.swing.JFrame {
         jLabel48.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel48.setText("Tarefas");
 
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+        jTableTarefas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -502,8 +521,8 @@ public class Habitat_layout extends javax.swing.JFrame {
 
             }
         ));
-        jTable4.setPreferredSize(new java.awt.Dimension(300, 64));
-        jScrollPane5.setViewportView(jTable4);
+        jTableTarefas.setPreferredSize(new java.awt.Dimension(300, 64));
+        jScrollPane5.setViewportView(jTableTarefas);
 
         jButton21.setText("Consultar");
 
@@ -1401,6 +1420,10 @@ public class Habitat_layout extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton26ActionPerformed
 
+    private void jTableProcMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableProcMouseReleased
+        
+    }//GEN-LAST:event_jTableProcMouseReleased
+
     /* Update */
     public void update() {
         try {
@@ -1410,12 +1433,53 @@ public class Habitat_layout extends javax.swing.JFrame {
             matTableModel.addColumn("ID");
             matTableModel.addColumn("Material");
             matTableModel.addColumn("Quantidade");
-            for(CCmaterial m : ccmat)
-            {
+            for (CCmaterial m : ccmat)
                 matTableModel.addRow(new Object[]{m.getId(), m.getDescricao(), m.getQuantidade()});
-            }
             this.jTableMaterial.setModel(matTableModel);
+            
             // Tabela Famílias
+            Collection<CFfamilia> cffam = new HashSet<>(this.DAOCFfam.getAll());
+            DefaultTableModel famTableModel = new DefaultTableModel();
+            famTableModel.addColumn("ID");
+            famTableModel.addColumn("Rendimento");
+            famTableModel.addColumn("Telefone");
+            famTableModel.addColumn("BI Representante");
+            famTableModel.addColumn("Representante");
+            for (CFfamilia f : cffam)
+                famTableModel.addRow(new Object[]{f.getId_familia(), f.getRendimento(), f.getTelefone(), f.getBi_responsavel(), f.getNome_representante()});
+            this.jTableFamilias.setModel(famTableModel);
+            
+            // Tabela Projetos
+            Collection<CCprocesso> ccproc = new HashSet<>(this.DAOCCproc.getAll());
+            DefaultTableModel procTableModel = new DefaultTableModel();
+            procTableModel.addColumn("ID");
+            procTableModel.addColumn("Data Criação");
+            procTableModel.addColumn("Data Encerramento");
+            procTableModel.addColumn("ID Funcionario");
+            procTableModel.addColumn("Custo Previsto");
+            procTableModel.addColumn("Custo Final");
+            procTableModel.addColumn("ID Candidatura");
+            procTableModel.addColumn("Nome Representante");
+            for (CCprocesso p : ccproc)
+                procTableModel.addRow(new Object[]{p.getId(),
+                                                  p.getData_criacao(),
+                                                  p.getData_encerramento(),
+                                                  p.getId_funcionario(),
+                                                  p.getCusto_previsto(),
+                                                  p.getCusto_final(),
+                                                  p.getId_candidatura(),
+                                                  p.getNome_representante()});
+            this.jTableProc.setModel(procTableModel);
+            
+            // Tabela Tarefas
+            Collection<CCtarefa> cctar = new HashSet<>(this.DAOCCtar.getAll());
+            DefaultTableModel tarTableModel = new DefaultTableModel();
+            tarTableModel.addColumn("ID");
+            tarTableModel.addColumn("Tarefa");
+            for (CCtarefa t : cctar)
+                tarTableModel.addRow(new Object[]{t.getId(), t.getNome_tarefa()});
+            this.jTableTarefas.setModel(tarTableModel);
+            
             
         } catch (SQLException ex) {
             System.out.println("SQLException: " + ex.getMessage());
@@ -1586,14 +1650,14 @@ public class Habitat_layout extends javax.swing.JFrame {
     private javax.swing.JSpinner jSpinner9;
     private javax.swing.JTabbedPane jTabbedPane5;
     private javax.swing.JTabbedPane jTabbedPane6;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable4;
     private javax.swing.JTable jTable6;
     private javax.swing.JTable jTable7;
     private javax.swing.JTable jTable8;
     private javax.swing.JTable jTable9;
+    private javax.swing.JTable jTableFamilias;
     private javax.swing.JTable jTableMaterial;
+    private javax.swing.JTable jTableProc;
+    private javax.swing.JTable jTableTarefas;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
