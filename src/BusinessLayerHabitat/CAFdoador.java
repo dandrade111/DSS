@@ -87,8 +87,11 @@ public class CAFdoador {
 
     public String getBi_voluntario(){
         return this.bi_voluntario;
-    }; 
+    }
 
+    public String getNif() {
+        return this.nif;
+    }
 
 //Sets
 
@@ -128,7 +131,4 @@ public class CAFdoador {
     public void setBi_voluntario (String bi_voluntario){
         this.bi_voluntario = bi_voluntario;      
     }
-         
-    
-    
 }

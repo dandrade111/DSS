@@ -1,6 +1,5 @@
 package DataLayerHabitat;
 
-import BusinessLayerHabitat.CAFdoador;
 import BusinessLayerHabitat.CAFdonativo;
 import java.sql.Connection;
 import java.sql.Date;
@@ -40,11 +39,11 @@ public class DAOCAFdonativo {
         return f;
     }
     
-    public Collection<CAFdonativo> get(Object nif) throws SQLException {
-        Collection<CAFdonativo> f = null;
+    public Collection<CAFdonativo> get(String nif) throws SQLException {
+        Collection<CAFdonativo> f = new HashSet<>();
         
         Statement stm = conn.createStatement();
-        String sql = "SELECT * FROM v_Donativo WHERE Doador='" + (String) nif + "'";
+        String sql = "SELECT * FROM v_Donativo WHERE Doador='" + nif + "'";
         ResultSet rs = stm.executeQuery(sql);
         while (rs.next())
             f.add(new CAFdonativo((Integer) rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), (Integer) rs.getInt(5), rs.getDate(6), rs.getString(7), (Integer) rs.getInt(8), rs.getString(9), (Integer) rs.getInt(10)));
