@@ -102,33 +102,31 @@ public class DAOCAFvoluntario {
 
                                  
                                  /* INSERTS */
-    public CAFvoluntario put(String bi, 
-                         String nif, 
-                         String nome, 
-                         Date data_nascimento, 
-                         String morada, 
-                         String telefone, 
-                         String telemovel, 
-                         String email, 
-                         String nacionalidade, 
-                         String profissao, 
-                         String habilitacoes, 
-                         String conhecimentos_linguisticos, 
-                         String formacao_complementar, 
-                         String experiencia_voluntariado, 
-                         String conhecimentos_construcao, 
-                         String obra, 
-                         String como_conheceu, 
-                         String receber_informacoes, 
-                         String disponibilidade) throws SQLException {
+    public void put(String bi, 
+                    String nif, 
+                    String nome, 
+                    String data_nascimento, 
+                    String morada, 
+                    String telefone, 
+                    String telemovel, 
+                    String email, 
+                    String nacionalidade, 
+                    String profissao, 
+                    String habilitacoes, 
+                    String conhecimentos_linguisticos, 
+                    String formacao_complementar, 
+                    String experiencia_voluntariado, 
+                    String conhecimentos_construcao, 
+                    String obra, 
+                    String como_conheceu, 
+                    String receber_informacoes, 
+                    String disponibilidade) throws SQLException {
         CAFvoluntario d = null;
         
         String sql;
         Statement stm = conn.createStatement();
         stm.executeUpdate("DELETE FROM Voluntario WHERE BI='" + bi + "'");
         sql = "INSERT INTO Doador VALUES ('"+bi+"','"+nif+"','"+nome+"','"+data_nascimento+"','"+morada+"','"+telefone+"','"+telemovel+"','"+email+",'"+nacionalidade+"','"+profissao+",'"+habilitacoes+"','"+email+",'"+habilitacoes+"','"+conhecimentos_linguisticos+",'"+formacao_complementar+"','"+experiencia_voluntariado+",'"+conhecimentos_construcao+"','"+obra+"','"+como_conheceu+"','"+receber_informacoes+"','"+disponibilidade+"');";
-        int i  = stm.executeUpdate(sql);
-        
-        return new CAFvoluntario(bi,nif,nome,data_nascimento,morada,telefone,telemovel,email,nacionalidade,profissao,habilitacoes,conhecimentos_linguisticos,formacao_complementar,experiencia_voluntariado,conhecimentos_construcao,obra,como_conheceu,receber_informacoes,disponibilidade);
+        int i = stm.executeUpdate(sql);
     }
 }
