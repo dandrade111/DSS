@@ -211,7 +211,6 @@ public class Habitat_layout extends javax.swing.JFrame {
         jButton34 = new javax.swing.JButton();
         jButton35 = new javax.swing.JButton();
         jButton36 = new javax.swing.JButton();
-        jButton37 = new javax.swing.JButton();
         jLabel78 = new javax.swing.JLabel();
         jButton38 = new javax.swing.JButton();
         jLabel79 = new javax.swing.JLabel();
@@ -1049,8 +1048,6 @@ public class Habitat_layout extends javax.swing.JFrame {
             }
         });
 
-        jButton37.setText("Consultar");
-
         jLabel78.setText("Data Doação");
 
         jButton38.setText("Pesquisar Projeto");
@@ -1182,8 +1179,6 @@ public class Habitat_layout extends javax.swing.JFrame {
                     .addGroup(jPanel19Layout.createSequentialGroup()
                         .addComponent(jLabel74)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton37)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton36)
                         .addGap(306, 306, 306))
                     .addGroup(jPanel19Layout.createSequentialGroup()
@@ -1286,7 +1281,6 @@ public class Habitat_layout extends javax.swing.JFrame {
                     .addGroup(jPanel19Layout.createSequentialGroup()
                         .addGroup(jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton36)
-                            .addComponent(jButton37)
                             .addComponent(jLabel74))
                         .addGap(3, 3, 3)
                         .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -2372,7 +2366,6 @@ public class Habitat_layout extends javax.swing.JFrame {
     private javax.swing.JButton jButton34;
     private javax.swing.JButton jButton35;
     private javax.swing.JButton jButton36;
-    private javax.swing.JButton jButton37;
     private javax.swing.JButton jButton38;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton8;
