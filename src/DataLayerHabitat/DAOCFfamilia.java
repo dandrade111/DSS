@@ -65,18 +65,14 @@ public class DAOCFfamilia {
     }
     
     /* INSERTS */
-    public CFfamilia put(Integer id, float rend, String tel, String bi) throws SQLException {
+    public void put(String rend, String tel, String bi) throws SQLException {
         CFfamilia d = null;
         
         String sql;
         Statement stm = conn.createStatement();
-        stm.executeUpdate("DELETE FROM Familia WHERE id_Famlia='" + id + "'");
-        
-            sql = "INSERT INTO Familia VALUES ('"+id+"','"+rend+"','"+tel+"','"+bi+"');";
-       
+        sql = "INSERT INTO Familia (`rendimento_bruto`,`telefone`,`bi_responsavel`) VALUES ('"+rend+"','"+tel+"','"+bi+"');";
+        System.out.println(sql);
         int i  = stm.executeUpdate(sql);
-        
-        return new CFfamilia(id, rend, tel, bi);
     }
     
 }

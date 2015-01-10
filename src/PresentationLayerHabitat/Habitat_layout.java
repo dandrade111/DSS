@@ -1337,6 +1337,11 @@ public class Habitat_layout extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTableFamilias);
 
         jButton8.setText("Adicionar");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         jSeparator6.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
@@ -2070,6 +2075,10 @@ public class Habitat_layout extends javax.swing.JFrame {
     private void jButton34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton34ActionPerformed
         
     }//GEN-LAST:event_jButton34ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        Adicionar_Familia f = new Adicionar_Familia(this.conn.getConnection());
+    }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {                                          
         Adicionar_projeto v = new Adicionar_projeto(this.conn.getConnection());
