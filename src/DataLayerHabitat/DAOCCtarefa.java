@@ -58,6 +58,7 @@ public class DAOCCtarefa {
         String sql;
         Statement stm = conn.createStatement();
         sql = "INSERT INTO Tarefa (`tarefa`) VALUES ('"+nt+"');"; 
+        System.out.println(sql);
         int i  = stm.executeUpdate(sql);
         
         return new CCtarefa(0, nt);

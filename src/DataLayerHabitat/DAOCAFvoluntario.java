@@ -63,22 +63,23 @@ public class DAOCAFvoluntario {
         return v;
     }
     
-    public Collection<CAFvoluntario> searchSimples(Object bi, Object nome, Object data, Object morada, Object tele, Object nac, Object pro) throws SQLException {
+    public Collection<CAFvoluntario> searchSimples(Object bi, Object nome, Object data, Object morada, Object tele, Object nac, Object pro, Object em) throws SQLException {
         Collection<CAFvoluntario> v = new HashSet<>();
         
         Statement stm = conn.createStatement();
         String sql = "SELECT * FROM v_voluntario_simples " +
-                     "WHERE BI LIKE '%"+bi+"%'" +
-                     "AND Nome LIKE '%"+nome+"%'" +
-                     "AND data_nascimento LIKE '%"+data+"%'" +
-                     "AND morada LIKE '%"+morada+"%'" +
-                     "AND telemovel LIKE '%"+tele+"%'" +
-                     "AND nacionalidade LIKE '%"+nac+"%'" +
-                     "AND profissao LIKE '%"+pro+"%'";
+                     "WHERE BI LIKE '%"+bi+"%' " +
+                     "AND Nome LIKE '%"+nome+"%' " +
+                     "AND data_nascimento LIKE '%"+data+"%' " +
+                     "AND morada LIKE '%"+morada+"%' " +
+                     "AND telemovel LIKE '%"+tele+"%' " +
+                     "AND email LIKE '%"+em+"%' " +
+                     "AND nacionalidade LIKE '%"+nac+"%' " +
+                     "AND profissao LIKE '%"+pro+"%' ";
         ResultSet rs = stm.executeQuery(sql);
         while (rs.next())
             v.add(new CAFvoluntario(rs.getString(1), rs.getString(2), rs.getDate(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getString(7), rs.getString(8)));
-        
+        System.out.println(sql);
         return v;
     }
     
@@ -125,8 +126,26 @@ public class DAOCAFvoluntario {
         
         String sql;
         Statement stm = conn.createStatement();
-        stm.executeUpdate("DELETE FROM Voluntario WHERE BI='" + bi + "'");
-        sql = "INSERT INTO Doador VALUES ('"+bi+"','"+nif+"','"+nome+"','"+data_nascimento+"','"+morada+"','"+telefone+"','"+telemovel+"','"+email+",'"+nacionalidade+"','"+profissao+",'"+habilitacoes+"','"+email+",'"+habilitacoes+"','"+conhecimentos_linguisticos+",'"+formacao_complementar+"','"+experiencia_voluntariado+",'"+conhecimentos_construcao+"','"+obra+"','"+como_conheceu+"','"+receber_informacoes+"','"+disponibilidade+"');";
+        sql = "INSERT INTO Voluntario VALUES ('"+bi+"',"
+                + "'"+nif+"',"
+                + "'"+nome+"',"
+                + "'"+data_nascimento+"',"
+                + "'"+morada+"',"
+                + "'"+telefone+"',"
+                + "'"+telemovel+"',"
+                + "'"+email+"',"
+                + "'"+nacionalidade+"',"
+                + "'"+profissao+"',"
+                + "'"+habilitacoes+"',"
+                + "'"+conhecimentos_linguisticos+"',"
+                + "'"+formacao_complementar+"',"
+                + "'"+experiencia_voluntariado+"',"
+                + "'"+conhecimentos_construcao+"',"
+                + "'"+obra+"',"
+                + "'"+como_conheceu+"',"
+                + "'"+receber_informacoes+"',"
+                + "'"+disponibilidade+"');";
+        System.out.println(sql);
         int i = stm.executeUpdate(sql);
     }
 }

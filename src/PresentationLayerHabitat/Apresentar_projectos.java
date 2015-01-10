@@ -21,7 +21,7 @@ public class Apresentar_projectos extends javax.swing.JFrame {
     }
     public Apresentar_projectos(Object proj_id,Connection conn) {
         initComponents();
-        this.setVisible(True);
+        this.setVisible(true);
     }
 
     /**

@@ -109,7 +109,6 @@ public class Adicionar_Voluntario extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jTextField10 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jTextField12 = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
@@ -117,9 +116,10 @@ public class Adicionar_Voluntario extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         jTextField14 = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        jTextField15 = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         jTextField16 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox();
+        jComboBox2 = new javax.swing.JComboBox();
         jPanel1 = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
@@ -577,6 +577,15 @@ public class Adicionar_Voluntario extends javax.swing.JFrame {
 
         jLabel19.setText("Como descobriu a Habitat?");
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nao frequentou", "1º Ciclo", "2º Ciclo", "3º Ciclo", "Ensino Superior", "Mestrado", "Doutoramento" }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Baixo", "Medio", "Elevado" }));
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -596,10 +605,10 @@ public class Adicionar_Voluntario extends javax.swing.JFrame {
                     .addComponent(jTextField13)
                     .addComponent(jTextField14)
                     .addComponent(jTextField16)
-                    .addComponent(jTextField15, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jTextField12, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jTextField10, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.Alignment.TRAILING))
+                    .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -611,8 +620,8 @@ public class Adicionar_Voluntario extends javax.swing.JFrame {
                     .addComponent(jLabel12))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13))
+                    .addComponent(jLabel13)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel14)
@@ -628,7 +637,7 @@ public class Adicionar_Voluntario extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel17)
-                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -838,17 +847,17 @@ public class Adicionar_Voluntario extends javax.swing.JFrame {
             String bi = this.txtBI.getText();
             String nif = this.txtNIF.getText();
             String nac = this.txtNac.getText();
-            String dn = this.txtDiaDN.getText()+"-"+this.txtMesDN.getText()+"-" + this.txtAnoDN.getText();
+            String dn = this.txtAnoDN.getText()+"-"+this.txtMesDN.getText()+"-" + this.txtDiaDN.getText();
             String mor = this.jTextField5.getText();
             String tel = this.jTextField4.getText();
             String tlm = this.jTextField6.getText();
             String em = this.jTextField8.getText();
             String prof = this.jTextField10.getText();
-            String hab = this.jTextField11.getText();
+            String hab = (String) this.jComboBox1.getSelectedItem();
             String idio = this.jTextField12.getText();
             String outras = this.jTextField13.getText();
             String exp = this.jTextField14.getText();
-            String conhe = this.jTextField15.getText();
+            String conhe = (String) this.jComboBox2.getSelectedItem();
             String como = this.jTextField16.getText();
             String obra = "Nao";
             if (this.jCheckBox1.isSelected())
@@ -921,6 +930,10 @@ public class Adicionar_Voluntario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtDiaDNActionPerformed
 
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -934,6 +947,8 @@ public class Adicionar_Voluntario extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox jComboBox2;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -984,11 +999,9 @@ public class Adicionar_Voluntario extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton7;
     private javax.swing.JRadioButton jRadioButton8;
     private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
