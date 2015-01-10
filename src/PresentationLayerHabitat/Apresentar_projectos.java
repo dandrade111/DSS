@@ -47,9 +47,6 @@ public class Apresentar_projectos extends javax.swing.JFrame {
         try {
             Collection<CCmaterialProcesso> ccmat = new HashSet<>(this.DAOCccmatp.get(this.selectedProc));
             DefaultTableModel matpTableModel = new DefaultTableModel();
-            matpTableModel.addColumn("BI");
-            matpTableModel.addColumn("NIF");
-            matpTableModel.addColumn("Data Nascimento");
             for (CCmaterialProcesso m : ccmat)
                 matpTableModel.addRow(new Object[]{
                                                 m.getMaterial(),
