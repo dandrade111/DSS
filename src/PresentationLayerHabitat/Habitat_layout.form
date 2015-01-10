@@ -827,14 +827,14 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                                       <Component id="jSeparator10" min="-2" pref="12" max="-2" attributes="0"/>
+                                      <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
                                           <Group type="102" attributes="0">
-                                              <EmptySpace max="-2" attributes="0"/>
                                               <Component id="jLabel64" min="-2" max="-2" attributes="0"/>
                                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
-                                              <EmptySpace max="32767" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                               <Component id="jScrollPane7" min="-2" pref="978" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
@@ -883,10 +883,12 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
-                                      <Group type="103" groupAlignment="3" attributes="0">
-                                          <Component id="jLabel57" alignment="3" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
                                           <Component id="jButton28" alignment="1" min="-2" max="-2" attributes="0"/>
-                                          <Component id="jButton27" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          <Group type="103" groupAlignment="3" attributes="0">
+                                              <Component id="jLabel57" alignment="3" min="-2" max="-2" attributes="0"/>
+                                              <Component id="jButton27" alignment="3" min="-2" max="-2" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
