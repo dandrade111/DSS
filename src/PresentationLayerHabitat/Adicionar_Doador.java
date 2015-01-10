@@ -9,7 +9,7 @@ package PresentationLayerHabitat;
 
 /**
  *
- * @author Varzim
+ * @author dandrade
  */
 public class Adicionar_Doador extends javax.swing.JFrame {
 
