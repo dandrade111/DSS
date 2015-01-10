@@ -39,11 +39,25 @@ public class DAOCAFdonativo {
         return f;
     }
     
-    public Collection<CAFdonativo> search(Object nif, Object nome, Object morada, Object tipo, Object telefone, Object telemovel, Object email, Object fax, Object bi) throws SQLException {
+    public Collection<CAFdonativo> search(String id, String tipo, String nr_recibo, String data_doacao, String evento, String quantia, String descricao, String id_processo) throws SQLException {
         Collection<CAFdonativo> f = new HashSet<>();
         
         Statement stm = conn.createStatement();
-        String sql = "SELECT * FROM v_Donativo";
+        String sql = "SELECT * FROM v_Donativo WHERE id_Doacao LIKE '%"+id+"%'";
+        if (!(tipo == null))
+            sql = sql +  "AND tipo LIKE '%"+tipo+"%'";
+        if (!nr_recibo.equals(""))
+            sql = sql +  "AND nr_Recibo LIKE '%"+nr_recibo+"%'";
+        if (!(data_doacao == null))
+            sql = sql +  "AND data_doacao LIKE '%"+data_doacao+"%'";
+        if (!(evento == null))
+            sql = sql +  "AND evento LIKE '%"+evento+"%'";
+        if (!quantia.equals(""))
+            sql = sql +  "AND quantia LIKE '%"+quantia+"%'";
+        if (!descricao.equals(""))
+            sql = sql +  "AND descricao LIKE '%"+descricao+"%'";
+        if (!id_processo.equals(""))
+            sql = sql +  "AND Processo LIKE '%"+id_processo+"%'";
         ResultSet rs = stm.executeQuery(sql);
         while (rs.next())
             f.add(new CAFdonativo((Integer) rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), (Integer) rs.getInt(5), rs.getDate(6), rs.getString(7), (Integer) rs.getInt(8), rs.getString(9), (Integer) rs.getInt(10)));
