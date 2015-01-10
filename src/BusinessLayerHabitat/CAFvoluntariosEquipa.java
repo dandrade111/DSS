@@ -19,6 +19,14 @@ public class CAFvoluntariosEquipa {
         this.voluntario = "";
         this.nacionalidade = "";
     }
+    
+    public CAFvoluntariosEquipa(Integer equipa, String bi_vol) {
+        this.equipa = equipa;
+        this.nome_equipa = "";
+        this.bi_vol = bi_vol;
+        this.voluntario = "";
+        this.nacionalidade = "";
+    }
 
     public CAFvoluntariosEquipa(Integer equipa, String nome_equipa, String bi_vol, String voluntario, String nacionalidade) {
         this.equipa = equipa;

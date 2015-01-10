@@ -1,5 +1,6 @@
 package DataLayerHabitat;
 
+import BusinessLayerHabitat.CAFdoador;
 import BusinessLayerHabitat.CCprocessoEquipa;
 import BusinessLayerHabitat.CFfamilia;
 import java.sql.Connection;
@@ -50,4 +51,21 @@ public class DAOCCprocessoEquipa {
         
         return f;
     }
+
+
+/* INSERTS */
+    public CCprocessoEquipa put(Integer processo, Integer equipa) throws SQLException {
+        CCprocessoEquipa d = null;
+        
+        String sql;
+        Statement stm = conn.createStatement();
+        stm.executeUpdate("DELETE FROM ProcessoEquipa WHERE Processo='" + processo + "'");
+        
+            sql = "INSERT INTO Doador VALUES ('"+processo+"','"+equipa+"');";
+        
+        int i  = stm.executeUpdate(sql);
+        
+        return new CCprocessoEquipa(processo, equipa);
+    }
+    
 }

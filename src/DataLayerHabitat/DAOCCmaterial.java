@@ -1,5 +1,6 @@
 package DataLayerHabitat;
 
+import BusinessLayerHabitat.CAFdoador;
 import BusinessLayerHabitat.CAFvoluntariosEquipa;
 import BusinessLayerHabitat.CCmaterial;
 import java.sql.Connection;
@@ -62,4 +63,22 @@ public class DAOCCmaterial {
         
         return f;
     }
+    
+    /* INSERTS */
+    public CCmaterial put(Integer id, String desc, Integer q) throws SQLException {
+        CCmaterial d = null;
+        
+        String sql;
+        Statement stm = conn.createStatement();
+        stm.executeUpdate("DELETE FROM Material WHERE id_Material='" + id + "'");
+        if (desc.equals(""))
+            sql = "INSERT INTO Material VALUES ('"+id+"',NULL,'"+q+"');";
+        else
+            sql = "INSERT INTO Material VALUES ('"+id+"','"+desc+"','"+q+"');";
+        int i  = stm.executeUpdate(sql);
+        
+        return new CCmaterial(id, desc, q);
+    }
+    
+    
 }

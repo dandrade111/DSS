@@ -1,5 +1,6 @@
 package DataLayerHabitat;
 
+import BusinessLayerHabitat.CAFdoador;
 import BusinessLayerHabitat.CCtarefa;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -48,6 +49,19 @@ public class DAOCCtarefa {
             f.add(new CCtarefa((Integer) rs.getInt(1), rs.getString(2)));
         
         return f;
+    }
+    
+    /* INSERTS */
+    public CCtarefa put(Integer id, String nt) throws SQLException {
+        CCtarefa d = null;
+        
+        String sql;
+        Statement stm = conn.createStatement();
+        stm.executeUpdate("DELETE FROM Tarefa WHERE id_Tarefa='" + id + "'");
+            sql = "INSERT INTO Tarefa VALUES ('"+id+"','"+nt+"');"; 
+        int i  = stm.executeUpdate(sql);
+        
+        return new CCtarefa(id, nt);
     }
     
 }

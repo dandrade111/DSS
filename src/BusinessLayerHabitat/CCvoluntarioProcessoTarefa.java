@@ -27,6 +27,17 @@ public class CCvoluntarioProcessoTarefa {
         this.data_fim = null;
         this.total_horas = null;
     }
+    
+    public CCvoluntarioProcessoTarefa(Integer processo, String id_voluntario, Integer id_tarefa, Date di, Date df, Date th) {
+        this.processo = processo;
+        this.id_voluntario = id_voluntario;
+        this.nome_voluntario = "";
+        this.id_tarefa = id_tarefa;
+        this.desc_tarefa = "";
+        this.data_inicio = (Date) di.clone();
+        this.data_fim = (Date) df.clone();
+        this.total_horas = (Date) th.clone();
+    }
 
     public CCvoluntarioProcessoTarefa(Integer processo, String id_voluntario, String nome_voluntario, Integer id_tarefa, String desc_tarefa, Date di, Date df, Date th) {
         this.processo = processo;
