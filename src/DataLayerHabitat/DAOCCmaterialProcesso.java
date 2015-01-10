@@ -1,5 +1,6 @@
 package DataLayerHabitat;
 
+import BusinessLayerHabitat.CAFdoador;
 import BusinessLayerHabitat.CCmaterialProcesso;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -49,4 +50,20 @@ public class DAOCCmaterialProcesso {
         
         return f;
     }
+
+
+/* INSERTS */
+    public CCmaterialProcesso put(Integer processo, Integer material, Integer funcionario, Integer quantidade) throws SQLException {
+        CCmaterialProcesso d = null;
+        
+        String sql;
+        Statement stm = conn.createStatement();
+        stm.executeUpdate("DELETE FROM MaterialProcesso WHERE Processo='" + processo + "'");
+       
+        sql = "INSERT INTO MaterialProesso VALUES ('"+processo+"','"+material+"','"+funcionario+"','"+quantidade+"');";   
+        int i  = stm.executeUpdate(sql);
+        
+        return new CCmaterialProcesso(processo, material, funcionario, quantidade);
+    }
+    
 }
