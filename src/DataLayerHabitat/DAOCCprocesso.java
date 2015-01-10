@@ -51,6 +51,27 @@ public class DAOCCprocesso {
         
         return f;
     }
+    public Collection<CCprocesso> search(String id, String data_criacao, String data_encerramento, String id_funcionario, String custo_previsto, String custo_final, String id_candidatura, String nome_representante) throws SQLException {
+        Collection<CCprocesso> f = new HashSet<>();
+        Statement stm = conn.createStatement();
+        String sql = "SELECT * FROM v_processonomes " +
+                         "WHERE id_Processo LIKE '%"+id+"%' " + 
+                         "AND data_criacao LIKE '%"+data_criacao+"%' " + 
+                         "AND FuncionarioAprovou LIKE '%"+id_funcionario+"%' " +
+                         "AND Candidatura LIKE '%"+id_candidatura+"%' " + 
+                         "AND nome_responsavel LIKE '%"+nome_representante+"%'";
+        if (!(data_encerramento == null))
+            sql = sql + "AND data_encerramento LIKE '%"+data_encerramento+"%'";
+        if (!(custo_previsto == null))
+            sql = sql + "AND custo_previsto LIKE '%"+custo_previsto+"%' ";
+        if (!(custo_final == null))
+            sql = sql + "AND custo_final LIKE '%"+custo_final+"%' ";
+        ResultSet rs = stm.executeQuery(sql);
+        while (rs.next())
+            f.add(new CCprocesso((Integer) rs.getInt(1), rs.getDate(2), rs.getDate(3), (Integer) rs.getInt(4), rs.getDouble(5), rs.getDouble(6), (Integer) rs.getInt(7), rs.getString(8)));
+        System.out.println(sql);
+        return f;
+    }
     
     /* INSERTS */
     public CCprocesso put(Integer id,
