@@ -7,7 +7,11 @@ package PresentationLayerHabitat;
 
 import BusinessLayerHabitat.CCmaterial;
 import DataLayerHabitat.DAOCCmaterialProcesso;
+import DataLayerHabitat.DAOCCtarefaProcesso;
 import BusinessLayerHabitat.CCmaterialProcesso;
+import BusinessLayerHabitat.CCtarefaProcesso;
+import BusinessLayerHabitat.CCvoluntarioProcessoTarefa;
+import DataLayerHabitat.DAOCCvoluntarioProcessoTarefa;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Collection;
@@ -24,6 +28,8 @@ import javax.swing.table.DefaultTableModel;
 public class Apresentar_projectos extends javax.swing.JFrame {
     
     private DAOCCmaterialProcesso DAOCccmatp;
+    private DAOCCtarefaProcesso DAOCcctar;
+    private DAOCCvoluntarioProcessoTarefa DAOCCvoltar;
     private Integer selectedProc;
     
 //    Apresentar_projectos(Integer selectedProc, Connection connection) {
@@ -77,10 +83,10 @@ public class Apresentar_projectos extends javax.swing.JFrame {
         jTableMaterialProj = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jTabletarefasProj = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        jTableVoluntariosTarefa = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -95,6 +101,11 @@ public class Apresentar_projectos extends javax.swing.JFrame {
                 "ID", "Descrição", "Quantidade"
             }
         ));
+        jTableMaterialProj.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableMaterialProjMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableMaterialProj);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -116,7 +127,7 @@ public class Apresentar_projectos extends javax.swing.JFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Tarefas do Projeto"));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jTabletarefasProj.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -124,7 +135,12 @@ public class Apresentar_projectos extends javax.swing.JFrame {
                 "ID Tarefa", "Descrição", "Inicio", "Fim"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jTabletarefasProj.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTabletarefasProjMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jTabletarefasProj);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -145,7 +161,7 @@ public class Apresentar_projectos extends javax.swing.JFrame {
 
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Voluntários que participaram na Tarefa"));
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        jTableVoluntariosTarefa.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -153,7 +169,7 @@ public class Apresentar_projectos extends javax.swing.JFrame {
                 "Voluntário", "Tarefa", "Início", "Fim"
             }
         ));
-        jScrollPane3.setViewportView(jTable3);
+        jScrollPane3.setViewportView(jTableVoluntariosTarefa);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -216,6 +232,44 @@ public class Apresentar_projectos extends javax.swing.JFrame {
       this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jTableMaterialProjMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableMaterialProjMouseClicked
+     Integer selectedValue = (Integer) jTableMaterialProj.getModel().getValueAt(jTableMaterialProj.getSelectedRow(), 0);
+        System.out.println(selectedValue);
+        try {
+            Collection<CCtarefaProcesso> cctar = new HashSet<>(this.DAOCcctar.get(selectedValue));
+            DefaultTableModel procTableModel = new DefaultTableModel();
+            for (CCtarefaProcesso m : cctar)
+                procTableModel.addRow(new Object[]{
+                                                m.getId_tarefa(),
+                                                m.getTarefa(),
+                                                m.getData_inicio(),
+                                                m.getData_fim()});
+            this.jTabletarefasProj.setModel(procTableModel);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Apresentar_projectos.class.getName()).log(Level.SEVERE, null, ex);
+        }   
+    }//GEN-LAST:event_jTableMaterialProjMouseClicked
+
+    private void jTabletarefasProjMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabletarefasProjMouseClicked
+    Integer selectedValue = (Integer) jTabletarefasProj.getModel().getValueAt(jTabletarefasProj.getSelectedRow(), 0);
+        System.out.println(selectedValue);
+        try {
+            Collection<CCvoluntarioProcessoTarefa> ccvoltar = new HashSet<>(this.DAOCCvoltar.get(selectedValue));
+            DefaultTableModel procTableModel = new DefaultTableModel();
+            for (CCvoluntarioProcessoTarefa m : ccvoltar)
+                procTableModel.addRow(new Object[]{
+                                                m.getNome_voluntario(),
+                                                m.getDesc_tarefa(),
+                                                m.getData_inicio(),
+                                                m.getData_fim()});
+            this.jTableVoluntariosTarefa.setModel(procTableModel);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(Apresentar_projectos.class.getName()).log(Level.SEVERE, null, ex);
+        }     
+    }//GEN-LAST:event_jTabletarefasProjMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -259,8 +313,8 @@ public class Apresentar_projectos extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
     public javax.swing.JTable jTableMaterialProj;
+    private javax.swing.JTable jTableVoluntariosTarefa;
+    private javax.swing.JTable jTabletarefasProj;
     // End of variables declaration//GEN-END:variables
 }
