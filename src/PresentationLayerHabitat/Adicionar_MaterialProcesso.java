@@ -123,6 +123,7 @@ public class Adicionar_MaterialProcesso extends javax.swing.JFrame {
             String idmat = this.jTextField1.getText();
             String qtd = this.jTextField2.getText();
             this.daoccmp.put(this.idproc, idmat, this.func, qtd);
+            this.dispose();
         } catch (SQLException ex) {
             Logger.getLogger(Adicionar_MaterialProcesso.class.getName()).log(Level.SEVERE, null, ex);
         }
