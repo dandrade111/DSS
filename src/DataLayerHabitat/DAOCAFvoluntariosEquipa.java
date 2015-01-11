@@ -38,14 +38,14 @@ public class DAOCAFvoluntariosEquipa {
         return f;
     }
     
-    public CAFvoluntariosEquipa get(Object id) throws SQLException {
-        CAFvoluntariosEquipa f = null;
+    public Collection<CAFvoluntariosEquipa> get(Object id) throws SQLException {
+        Collection<CAFvoluntariosEquipa> f = null;
         
         Statement stm = conn.createStatement();
         String sql = "SELECT * FROM v_VoluntariosEquipas WHERE id_equipa='" + (String) id + "'";
         ResultSet rs = stm.executeQuery(sql);
         while (rs.next())
-            f = new CAFvoluntariosEquipa((Integer) rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5));
+            f.add(new CAFvoluntariosEquipa((Integer) rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5)));
         
         return f;
     }

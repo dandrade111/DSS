@@ -244,6 +244,11 @@ public class Apresentar_projectos extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTabletarefasProj);
 
         jToggleButton2.setText("Adicionar");
+        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -371,6 +376,10 @@ public class Apresentar_projectos extends javax.swing.JFrame {
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         Adicionar_MaterialProcesso a = new Adicionar_MaterialProcesso(this.conn, this.selectedProc, this.funcionarioLogged);
     }//GEN-LAST:event_jToggleButton1ActionPerformed
+
+    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
+        
+    }//GEN-LAST:event_jToggleButton2ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
