@@ -39,7 +39,7 @@ public class DAOCAFvoluntariosEquipa {
     }
     
     public Collection<CAFvoluntariosEquipa> get(Object id) throws SQLException {
-        Collection<CAFvoluntariosEquipa> f = null;
+        Collection<CAFvoluntariosEquipa> f = new HashSet<>();
         
         Statement stm = conn.createStatement();
         String sql = "SELECT * FROM v_VoluntariosEquipas WHERE id_equipa='" + (String) id + "'";

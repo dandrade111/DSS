@@ -8,8 +8,11 @@ package PresentationLayerHabitat;
 import BusinessLayerHabitat.CAFvoluntariosEquipa;
 import DataLayerHabitat.DAOCAFvoluntariosEquipa;
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -46,7 +49,7 @@ public class Consultar_MembroEquipa extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTableMembrosEq = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -60,7 +63,7 @@ public class Consultar_MembroEquipa extends javax.swing.JFrame {
 
         jLabel2.setText("Membros");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTableMembrosEq.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -71,7 +74,7 @@ public class Consultar_MembroEquipa extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTableMembrosEq);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setText("Equipa");
@@ -121,22 +124,13 @@ public class Consultar_MembroEquipa extends javax.swing.JFrame {
             // Tabela Membros Equipa
             Collection<CAFvoluntariosEquipa> cfmembeq = new HashSet<>(this.daovoleq.get(this.selectedEq));
             DefaultTableModel agTableModel = new DefaultTableModel();
+            agTableModel.addColumn("Nome Equipa");
             agTableModel.addColumn("BI");
-            agTableModel.addColumn("NIF");
-            agTableModel.addColumn("Data Nascimento");
-            agTableModel.addColumn("Morada");
-            agTableModel.addColumn("Nome");
-            agTableModel.addColumn("Telemovel");
-            agTableModel.addColumn("eMail");
-            agTableModel.addColumn("Parentesco");
-            agTableModel.addColumn("Estado Civil");
-            agTableModel.addColumn("Ocupacao");
-            agTableModel.addColumn("Escolaridade");
+            agTableModel.addColumn("Voluntário");
+            agTableModel.addColumn("Nacionalidade");
             for (CAFvoluntariosEquipa f : cfmembeq)
-                agTableModel.addRow(new Object[]{f.getBi(), f.getNif(), f.getData_nascimento(), f.getMorada(),
-                                                 f.getNome(), f.getTelemovel(), f.getEmail(), f.getParentesco(),
-                                                 f.getEstado_civil(), f.getOcupacao(), f.getEscolaridade()});
-            this.jTable1.setModel(agTableModel);
+                agTableModel.addRow(new Object[]{f.getNomeEquipa(), f.getBiVoluntario(), f.getVoluntario(), f.getNacionalidade()});
+            this.jTableMembrosEq.setModel(agTableModel);
         } catch (SQLException ex) {
             Logger.getLogger(Consultar_Familia.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -147,6 +141,6 @@ public class Consultar_MembroEquipa extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTableMembrosEq;
     // End of variables declaration//GEN-END:variables
 }

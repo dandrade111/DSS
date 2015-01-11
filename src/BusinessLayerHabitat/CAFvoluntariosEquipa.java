@@ -41,11 +41,19 @@ public class CAFvoluntariosEquipa {
     public Integer getEquipa() {
         return this.equipa;
     }
+    public String getNomeEquipa(){
+        return this.nome_equipa;
+    }
 
+    public String getBiVoluntario(){
+        return this.bi_vol;
+    }
     public String getVoluntario() {
         return this.voluntario;
     }
-    
+    public String getNacionalidade() {
+        return this.nacionalidade;
+    }   
     // Sets
 
     public void setEquipa(Integer equipa) {
