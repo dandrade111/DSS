@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package PresentationLayerHabitat;
 
 import BusinessLayerHabitat.CCmaterial;
@@ -13,6 +8,7 @@ import BusinessLayerHabitat.CCtarefaProcesso;
 import BusinessLayerHabitat.CCvoluntarioProcessoTarefa;
 import DataLayerHabitat.DAOCCvoluntarioProcessoTarefa;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.SQLException;
 import java.util.Collection;
 import java.util.HashSet;
@@ -27,57 +23,97 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Apresentar_projectos extends javax.swing.JFrame {
     
-<<<<<<< HEAD
     private DAOCCmaterialProcesso DAOCCmatPro;
     private DAOCCtarefaProcesso DAOCCtarPro;
     private DAOCCvoluntarioProcessoTarefa DAOCCvolTarPro;
-=======
-    private DAOCCmaterialProcesso DAOCccmatp;
-    private DAOCCtarefaProcesso DAOCcctar;
-    private DAOCCvoluntarioProcessoTarefa DAOCCvoltar;
->>>>>>> 7e22cb505e99f7962d7173f6bd3803bc8074194f
     private Integer selectedProc;
+    private Integer selectedTar;
     Connection conn;
 
     public Apresentar_projectos(Integer proj_id, Connection conn) {
         initComponents();
         this.conn = conn;
-<<<<<<< HEAD
         this.DAOCCvolTarPro = new DAOCCvoluntarioProcessoTarefa(conn);
         this.DAOCCtarPro = new DAOCCtarefaProcesso(conn);
         this.DAOCCmatPro = new DAOCCmaterialProcesso(conn);
-=======
-        this.DAOCccmatp = new DAOCCmaterialProcesso(conn);
->>>>>>> 7e22cb505e99f7962d7173f6bd3803bc8074194f
         this.selectedProc = proj_id;
+        this.selectedTar = -1;
         this.update();
         this.setVisible(true);
         this.setDefaultCloseOperation(Apresentar_projectos.DISPOSE_ON_CLOSE);
     }
         
+    public void updateTarefas() {
+        
+    }
+    
+    public void updateVoluntarios() {
+        
+    }
+    
     public void update() {
         try {
-            Collection<CCmaterialProcesso> ccmat = new HashSet<>(this.DAOCccmatp.get(this.selectedProc));
+            // Tabela Material
+            Collection<CCmaterialProcesso> ccmat = new HashSet<>(this.DAOCCmatPro.get(this.selectedProc));
             DefaultTableModel matpTableModel = new DefaultTableModel();
+            matpTableModel.addColumn("ID Processo");
+            matpTableModel.addColumn("ID Material");
+            matpTableModel.addColumn("Material");
+            matpTableModel.addColumn("Funcionario");
+            matpTableModel.addColumn("Quantidade");
             for (CCmaterialProcesso m : ccmat)
                 matpTableModel.addRow(new Object[]{
+                                                m.getProcesso(),
                                                 m.getMaterial(),
                                                 m.getNome_material(),
+                                                m.getFuncionario(),
                                                 m.getQuantidade()});
             this.jTableMaterialProj.setModel(matpTableModel);
+            
+            //Tabela Tarefas
+            Collection<CCtarefaProcesso> cctar = new HashSet<>(this.DAOCCtarPro.get(this.selectedProc));
+            DefaultTableModel tarpTableModel = new DefaultTableModel();
+            tarpTableModel.addColumn("ID Processo");
+            tarpTableModel.addColumn("ID Tarefa");
+            tarpTableModel.addColumn("Tarefa");
+            tarpTableModel.addColumn("Data Inicio");
+            tarpTableModel.addColumn("Data Fim");
+            for (CCtarefaProcesso t : cctar)
+                tarpTableModel.addRow(new Object[]{
+                                                t.getId_processo(),
+                                                t.getId_tarefa(),
+                                                t.getTarefa(),
+                                                t.getData_inicio(),
+                                                t.getData_fim()});
+            this.jTabletarefasProj.setModel(tarpTableModel);
+            
+            //Tabela Voluntarios
+            Collection<CCvoluntarioProcessoTarefa> ccvolpt = new HashSet<>(this.DAOCCvolTarPro.get(this.selectedProc));
+            DefaultTableModel volptTableModel = new DefaultTableModel();
+            volptTableModel.addColumn("ID Processo");
+            volptTableModel.addColumn("ID Voluntario");
+            volptTableModel.addColumn("Nome Voluntario");
+            volptTableModel.addColumn("ID Tarefa");
+            volptTableModel.addColumn("Descricao");
+            volptTableModel.addColumn("Data Inicio");
+            volptTableModel.addColumn("Data Fim");
+            volptTableModel.addColumn("Total Horas");
+            for (CCvoluntarioProcessoTarefa v : ccvolpt)
+                volptTableModel.addRow(new Object[]{
+                                                v.getProcesso(),
+                                                v.getId_voluntario(),
+                                                v.getNome_voluntario(),
+                                                v.getId_tarefa(),
+                                                v.getDesc_tarefa(),
+                                                v.getData_inicio(),
+                                                v.getData_fim(),
+                                                v.getTotal_horas()});
+            this.jTableVoluntariosTarefa.setModel(volptTableModel);
             
         } catch (SQLException ex) {
             Logger.getLogger(Apresentar_projectos.class.getName()).log(Level.SEVERE, null, ex);
         }
-      
-
     }
-
-    /**
-     * This method is called from within the constructor to initialize the form.
-     * WARNING: Do NOT modify this code. The content of this method is always
-     * regenerated by the Form Editor.
-     */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -240,11 +276,7 @@ public class Apresentar_projectos extends javax.swing.JFrame {
      Integer selectedValue = (Integer) jTableMaterialProj.getModel().getValueAt(jTableMaterialProj.getSelectedRow(), 0);
         System.out.println(selectedValue);
         try {
-<<<<<<< HEAD
             Collection<CCtarefaProcesso> cctar = new HashSet<>(this.DAOCCtarPro.get(selectedValue));
-=======
-            Collection<CCtarefaProcesso> cctar = new HashSet<>(this.DAOCcctar.get(selectedValue));
->>>>>>> 7e22cb505e99f7962d7173f6bd3803bc8074194f
             DefaultTableModel procTableModel = new DefaultTableModel();
             for (CCtarefaProcesso m : cctar)
                 procTableModel.addRow(new Object[]{

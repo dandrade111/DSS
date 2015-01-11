@@ -51,7 +51,7 @@ public class CCvoluntarioProcessoTarefa {
     }
     
     /* Gets */
-
+    
     public String getId_voluntario() {
         return this.id_voluntario;
     }
