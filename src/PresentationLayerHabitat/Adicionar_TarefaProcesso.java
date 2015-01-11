@@ -7,6 +7,9 @@ package PresentationLayerHabitat;
 
 import DataLayerHabitat.DAOCCtarefaProcesso;
 import java.sql.Connection;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -15,10 +18,12 @@ import java.sql.Connection;
 public class Adicionar_TarefaProcesso extends javax.swing.JFrame {
 
     private DAOCCtarefaProcesso daocctp;
+    private Integer proc;
     
-    public Adicionar_TarefaProcesso(Connection conn) {
+    public Adicionar_TarefaProcesso(Connection conn, Integer p) {
         initComponents();
         this.daocctp = new DAOCCtarefaProcesso(conn);
+        this.proc = p;
         this.setVisible(true);
         this.setDefaultCloseOperation(Apresentar_projectos.DISPOSE_ON_CLOSE);
     }
@@ -122,8 +127,13 @@ public class Adicionar_TarefaProcesso extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        String idt = this.jTextField1.getText();
-        
+        try {
+            String idt = this.jTextField1.getText();
+            String di = this.jTextField4.getText()+"-"+this.jTextField3.getText()+"-" + this.jTextField2.getText();
+            this.daocctp.put(this.proc, idt, di);
+        } catch (SQLException ex) {
+            Logger.getLogger(Adicionar_TarefaProcesso.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

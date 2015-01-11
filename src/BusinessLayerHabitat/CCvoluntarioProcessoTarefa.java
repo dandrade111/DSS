@@ -47,7 +47,10 @@ public class CCvoluntarioProcessoTarefa {
         this.desc_tarefa = desc_tarefa;
         this.data_inicio = (Date) di.clone();
         this.data_fim = (Date) df.clone();
-        this.total_horas = (Date) th.clone();
+        if (!(th == null))
+            this.total_horas = (Date) th.clone();
+        else
+            this.total_horas = null;
     }
     
     /* Gets */
