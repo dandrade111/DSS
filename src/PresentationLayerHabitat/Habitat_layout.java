@@ -772,6 +772,11 @@ public class Habitat_layout extends javax.swing.JFrame {
         jScrollPane8.setViewportView(jTableEquipas);
 
         jButton29.setText("Consultar");
+        jButton29.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton29ActionPerformed(evt);
+            }
+        });
 
         jButton30.setText("Adicionar");
         jButton30.addActionListener(new java.awt.event.ActionListener() {
@@ -2153,6 +2158,10 @@ public class Habitat_layout extends javax.swing.JFrame {
     private void jButton23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton23MouseClicked
 //       Adicionar_Projeto v = new Adicionar_Projeto(this.conn.getConnection());
     }//GEN-LAST:event_jButton23MouseClicked
+
+    private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
+        Consultar_MembroEquipa c = new Consultar_MembroEquipa(this.conn.getConnection(), this.selectedEq);
+    }//GEN-LAST:event_jButton29ActionPerformed
               
     
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {                                          
