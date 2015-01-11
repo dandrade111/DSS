@@ -54,6 +54,7 @@ public class Habitat_layout extends javax.swing.JFrame {
     private String selectedVol;
     private String selectedDoa;
     private Integer selectedDon;
+    private Integer funcionarioLogged;
     
     /* Construtor */
     
@@ -1769,6 +1770,7 @@ public class Habitat_layout extends javax.swing.JFrame {
                 if (this.DAOCAFfunc.login(usr, pass)) {
                     this.jTabbedPane5.setVisible(true);
                     this.jButtonLogin.setText("Logout");
+                    this.funcionarioLogged = this.DAOCAFfunc.getID(usr);
                     this.update();
                 }
                 else {
@@ -2139,7 +2141,7 @@ public class Habitat_layout extends javax.swing.JFrame {
     }                 
     
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        Apresentar_projectos p = new Apresentar_projectos(this.selectedProc, this.conn.getConnection());
+        Apresentar_projectos p = new Apresentar_projectos(this.selectedProc, this.conn.getConnection(), this.funcionarioLogged);
     }                 
     
     private void jTxtProdNomeSearchActionPerformed(java.awt.event.ActionEvent evt) {                                                  
