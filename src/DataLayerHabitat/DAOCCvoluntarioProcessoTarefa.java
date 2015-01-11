@@ -66,18 +66,13 @@ public class DAOCCvoluntarioProcessoTarefa {
     
     
      /* INSERTS */
-    public CCvoluntarioProcessoTarefa put(Integer processo, String id_voluntario, Integer id_tarefa, Date di, Date df, Date th) throws SQLException {
+    public void put(Integer processo, String bi, String id, String di, String df) throws SQLException {
         CCvoluntarioProcessoTarefa d = null;
         
         String sql;
         Statement stm = conn.createStatement();
-        stm.executeUpdate("DELETE FROM ProcessoTarefaVoluntario WHERE processo='" + processo + "'");
-        if (th==null)
-            sql = "INSERT INTO ProcessoTarefaVoluntario VALUES ('"+processo+"','"+id_voluntario+"','"+id_tarefa+"','"+di+"','"+df+"','"+th+"');";
-        else
-            sql = "INSERT INTO ProcessoTarefaVoluntario VALUES ('"+processo+"','"+id_voluntario+"','"+id_tarefa+"','"+di+"','"+df+"','"+th+"');";
+        sql = "INSERT INTO ProcessoTarefaVoluntario (`Processo`,`Voluntario`,`Tarefa`,`data_inicio`,`data_fim`) "
+                + "VALUES ('"+processo+"','"+bi+"','"+id+"','"+di+"','"+df+"');";
         int i  = stm.executeUpdate(sql);
-        
-        return new CCvoluntarioProcessoTarefa(processo, id_voluntario, id_tarefa, di, df, th);
     }
 }

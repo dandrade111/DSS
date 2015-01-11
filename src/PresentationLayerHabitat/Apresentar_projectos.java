@@ -290,6 +290,11 @@ public class Apresentar_projectos extends javax.swing.JFrame {
         jScrollPane3.setViewportView(jTableVoluntariosTarefa);
 
         jToggleButton3.setText("Adicionar");
+        jToggleButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -378,8 +383,12 @@ public class Apresentar_projectos extends javax.swing.JFrame {
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
-        
+        Adicionar_TarefaProcesso a = new Adicionar_TarefaProcesso(this.conn, this.selectedProc);
     }//GEN-LAST:event_jToggleButton2ActionPerformed
+
+    private void jToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton3ActionPerformed
+        Adicionar_VoluntarioTarefa a = new Adicionar_VoluntarioTarefa(this.conn, this.selectedProc);
+    }//GEN-LAST:event_jToggleButton3ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

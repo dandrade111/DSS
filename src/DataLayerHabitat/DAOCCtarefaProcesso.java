@@ -65,18 +65,15 @@ public class DAOCCtarefaProcesso {
     }
     
      /* INSERTS */
-    public CCtarefaProcesso put(Integer p, Integer id, String t, Date di, Date df) throws SQLException {
+    public void put(Integer f, String t, String di) throws SQLException {
         CCtarefaProcesso d = null;
         
         String sql;
         Statement stm = conn.createStatement();
-        stm.executeUpdate("DELETE FROM ProcessoTarefa WHERE Processo='" + p + "'");
         
-            sql = "INSERT INTO Doador VALUES ('"+p+"','"+id+"','"+t+"','"+di+"','"+df+"');";
+        sql = "INSERT INTO ProcessoTarefa (`Processo`,`Tarefa`,`data_inicio`) VALUES ('"+f+"','"+t+"','"+di+"');";
         
         int i  = stm.executeUpdate(sql);
-        
-        return new CCtarefaProcesso(p,id,t,di,df);
     }
     
 }
