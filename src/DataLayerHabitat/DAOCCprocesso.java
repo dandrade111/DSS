@@ -74,25 +74,13 @@ public class DAOCCprocesso {
     }
     
     /* INSERTS */
-    public CCprocesso put(Integer id,
-                      Date dc, 
-                      Date de, 
-                      Integer bi, 
-                      double cp, 
-                      double cf, 
-                      Integer idc,
-                      String n) throws SQLException {
+    public void put(String dc, Integer f, String cp, String c) throws SQLException {
         CCprocesso d = null;
         
         String sql;
         Statement stm = conn.createStatement();
-        stm.executeUpdate("DELETE FROM Processo WHERE id_processo='" + id + "'");
-        if (cf==0)
-            sql = "INSERT INTO Processo VALUES ('"+id+"','"+dc+"','"+de+"','"+bi+"','"+cp+"',NULL,'"+idc+"','"+n+"');";
-        else
-            sql = "INSERT INTO Processo VALUES ('"+id+"','"+dc+"','"+de+"','"+bi+"','"+cp+"','"+cf+"','"+idc+"','"+n+"');";
+        sql = "INSERT INTO Processo (`data_criacao`,`FuncionarioAprovou`,`custo_previsto`,`Candidatura`) "
+                + "VALUES ('"+dc+"','"+f+"','"+cp+"','"+c+"');";
         int i  = stm.executeUpdate(sql);
-        
-        return new CCprocesso(id, dc, de, bi, cp, cf, idc, n);
     }
 }

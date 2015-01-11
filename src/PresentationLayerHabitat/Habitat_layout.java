@@ -772,11 +772,6 @@ public class Habitat_layout extends javax.swing.JFrame {
         jScrollPane8.setViewportView(jTableEquipas);
 
         jButton29.setText("Consultar");
-        jButton29.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton29ActionPerformed(evt);
-            }
-        });
 
         jButton30.setText("Adicionar");
         jButton30.addActionListener(new java.awt.event.ActionListener() {
@@ -2128,7 +2123,7 @@ public class Habitat_layout extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton34ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        Adicionar_Familia f = new Adicionar_Familia(this.conn.getConnection());
+        
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
@@ -2140,30 +2135,24 @@ public class Habitat_layout extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
+        Adicionar_Familia f = new Adicionar_Familia(this.conn.getConnection());
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Adicionar_Material a = new Adicionar_Material(this.conn.getConnection());
     }//GEN-LAST:event_jButton2ActionPerformed
-
+  
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
-        // TODO add your handling code here:
+        Apresentar_projectos p = new Apresentar_projectos(this.selectedProc, this.conn.getConnection(), this.funcionarioLogged);
     }//GEN-LAST:event_jButton21ActionPerformed
 
     private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-         Adicionar_Projeto q = new Adicionar_Projeto(this.conn.getConnection());
+         Adicionar_Processo q = new Adicionar_Processo(this.conn.getConnection(), this.funcionarioLogged);
     }//GEN-LAST:event_jButton23ActionPerformed
 
     private void jButton23MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton23MouseClicked
-//       Adicionar_Projeto v = new Adicionar_Projeto(this.conn.getConnection());
     }//GEN-LAST:event_jButton23MouseClicked
-
-    private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
-        Consultar_MembroEquipa c = new Consultar_MembroEquipa(this.conn.getConnection(), this.selectedEq);
-    }//GEN-LAST:event_jButton29ActionPerformed
-              
-    
+             
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {                                          
         Apresentar_projectos p = new Apresentar_projectos(this.selectedProc, this.conn.getConnection(), this.funcionarioLogged);
     }                 
