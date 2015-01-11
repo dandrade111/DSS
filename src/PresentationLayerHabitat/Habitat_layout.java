@@ -2135,7 +2135,7 @@ public class Habitat_layout extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        Adicionar_projeto v = new Adicionar_projeto(this.conn.getConnection());
+        Adicionar_Projeto v = new Adicionar_Projeto(this.conn.getConnection());
     }                 
     
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {                                          
