@@ -40,6 +40,18 @@ public class DAOCCtarefaProcesso {
         return f;
     }
     
+    public Collection<CCtarefaProcesso> get(Integer idprocesso, String bi) throws SQLException {
+        Collection<CCtarefaProcesso> f = new HashSet<>();
+        
+        Statement stm = conn.createStatement();
+        String sql = "SELECT * FROM v_processotarefa AS v INNER JOIN ProcessoTarefaVoluntario AS ptv ON v.Tarefa = ptv.Tarefa AND ptv.Voluntario='"+bi+"'";
+        ResultSet rs = stm.executeQuery(sql);
+        while (rs.next())
+            f.add(new CCtarefaProcesso((Integer) rs.getInt(1), (Integer) rs.getInt(2), rs.getString(3), rs.getDate(4), rs.getDate(5)));
+        
+        return f;
+    }
+    
     public Collection<CCtarefaProcesso> get(Integer idprocesso) throws SQLException {
         Collection<CCtarefaProcesso> f = new HashSet<>();
         

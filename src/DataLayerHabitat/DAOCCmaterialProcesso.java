@@ -53,17 +53,15 @@ public class DAOCCmaterialProcesso {
 
 
 /* INSERTS */
-    public CCmaterialProcesso put(Integer processo, Integer material, Integer funcionario, Integer quantidade) throws SQLException {
+    public void put(Integer processo, String material, Integer funcionario, String quantidade) throws SQLException {
         CCmaterialProcesso d = null;
         
         String sql;
         Statement stm = conn.createStatement();
         stm.executeUpdate("DELETE FROM MaterialProcesso WHERE Processo='" + processo + "'");
        
-        sql = "INSERT INTO MaterialProesso VALUES ('"+processo+"','"+material+"','"+funcionario+"','"+quantidade+"');";   
+        sql = "INSERT INTO MaterialProcesso (`Processo`,`Material`,`Funcionario`,`quantidade`) VALUES ('"+processo+"','"+material+"','"+funcionario+"','"+quantidade+"');";   
         int i  = stm.executeUpdate(sql);
-        
-        return new CCmaterialProcesso(processo, material, funcionario, quantidade);
     }
     
 }

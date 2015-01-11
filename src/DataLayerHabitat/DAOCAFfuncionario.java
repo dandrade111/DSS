@@ -40,6 +40,18 @@ public class DAOCAFfuncionario {
         return correto;
     }
     
+    public Integer getID(String user) throws SQLException {
+        boolean correto = false;
+        Integer i = null;
+        Statement stm = conn.createStatement();
+        String sql = "SELECT id_Funcionario FROM Funcionario WHERE username='" + user + "'";
+        ResultSet rs = stm.executeQuery(sql);
+        if (rs.next())
+                i = rs.getInt(1);
+        
+        return i;
+    }
+    
     public CAFfuncionario get(Object id) throws SQLException {
         CAFfuncionario f = null;
         
